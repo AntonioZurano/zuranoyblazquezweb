@@ -1,9 +1,12 @@
 import type { APIRoute } from 'astro';
+import { getCollection } from 'astro:content';
 import { site } from '../data/site.js';
 
 // Sitemap generado de forma nativa, sin dependencias externas.
 // Descubre automáticamente todas las páginas .astro de `src/pages` y las
 // convierte en URLs, excluyendo las páginas que no deben indexarse.
+// Las rutas dinámicas (con [param]) se omiten aquí y se añaden a partir
+// de sus colecciones (p. ej. los artículos del blog).
 // Compatible con cualquier versión de Astro (no usa hooks de integración).
 
 // `eager: true` carga los módulos en build para poder enumerar las rutas.
@@ -36,13 +39,20 @@ function seoHints(route: string): { priority: string; changefreq: string } {
   return { priority: '0.6', changefreq: 'monthly' };
 }
 
-export const GET: APIRoute = () => {
+export const GET: APIRoute = async () => {
   const lastmod = new Date().toISOString().split('T')[0];
 
-  const routes = Object.keys(pageModules)
+  // Rutas estáticas (se omiten las plantillas dinámicas con [param]).
+  const staticRoutes = Object.keys(pageModules)
+    .filter((file) => !file.includes('['))
     .map(filePathToRoute)
-    .filter((route) => !EXCLUDED.has(route))
-    .sort();
+    .filter((route) => !EXCLUDED.has(route));
+
+  // Artículos del blog publicados.
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const blogRoutes = posts.map((post) => `/blog/${post.id}/`);
+
+  const routes = Array.from(new Set([...staticRoutes, ...blogRoutes])).sort();
 
   const urls = routes
     .map((route) => {

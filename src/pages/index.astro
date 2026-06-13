@@ -1,11 +1,18 @@
 ---
+import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/Hero.astro';
 import SectionTitle from '../components/SectionTitle.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import BlogCard from '../components/BlogCard.astro';
 import CTA from '../components/CTA.astro';
 import Icon from '../components/Icon.astro';
 import { site, services } from '../data/site.js';
+
+// Últimos 3 artículos del blog para mostrar en la Home.
+const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 3);
 
 const values = [
   {
@@ -109,10 +116,43 @@ const steps = [
     </div>
   </section>
 
+  {
+    latestPosts.length > 0 && (
+      <section class="section section--soft">
+        <div class="container">
+          <SectionTitle
+            eyebrow="Blog"
+            title="Últimos artículos"
+            description="Consejos y novedades sobre tecnología útil para empresas."
+          />
+          <div class="grid grid--cards">
+            {latestPosts.map((post) => (
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description}
+                href={`/blog/${post.id}/`}
+                category={post.data.category}
+                pubDate={post.data.pubDate}
+              />
+            ))}
+          </div>
+          <p class="home-blog__more">
+            <a href="/blog/" class="btn btn--outline">Ver todos los artículos</a>
+          </p>
+        </div>
+      </section>
+    )
+  }
+
   <CTA />
 </MainLayout>
 
 <style>
+  .home-blog__more {
+    margin-top: var(--space-5);
+    text-align: center;
+  }
+
   .value {
     text-align: center;
     padding: var(--space-4);

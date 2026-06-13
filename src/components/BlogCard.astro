@@ -1,0 +1,102 @@
+---
+import CategoryBadge from './CategoryBadge.astro';
+
+// Tarjeta de artículo del blog. Toda la tarjeta es clicable mediante un
+// enlace "stretched".
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  category: string;
+  pubDate: Date;
+}
+
+const { title, description, href, category, pubDate } = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('es-ES', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+const isoDate = pubDate.toISOString().split('T')[0];
+---
+
+<article class="blog-card">
+  <div class="blog-card__head">
+    <CategoryBadge category={category} />
+    <time datetime={isoDate} class="blog-card__date">{formattedDate}</time>
+  </div>
+  <h3 class="blog-card__title">
+    <a href={href} class="blog-card__link">{title}</a>
+  </h3>
+  <p class="blog-card__desc">{description}</p>
+  <span class="blog-card__more">Leer artículo</span>
+</article>
+
+<style>
+  .blog-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-sm);
+    transition:
+      transform var(--transition),
+      box-shadow var(--transition),
+      border-color var(--transition);
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: var(--color-primary-light);
+  }
+
+  .blog-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .blog-card__date {
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+  }
+
+  .blog-card__title {
+    font-size: var(--fs-md);
+    margin-bottom: var(--space-2);
+  }
+
+  .blog-card__link {
+    color: var(--color-text);
+  }
+
+  .blog-card__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .blog-card:hover .blog-card__link {
+    color: var(--color-primary);
+  }
+
+  .blog-card__desc {
+    font-size: var(--fs-sm);
+    flex: 1;
+    margin-bottom: var(--space-4);
+  }
+
+  .blog-card__more {
+    font-weight: 600;
+    font-size: var(--fs-sm);
+    color: var(--color-primary);
+  }
+</style>
