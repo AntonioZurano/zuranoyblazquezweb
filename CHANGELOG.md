@@ -6,6 +6,14 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [1.0.1] - 2026-06-13
+
+### Corregido
+- Actualizado el número de teléfono de contacto a **617 414 350** (`+34 617 414 350`).
+  El cambio se realiza en un único lugar (`src/data/site.js`) y se propaga automáticamente a
+  todas las páginas y componentes: Footer, Contacto, Gracias, el CTA y el dato estructurado
+  `telephone` (JSON-LD). Verificado que no quedan números escritos a mano en el código.
+
 ## [1.0.0] - 2026-06-13
 
 **Primera versión estable, lista para publicar en `zuranoyblazquez.com`.**

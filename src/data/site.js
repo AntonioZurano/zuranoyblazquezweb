@@ -11,8 +11,8 @@ export const site = {
   description:
     'Ayudamos a pymes, autónomos y empresas a digitalizarse con Microsoft 365, STEL Order, páginas web, dominios, hosting, correo profesional y soporte tecnológico cercano.',
   email: 'info@zuranoyblazquez.com',
-  phone: '+34 600 000 000',
-  phoneHref: '+34600000000',
+  phone: '+34 617 414 350',
+  phoneHref: '+34617414350',
   address: 'España',
   schedule: 'Lunes a viernes, 9:00 – 18:00',
 };
