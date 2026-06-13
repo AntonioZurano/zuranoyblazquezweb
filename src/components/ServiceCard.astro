@@ -30,7 +30,7 @@ const { title, summary, href, icon = 'check' } = Astro.props;
 <style>
   .service-card {
     position: relative;
-    background: var(--color-white);
+    background: var(--color-card);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     padding: var(--space-5);
@@ -64,7 +64,7 @@ const { title, summary, href, icon = 'check' } = Astro.props;
 
   .service-card:hover .service-card__icon {
     background: var(--color-primary);
-    color: #fff;
+    color: var(--color-on-primary);
   }
 
   .service-card__title {
