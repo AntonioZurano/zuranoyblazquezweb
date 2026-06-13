@@ -6,6 +6,20 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [0.7.0] - 2026-06-13
+
+### Mejorado
+- Política de cookies clarificada: se indica expresamente que el sitio **no usa cookies no técnicas** y que, por tanto, **no se muestra banner de cookies**.
+
+### Verificado
+- Páginas legales `/aviso-legal/`, `/politica-de-privacidad/` y `/politica-de-cookies/` con `title` y `description` propios y marcadas como `noindex`.
+- Enlaces legales en el Footer y enlace a la política de privacidad desde el formulario.
+- Checkbox legal obligatorio en el formulario de contacto.
+- Textos legales marcados como **provisionales** y pendientes de revisión por asesoría.
+
+### Nota
+- Se mantienen las rutas existentes (`/politica-de-privacidad/`, `/politica-de-cookies/`) en lugar de las variantes cortas del roadmap, para no romper enlaces ya publicados.
+
 ## [0.6.0] - 2026-06-13
 
 ### Añadido
