@@ -6,6 +6,19 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [0.8.0] - 2026-06-13
+
+### Accesibilidad
+- Corregido el contraste de los botones de acento: el texto blanco pasa a mostrarse sobre el turquesa oscuro (`#00807f`, ~4.77:1) para cumplir WCAG AA.
+- Añadido `aria-current="page"` en la navegación (solo en la página exacta) para lectores de pantalla.
+- Verificados: foco visible, labels en formularios, navegación por teclado, estructura semántica y jerarquía de encabezados.
+
+### Rendimiento y calidad
+- Confirmado un peso de assets reducido (build estática ~0,5 MB, JavaScript mínimo: solo el menú móvil).
+- CSS basado en variables y estilos con ámbito por componente (sin frameworks pesados).
+- Revisión de enlaces internos y de la página 404 personalizada (ya existente).
+- Estados hover/focus coherentes en botones, tarjetas y enlaces.
+
 ## [0.7.0] - 2026-06-13
 
 ### Mejorado

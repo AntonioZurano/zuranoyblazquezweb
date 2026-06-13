@@ -255,14 +255,16 @@ p {
 }
 
 .btn--accent {
-  background-color: var(--color-accent);
+  /* Se usa el turquesa oscuro para garantizar contraste AA (>= 4.5:1) del
+     texto blanco sobre el botón. */
+  background-color: var(--color-secondary-dark);
   color: #fff;
-  border-color: var(--color-accent);
+  border-color: var(--color-secondary-dark);
 }
 
 .btn--accent:hover {
-  background-color: var(--color-accent-dark);
-  border-color: var(--color-accent-dark);
+  background-color: #006b6a;
+  border-color: #006b6a;
   color: #fff;
   transform: translateY(-1px);
 }
