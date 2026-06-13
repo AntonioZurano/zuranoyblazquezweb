@@ -6,6 +6,22 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [0.4.0] - 2026-06-13
+
+### Añadido
+- Meta `robots` explícito (`index, follow` / `noindex, nofollow`) en todas las páginas.
+- `og:type` configurable por página (preparado para artículos del blog), `og:image:alt`, `og:image:width/height` y `twitter:image:alt`.
+- Esquema JSON-LD `WebSite` además de `Organization`.
+- Prop `schema` en `MainLayout` para añadir JSON-LD específico por página de forma reutilizable.
+
+### Verificado
+- `title` y `description` únicos por página, canonical, sitemap, `robots.txt`, favicon y URLs limpias.
+- Un único `<h1>` por página y jerarquía de encabezados correcta.
+- Variable global de URL del sitio (`site.url` = `https://zuranoyblazquez.com`) y `site` en `astro.config.mjs`.
+
+### Pendiente
+- La imagen Open Graph es un SVG provisional; algunas redes sociales requieren PNG/JPG. Sustituir por una imagen rasterizada definitiva antes de publicar.
+
 ## [0.3.0] - 2026-06-13
 
 ### Mejorado
