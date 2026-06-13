@@ -5,34 +5,7 @@
    ========================================================= */
 
 :root {
-  /* ---------- COLOR PRINCIPAL (azul corporativo: confianza y tecnología) ---------- */
-  --color-primary: #0a4d8c;
-  --color-primary-dark: #073a6b;
-  --color-primary-light: #2f74bf;
-
-  /* ---------- COLOR SECUNDARIO (turquesa: energía y cercanía) ---------- */
-  --color-secondary: #00a3a3;
-  --color-secondary-dark: #00807f;
-  /* Alias retrocompatibles (se mantienen para no romper componentes existentes) */
-  --color-accent: var(--color-secondary);
-  --color-accent-dark: var(--color-secondary-dark);
-
-  /* ---------- COLOR DE TEXTO ---------- */
-  --color-text: #1a2330;
-  --color-text-soft: #424d60;
-  --color-text-muted: #5a6678; /* oscurecido para mejor contraste AA sobre blanco */
-
-  /* ---------- COLOR DE FONDO ---------- */
-  --color-bg: #ffffff;
-  --color-bg-soft: #f5f8fc;
-  --color-bg-alt: #eef3f9;
-  --color-white: #ffffff;
-
-  /* ---------- COLOR DE BORDE ---------- */
-  --color-border: #e1e8f0;
-  --color-border-strong: #c7d3e2;
-
-  /* ---------- TIPOGRAFÍA ---------- */
+  /* ---------- TIPOGRAFÍA (compartida) ---------- */
   --font-sans: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
   --fs-xs: 0.8125rem;
   --fs-sm: 0.9375rem;
@@ -43,12 +16,12 @@
   --fs-2xl: 2.25rem;
   --fs-3xl: 3rem;
 
-  /* ---------- TAMAÑOS MÁXIMOS DE CONTENEDOR ---------- */
+  /* ---------- TAMAÑOS MÁXIMOS DE CONTENEDOR (compartidos) ---------- */
   --container: 1180px;
   --container-narrow: 820px;
   --container-wide: 1320px;
 
-  /* ---------- ESPACIADO (escala consistente) ---------- */
+  /* ---------- ESPACIADO (compartido) ---------- */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 1rem;
@@ -58,22 +31,115 @@
   --space-7: 4.5rem;
   --space-8: 6rem;
 
-  /* ---------- RADIOS ---------- */
+  /* ---------- RADIOS (compartidos) ---------- */
   --radius-sm: 6px;
   --radius: 12px;
   --radius-lg: 20px;
   --radius-full: 999px;
 
-  /* ---------- SOMBRAS ---------- */
+  /* ---------- ACCESIBILIDAD / INTERACCIÓN (compartidos) ---------- */
+  --tap-target: 44px;
+
+  --transition: 180ms ease;
+}
+
+/* ---------- MODO CLARO (por defecto) ---------- */
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  --color-primary: #0a4d8c;
+  --color-primary-dark: #073a6b;
+  --color-primary-light: #2f74bf;
+
+  --color-secondary: #00a3a3;
+  --color-secondary-dark: #00807f;
+  --color-secondary-hover: #006b6a;
+  --color-accent: var(--color-secondary);
+  --color-accent-dark: var(--color-secondary-dark);
+
+  --color-text: #1a2330;
+  --color-text-soft: #424d60;
+  --color-text-muted: #5a6678;
+
+  --color-bg: #ffffff;
+  --color-bg-soft: #f5f8fc;
+  --color-bg-alt: #eef3f9;
+  --color-card: #ffffff;
+  --color-white: var(--color-card);
+
+  --color-border: #e1e8f0;
+  --color-border-strong: #c7d3e2;
+
+  --color-header-bg: rgba(255, 255, 255, 0.95);
+  --color-input-bg-focus: #ffffff;
+  --color-on-primary: #ffffff;
+
+  --color-footer-bg: #0c1828;
+  --color-footer-text: #c8d2e0;
+  --color-footer-text-soft: #9aa8bd;
+  --color-footer-text-muted: #7c8aa0;
+  --color-footer-heading: #ffffff;
+  --color-footer-border: rgba(255, 255, 255, 0.08);
+
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-primary-dark);
+
   --shadow-sm: 0 1px 3px rgba(10, 35, 66, 0.08);
   --shadow: 0 8px 24px rgba(10, 35, 66, 0.08);
   --shadow-lg: 0 20px 48px rgba(10, 35, 66, 0.12);
 
-  /* ---------- ACCESIBILIDAD / INTERACCIÓN ---------- */
   --focus-ring: 0 0 0 3px rgba(10, 77, 140, 0.35);
-  --tap-target: 44px; /* tamaño mínimo recomendado para objetivos táctiles */
+  --focus-input: 0 0 0 3px rgba(10, 77, 140, 0.12);
+}
 
-  --transition: 180ms ease;
+/* ---------- MODO OSCURO ---------- */
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-primary: #6bb3e0;
+  --color-primary-dark: #4a9fd4;
+  --color-primary-light: #8ec5eb;
+
+  --color-secondary: #00c4c4;
+  --color-secondary-dark: #00a3a3;
+  --color-secondary-hover: #00d4d4;
+  --color-accent: var(--color-secondary);
+  --color-accent-dark: var(--color-secondary-dark);
+
+  --color-text: #e8edf3;
+  --color-text-soft: #b0bdd0;
+  --color-text-muted: #8494a8;
+
+  --color-bg: #0f1924;
+  --color-bg-soft: #151f2e;
+  --color-bg-alt: #1a2738;
+  --color-card: #1e2d40;
+  --color-white: var(--color-card);
+
+  --color-border: #2a3a4f;
+  --color-border-strong: #3a4d66;
+
+  --color-header-bg: rgba(15, 25, 36, 0.95);
+  --color-input-bg-focus: #243347;
+  --color-on-primary: #ffffff;
+
+  --color-footer-bg: #080f18;
+  --color-footer-text: #c8d2e0;
+  --color-footer-text-soft: #8a97ab;
+  --color-footer-text-muted: #6b778a;
+  --color-footer-heading: #f0f4f8;
+  --color-footer-border: rgba(255, 255, 255, 0.06);
+
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-primary-light);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.45);
+
+  --focus-ring: 0 0 0 3px rgba(107, 179, 224, 0.45);
+  --focus-input: 0 0 0 3px rgba(107, 179, 224, 0.25);
 }
 
 /*
@@ -108,6 +174,9 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
 }
 
 img,
@@ -118,13 +187,13 @@ svg {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-link);
   text-decoration: none;
   transition: color var(--transition);
 }
 
 a:hover {
-  color: var(--color-primary-dark);
+  color: var(--color-link-hover);
 }
 
 ul,
@@ -200,14 +269,14 @@ p {
   top: 0;
   z-index: 200;
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-on-primary);
   padding: var(--space-2) var(--space-4);
   border-radius: 0 0 var(--radius-sm) 0;
 }
 
 .skip-link:focus {
   left: 0;
-  color: #fff;
+  color: var(--color-on-primary);
 }
 
 /* ---------- Botones ---------- */
@@ -243,41 +312,39 @@ p {
 
 .btn--primary {
   background-color: var(--color-primary);
-  color: #fff;
+  color: var(--color-on-primary);
   border-color: var(--color-primary);
 }
 
 .btn--primary:hover {
   background-color: var(--color-primary-dark);
   border-color: var(--color-primary-dark);
-  color: #fff;
+  color: var(--color-on-primary);
   transform: translateY(-1px);
 }
 
 .btn--accent {
-  /* Se usa el turquesa oscuro para garantizar contraste AA (>= 4.5:1) del
-     texto blanco sobre el botón. */
   background-color: var(--color-secondary-dark);
-  color: #fff;
+  color: var(--color-on-primary);
   border-color: var(--color-secondary-dark);
 }
 
 .btn--accent:hover {
-  background-color: #006b6a;
-  border-color: #006b6a;
-  color: #fff;
+  background-color: var(--color-secondary-hover);
+  border-color: var(--color-secondary-hover);
+  color: var(--color-on-primary);
   transform: translateY(-1px);
 }
 
 .btn--outline {
   background-color: transparent;
-  color: var(--color-primary);
+  color: var(--color-link);
   border-color: var(--color-border);
 }
 
 .btn--outline:hover {
   border-color: var(--color-primary);
-  color: var(--color-primary-dark);
+  color: var(--color-link-hover);
 }
 
 .btn--ghost-light {
@@ -325,7 +392,7 @@ p {
 
 /* ---------- Tarjeta genérica ---------- */
 .card {
-  background: var(--color-white);
+  background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: var(--space-5);

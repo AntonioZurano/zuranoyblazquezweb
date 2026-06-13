@@ -67,17 +67,17 @@ const year = new Date().getFullYear();
 
 <style>
   .site-footer {
-    background: #0c1828;
-    color: #c8d2e0;
+    background: var(--color-footer-bg);
+    color: var(--color-footer-text);
     margin-top: auto;
   }
 
   .site-footer a {
-    color: #c8d2e0;
+    color: var(--color-footer-text);
   }
 
   .site-footer a:hover {
-    color: #fff;
+    color: var(--color-footer-heading);
   }
 
   .site-footer__inner {
@@ -91,7 +91,7 @@ const year = new Date().getFullYear();
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    color: #fff;
+    color: var(--color-footer-heading);
   }
 
   .footer-brand__mark {
@@ -102,7 +102,7 @@ const year = new Date().getFullYear();
     height: 38px;
     border-radius: var(--radius-sm);
     background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-accent) 130%);
-    color: #fff;
+    color: var(--color-on-primary);
     font-weight: 800;
     font-size: var(--fs-sm);
   }
@@ -110,12 +110,12 @@ const year = new Date().getFullYear();
   .footer-brand__name {
     font-weight: 700;
     font-size: var(--fs-md);
-    color: #fff;
+    color: var(--color-footer-heading);
   }
 
   .site-footer__desc {
     margin: var(--space-3) 0 var(--space-4);
-    color: #9aa8bd;
+    color: var(--color-footer-text-soft);
     font-size: var(--fs-sm);
     max-width: 42ch;
   }
@@ -133,7 +133,7 @@ const year = new Date().getFullYear();
     align-items: center;
     gap: var(--space-2);
     font-size: var(--fs-sm);
-    color: #9aa8bd;
+    color: var(--color-footer-text-soft);
   }
 
   .site-footer__contact svg {
@@ -145,7 +145,7 @@ const year = new Date().getFullYear();
     font-size: var(--fs-sm);
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: #fff;
+    color: var(--color-footer-heading);
     margin: 0 0 var(--space-3);
   }
 
@@ -159,11 +159,11 @@ const year = new Date().getFullYear();
 
   .site-footer__nav a {
     font-size: var(--fs-sm);
-    color: #9aa8bd;
+    color: var(--color-footer-text-soft);
   }
 
   .site-footer__bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid var(--color-footer-border);
   }
 
   .site-footer__bottom-inner {
@@ -173,11 +173,11 @@ const year = new Date().getFullYear();
     gap: var(--space-2);
     padding-block: var(--space-4);
     font-size: var(--fs-xs);
-    color: #7c8aa0;
+    color: var(--color-footer-text-muted);
   }
 
   .site-footer__bottom-inner p {
-    color: #7c8aa0;
+    color: var(--color-footer-text-muted);
     margin: 0;
   }
 

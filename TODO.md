@@ -20,6 +20,7 @@ se fusiona en `main` y se etiqueta.
 - [x] **v0.8.0** — Rendimiento, accesibilidad y calidad.
 - [x] **v0.9.0** — Preparación para despliegue en VPS.
 - [x] **v1.0.0** — Versión estable lista para publicar. 🎉
+- [x] **v1.0.2** — Modo claro / modo oscuro (selector de tema).
 
 ## Pendientes conocidos / notas
 

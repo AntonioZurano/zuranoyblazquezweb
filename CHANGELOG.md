@@ -6,6 +6,20 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [1.0.2] - 2026-06-13
+
+### Añadido
+- Selector de modo claro/oscuro (`ThemeToggle`) visible en la cabecera, junto a la marca.
+- Modo claro por defecto (sin usar `prefers-color-scheme` del sistema).
+- Preferencia de tema guardada en `localStorage` (clave `zb-theme`, valores `light` / `dark`).
+- Script temprano en `MainLayout` para aplicar el tema guardado antes del renderizado y evitar parpadeo.
+- Sistema de variables CSS ampliado para ambos temas (`data-theme` en `<html>`).
+
+### Mejorado
+- Adaptación visual de Header, Footer, tarjetas, formularios, blog y componentes principales al modo oscuro.
+- Reducción de colores fijos en componentes; sustituidos por variables semánticas (`--color-card`, `--color-header-bg`, etc.).
+- Accesibilidad del botón de tema: `aria-label`, `title`, foco visible e iconos sol/luna en SVG inline.
+
 ## [1.0.1] - 2026-06-13
 
 ### Corregido
