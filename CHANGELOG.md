@@ -6,6 +6,20 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [0.3.0] - 2026-06-13
+
+### Mejorado
+- Contenido profesional ampliado en las seis páginas de servicio para cubrir todas las prestaciones clave:
+  - **Microsoft 365**: correo, Office, OneDrive, colaboración, dominio, usuarios/licencias y seguridad.
+  - **STEL Order**: gestión comercial, presupuestos, facturas, productos, compras, gastos y agenda.
+  - **Páginas web**: web corporativa, landing pages, responsive, SEO, formularios, publicación y mantenimiento.
+  - **Dominios, hosting y correo**: dominios, hosting, SSL, DNS, correo y migraciones.
+  - **Soporte tecnológico**: ayuda técnica, configuración, incidencias y acompañamiento.
+  - **Soluciones para empresas**: perfiles "empezar", "organizarse" y "vender más".
+
+### Nota
+- Se mantiene la estructura de rutas `/servicios/<slug>/` (en lugar de rutas raíz) para no romper enlaces internos ni el sitemap. Los enlaces desde Home, Servicios y Footer se generan desde `src/data/site.js`.
+
 ## [0.2.0] - 2026-06-13
 
 ### Mejorado

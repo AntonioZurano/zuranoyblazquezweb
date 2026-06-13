@@ -3,20 +3,22 @@ import MainLayout from '../../layouts/MainLayout.astro';
 import ServiceDetail from '../../components/ServiceDetail.astro';
 
 const benefits = [
-  'Facturas, presupuestos y albaranes en segundos',
-  'Control de clientes, productos y stock en un solo lugar',
+  'Presupuestos, pedidos, albaranes y facturas en segundos',
+  'Gestión comercial: clientes, oportunidades y seguimiento de ventas',
+  'Catálogo de productos con tarifas y control de stock',
+  'Control de compras y gastos de tu negocio',
+  'Agenda y tareas para organizar a tu equipo',
   'Acceso desde el ordenador, el móvil o la tableta',
-  'Implantación y formación a medida de tu negocio',
   'Cumple con la normativa de facturación vigente',
 ];
 
 const features = [
-  { icon: 'invoice', title: 'Facturación y ventas', text: 'Crea presupuestos, pedidos, albaranes y facturas profesionales y conviértelos con un clic.' },
   { icon: 'enterprise', title: 'Gestión comercial', text: 'Controla clientes, oportunidades y el seguimiento de tu equipo de ventas desde cualquier lugar.' },
-  { icon: 'server', title: 'Catálogo y stock', text: 'Gestiona productos, tarifas y existencias con avisos automáticos de inventario.' },
+  { icon: 'invoice', title: 'Presupuestos y facturas', text: 'Crea presupuestos, pedidos y albaranes y conviértelos en facturas profesionales con un clic.' },
+  { icon: 'server', title: 'Productos y stock', text: 'Gestiona tu catálogo, tarifas y existencias con avisos automáticos de inventario.' },
+  { icon: 'check', title: 'Compras y gastos', text: 'Registra compras a proveedores y controla los gastos para conocer la rentabilidad real.' },
+  { icon: 'clock', title: 'Agenda y tareas', text: 'Organiza visitas, llamadas y tareas del equipo con una agenda compartida.' },
   { icon: 'web', title: 'Movilidad total', text: 'Trabaja desde el móvil o la tableta y sincroniza tu información en tiempo real.' },
-  { icon: 'support', title: 'Implantación guiada', text: 'Configuramos STEL Order según tu forma de trabajar y formamos a tu equipo.' },
-  { icon: 'shield', title: 'Datos seguros', text: 'Tu información en la nube, con copias de seguridad y acceso protegido.' },
 ];
 
 const faq = [
