@@ -1,0 +1,151 @@
+---
+import MainLayout from './MainLayout.astro';
+import CategoryBadge from '../components/CategoryBadge.astro';
+import { site } from '../data/site.js';
+
+// Layout para los artículos del blog. Recibe los datos del post y renderiza
+// el contenido Markdown a través del slot, con estilos de lectura (prose).
+interface Props {
+  title: string;
+  description: string;
+  category: string;
+  author: string;
+  pubDate: Date;
+  updatedDate?: Date;
+}
+
+const { title, description, category, author, pubDate, updatedDate } = Astro.props;
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+const isoDate = pubDate.toISOString().split('T')[0];
+
+// Datos estructurados del artículo para buscadores.
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  datePublished: pubDate.toISOString(),
+  dateModified: (updatedDate ?? pubDate).toISOString(),
+  author: { '@type': 'Organization', name: author },
+  publisher: { '@type': 'Organization', name: site.name, url: site.url },
+};
+---
+
+<MainLayout title={title} description={description} ogType="article" schema={articleSchema}>
+  <article class="post">
+    <header class="post__header">
+      <div class="container container--narrow">
+        <a href="/blog/" class="post__back">← Volver al blog</a>
+        <div class="post__meta">
+          <CategoryBadge category={category} />
+          <time datetime={isoDate}>{fmt(pubDate)}</time>
+        </div>
+        <h1 class="post__title">{title}</h1>
+        <p class="post__lead">{description}</p>
+        <p class="post__author">Por {author}</p>
+      </div>
+    </header>
+
+    <div class="container container--narrow">
+      <div class="post__content prose">
+        <slot />
+      </div>
+      {updatedDate && (
+        <p class="post__updated">Actualizado el {fmt(updatedDate)}</p>
+      )}
+    </div>
+  </article>
+</MainLayout>
+
+<style>
+  .post__header {
+    padding-block: var(--space-6) var(--space-5);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--space-6);
+    background: var(--color-bg-soft);
+  }
+
+  .post__back {
+    display: inline-block;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+  }
+
+  .post__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+  }
+
+  .post__title {
+    margin-bottom: var(--space-3);
+  }
+
+  .post__lead {
+    font-size: var(--fs-md);
+    color: var(--color-text-soft);
+  }
+
+  .post__author {
+    margin-top: var(--space-3);
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+  }
+
+  .post__content {
+    padding-bottom: var(--space-6);
+  }
+
+  .post__updated {
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+    padding-bottom: var(--space-6);
+  }
+
+  /* Estilos de lectura para el contenido Markdown */
+  .prose :global(h2) {
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-3);
+    font-size: var(--fs-xl);
+  }
+
+  .prose :global(h3) {
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-2);
+  }
+
+  .prose :global(p) {
+    margin-bottom: var(--space-3);
+    color: var(--color-text-soft);
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-bottom: var(--space-3);
+    color: var(--color-text-soft);
+    padding-left: 1.5rem;
+  }
+
+  .prose :global(li) {
+    margin-bottom: var(--space-2);
+  }
+
+  .prose :global(li::marker) {
+    color: var(--color-primary);
+  }
+
+  .prose :global(strong) {
+    color: var(--color-text);
+  }
+
+  .prose :global(a) {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+</style>

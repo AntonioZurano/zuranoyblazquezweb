@@ -14,7 +14,7 @@ se fusiona en `main` y se etiqueta.
 - [x] **v0.2.0** — Mejora visual y responsive.
 - [x] **v0.3.0** — Páginas individuales de servicios (contenido y enlaces).
 - [x] **v0.4.0** — SEO básico y metadatos.
-- [ ] **v0.5.0** — Blog inicial (Content Collections + 3 artículos).
+- [x] **v0.5.0** — Blog inicial (Content Collections + 3 artículos).
 - [ ] **v0.6.0** — Formulario de contacto funcional (Formsubmit).
 - [ ] **v0.7.0** — Páginas legales y privacidad.
 - [ ] **v0.8.0** — Rendimiento, accesibilidad y calidad.

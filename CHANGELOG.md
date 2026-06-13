@@ -6,6 +6,24 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [0.5.0] - 2026-06-13
+
+### Añadido
+- Blog basado en **Content Collections** de Astro 6 (`src/content/blog`) con esquema validado (Zod).
+- Página índice `/blog/` que lista los artículos publicados y ruta dinámica `/blog/<slug>/` para cada artículo.
+- Layout de artículo `PostLayout` con estilos de lectura (prose) y JSON-LD `BlogPosting`.
+- Componentes `BlogCard` y `CategoryBadge` reutilizables.
+- Categorías iniciales: Microsoft 365, STEL Order, Páginas web, Hosting y dominios, Digitalización.
+- Tres artículos iniciales:
+  - "Qué necesita una pyme para empezar su digitalización".
+  - "Microsoft 365 para empresas: qué plan elegir".
+  - "STEL Order: gestión comercial para autónomos y pymes".
+- Sección de "Últimos artículos" en la Home.
+
+### Cambiado
+- El blog estático anterior (`src/pages/blog.astro`) se sustituye por el sistema dinámico de colecciones (justificado: el roadmap requiere artículos en Markdown).
+- El sitemap nativo ahora omite plantillas dinámicas e incluye las URLs reales de los artículos del blog.
+
 ## [0.4.0] - 2026-06-13
 
 ### Añadido
