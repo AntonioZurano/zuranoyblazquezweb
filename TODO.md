@@ -13,7 +13,7 @@ se fusiona en `main` y se etiqueta.
 - [x] **v0.1.0** — Baseline inicial del proyecto.
 - [x] **v0.2.0** — Mejora visual y responsive.
 - [x] **v0.3.0** — Páginas individuales de servicios (contenido y enlaces).
-- [ ] **v0.4.0** — SEO básico y metadatos.
+- [x] **v0.4.0** — SEO básico y metadatos.
 - [ ] **v0.5.0** — Blog inicial (Content Collections + 3 artículos).
 - [ ] **v0.6.0** — Formulario de contacto funcional (Formsubmit).
 - [ ] **v0.7.0** — Páginas legales y privacidad.
@@ -25,3 +25,4 @@ se fusiona en `main` y se etiqueta.
 
 - Los textos legales son **provisionales** y deben revisarse por asesoría legal.
 - El formulario de contacto requiere verificación real una vez publicado el dominio.
+- La imagen Open Graph (`/og-default.svg`) es provisional; sustituir por PNG/JPG 1200×630 definitivo.
