@@ -12,7 +12,7 @@ se fusiona en `main` y se etiqueta.
 
 - [x] **v0.1.0** — Baseline inicial del proyecto.
 - [x] **v0.2.0** — Mejora visual y responsive.
-- [ ] **v0.3.0** — Páginas individuales de servicios (contenido y enlaces).
+- [x] **v0.3.0** — Páginas individuales de servicios (contenido y enlaces).
 - [ ] **v0.4.0** — SEO básico y metadatos.
 - [ ] **v0.5.0** — Blog inicial (Content Collections + 3 artículos).
 - [ ] **v0.6.0** — Formulario de contacto funcional (Formsubmit).
