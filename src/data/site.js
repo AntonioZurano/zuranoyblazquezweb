@@ -64,7 +64,7 @@ export const mainNav = [
     ],
   },
   { label: 'Blog', href: '/blog/' },
-  { label: 'Contacto', href: '/contacto/' },
+  { label: 'Escríbenos', href: '/contacto/' },
 ];
 
 // Catálogo de servicios. Se reutiliza en Inicio, Servicios y Footer.
