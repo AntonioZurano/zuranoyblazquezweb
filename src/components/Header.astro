@@ -6,10 +6,14 @@ import Icon from './Icon.astro';
 // La marca de la ruta activa se calcula a partir de la URL actual.
 const currentPath = Astro.url.pathname;
 
+// Resaltado visual: una sección está "activa" si la URL empieza por su ruta.
 const isActive = (href: string) => {
   if (href === '/') return currentPath === '/';
   return currentPath === href || currentPath.startsWith(href);
 };
+
+// aria-current="page" solo para la página exacta (no para el padre de un submenú).
+const isCurrent = (href: string) => currentPath === href;
 ---
 
 <header class="site-header">
@@ -45,6 +49,7 @@ const isActive = (href: string) => {
                   class:list={['nav-link', { 'is-active': isActive(item.href) }]}
                   aria-haspopup="true"
                   aria-expanded="false"
+                  aria-current={isCurrent(item.href) ? 'page' : undefined}
                 >
                   {item.label}
                   <Icon name="arrow" size={14} class="nav-link__caret" />
@@ -55,6 +60,7 @@ const isActive = (href: string) => {
                       <a
                         href={child.href}
                         class:list={['submenu__link', { 'is-active': isActive(child.href) }]}
+                        aria-current={isCurrent(child.href) ? 'page' : undefined}
                       >
                         {child.label}
                       </a>
@@ -67,6 +73,7 @@ const isActive = (href: string) => {
                 <a
                   href={item.href}
                   class:list={['nav-link', { 'is-active': isActive(item.href) }]}
+                  aria-current={isCurrent(item.href) ? 'page' : undefined}
                 >
                   {item.label}
                 </a>
