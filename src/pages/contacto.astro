@@ -2,7 +2,7 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
-import { site } from '../data/site.js';
+import { site, contactForm } from '../data/site.js';
 ---
 
 <MainLayout
@@ -49,7 +49,18 @@ import { site } from '../data/site.js';
         <h2 class="contact-form__title">Escríbenos</h2>
         <p class="contact-form__intro">Rellena el formulario y te responderemos lo antes posible.</p>
 
-        <form class="contact-form" novalidate>
+        <form class="contact-form" method="POST" action={contactForm.endpoint}>
+          <!-- Configuración de Formsubmit (campos ocultos) -->
+          <input type="hidden" name="_subject" value={contactForm.subject} />
+          <input type="hidden" name="_next" value={contactForm.redirectTo} />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <!-- Honeypot antispam: debe permanecer vacío (oculto a personas) -->
+          <div class="visually-hidden" aria-hidden="true">
+            <label for="_honey">No rellenar este campo</label>
+            <input type="text" id="_honey" name="_honey" tabindex="-1" autocomplete="off" />
+          </div>
+
           <div class="form-row">
             <div class="form-field">
               <label for="nombre">Nombre y apellidos *</label>
@@ -100,34 +111,15 @@ import { site } from '../data/site.js';
 
           <button type="submit" class="btn btn--primary contact-form__submit">Enviar mensaje</button>
 
-          <p class="form-note" role="status" aria-live="polite" hidden>
-            Gracias por tu mensaje. El envío del formulario aún no está activo; mientras tanto puedes
-            escribirnos directamente a <a href={`mailto:${site.email}`}>{site.email}</a>.
+          <p class="form-note">
+            Al enviar, aceptas que tratemos tus datos para responder a tu consulta. También puedes
+            escribirnos a <a href={`mailto:${site.email}`}>{site.email}</a>.
           </p>
         </form>
       </div>
     </div>
   </section>
 </MainLayout>
-
-<script>
-  // Formulario visual: todavía sin backend. Mostramos un mensaje informativo
-  // y evitamos un envío real. En la siguiente iteración se conectará a un
-  // servicio de envío de correo o a un endpoint propio.
-  const form = document.querySelector<HTMLFormElement>('.contact-form');
-  const note = form?.querySelector<HTMLParagraphElement>('.form-note');
-
-  form?.addEventListener('submit', (event) => {
-    event.preventDefault();
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-    if (note) note.hidden = false;
-    form.reset();
-    note?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  });
-</script>
 
 <style>
   .contact-grid {

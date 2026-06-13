@@ -1,0 +1,37 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+import { site } from '../data/site.js';
+---
+
+<MainLayout
+  title="Gracias por tu mensaje"
+  description="Hemos recibido tu mensaje. El equipo de Zurano y Blazquez te responderá lo antes posible."
+  noindex={true}
+>
+  <Hero
+    eyebrow="Mensaje enviado"
+    align="center"
+    subtitle="Gracias por escribirnos. Hemos recibido tu mensaje y te responderemos lo antes posible, normalmente en horario laboral."
+    primaryCta={{ label: 'Volver al inicio', href: '/' }}
+    secondaryCta={{ label: 'Ver servicios', href: '/servicios/' }}
+  >
+    <h1>¡Gracias por contactar con nosotros!</h1>
+  </Hero>
+
+  <section class="section">
+    <div class="container container--narrow gracias">
+      <p class="lead">
+        Si tu consulta es urgente, también puedes llamarnos al
+        <a href={`tel:${site.phoneHref}`}>{site.phone}</a> o escribirnos a
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .gracias {
+    text-align: center;
+  }
+</style>
