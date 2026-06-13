@@ -18,7 +18,7 @@ se fusiona en `main` y se etiqueta.
 - [x] **v0.6.0** — Formulario de contacto funcional (Formsubmit).
 - [x] **v0.7.0** — Páginas legales y privacidad.
 - [x] **v0.8.0** — Rendimiento, accesibilidad y calidad.
-- [ ] **v0.9.0** — Preparación para despliegue en VPS.
+- [x] **v0.9.0** — Preparación para despliegue en VPS.
 - [ ] **v1.0.0** — Versión estable lista para publicar.
 
 ## Pendientes conocidos / notas
