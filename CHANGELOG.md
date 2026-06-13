@@ -6,6 +6,18 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [0.6.0] - 2026-06-13
+
+### Añadido
+- Formulario de contacto funcional mediante **Formsubmit.co** (sin backend propio): método `POST`, campos con `name` correctos y validación HTML5 (`required`, `type=email`, `type=tel`).
+- Página de agradecimiento `/gracias` y redirección tras el envío (`_next`).
+- Honeypot antispam (`_honey`) y captcha desactivado (`_captcha=false`).
+- Configuración centralizada del formulario en `contactForm` (`src/data/site.js`) y documentación en el README sobre cómo activar/cambiar el correo de destino.
+
+### Notas
+- El envío real requiere activar el formulario una vez publicado el dominio (correo de confirmación de Formsubmit).
+- Se recomienda usar el alias de Formsubmit en producción para no exponer el correo en el HTML.
+
 ## [0.5.0] - 2026-06-13
 
 ### Añadido

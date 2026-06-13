@@ -17,6 +17,26 @@ export const site = {
   schedule: 'Lunes a viernes, 9:00 – 18:00',
 };
 
+// Configuración del formulario de contacto.
+// Usamos Formsubmit.co como solución sencilla sin backend para la primera
+// versión. Para cambiar el correo de destino, edita `recipient`.
+//
+// IMPORTANTE (producción):
+//   1. El primer envío genera un correo de activación a `recipient`; hay que
+//      confirmarlo una sola vez.
+//   2. Tras activarlo, se recomienda sustituir `endpoint` por el alias que
+//      ofrece Formsubmit (p. ej. 'https://formsubmit.co/el/xxxxxxx') para no
+//      exponer el correo real en el HTML público.
+export const contactForm = {
+  recipient: site.email,
+  get endpoint() {
+    return `https://formsubmit.co/${this.recipient}`;
+  },
+  // URL a la que se redirige tras un envío correcto.
+  redirectTo: `${site.url}/gracias/`,
+  subject: 'Nueva consulta desde zuranoyblazquez.com',
+};
+
 // Navegación principal del Header.
 export const mainNav = [
   { label: 'Inicio', href: '/' },

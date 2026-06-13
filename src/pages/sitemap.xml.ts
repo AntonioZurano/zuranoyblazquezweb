@@ -16,6 +16,7 @@ const pageModules = import.meta.glob('./**/*.astro', { eager: true });
 // como noindex en sus páginas).
 const EXCLUDED = new Set<string>([
   '/404/',
+  '/gracias/',
   '/aviso-legal/',
   '/politica-de-privacidad/',
   '/politica-de-cookies/',

@@ -121,6 +121,28 @@ Todos los datos compartidos (navegación, servicios, contacto) viven en `src/dat
 
 ---
 
+## Formulario de contacto (Formsubmit)
+
+El formulario de `/contacto` envía los datos mediante [Formsubmit.co](https://formsubmit.co)
+(sin backend propio). La configuración está centralizada en `src/data/site.js`
+dentro del objeto `contactForm`:
+
+- `recipient`: correo de destino de los mensajes (por defecto, `site.email`).
+- `redirectTo`: página de agradecimiento tras el envío (`/gracias/`).
+- `subject`: asunto del correo recibido.
+
+### Activación (una sola vez, en producción)
+
+1. Despliega la web en el dominio real.
+2. Envía el formulario una vez: Formsubmit mandará un correo de activación a `recipient`.
+3. Confirma ese correo. A partir de ahí, los envíos llegarán a tu bandeja.
+4. (Recomendado) Sustituye `recipient`/`endpoint` por el **alias** que ofrece
+   Formsubmit (`https://formsubmit.co/el/xxxxxxx`) para no exponer el correo real
+   en el HTML público.
+
+> El formulario incluye un honeypot antispam (`_honey`) y el captcha está
+> desactivado (`_captcha=false`). Actívalo si recibes spam.
+
 ## Despliegue
 
 El proyecto genera un sitio estático en `dist/`, desplegable en cualquier hosting estático o CDN (Netlify, Vercel, Cloudflare Pages, o un alojamiento tradicional). El dominio objetivo es **zuranoyblazquez.com**.
