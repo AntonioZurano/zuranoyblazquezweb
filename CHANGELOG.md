@@ -6,6 +6,16 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [0.9.0] - 2026-06-13
+
+### Añadido
+- `DEPLOY.md`: guía completa de despliegue en VPS (Plesk y Nginx), con comandos, estrategia, configuración de dominio/SSL, redirección www/no-www y checklist de publicación.
+
+### Verificado
+- La build estática se genera correctamente en `dist/`.
+- `site` en `astro.config.mjs` apunta a `https://zuranoyblazquez.com`.
+- Sitemap y `robots.txt` usan el dominio final.
+
 ## [0.8.0] - 2026-06-13
 
 ### Accesibilidad
