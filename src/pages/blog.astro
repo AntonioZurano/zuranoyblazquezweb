@@ -1,0 +1,146 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import CTA from '../components/CTA.astro';
+
+// Artículos de ejemplo. En una futura iteración por features esto se
+// sustituirá por contenido real gestionado con las colecciones de Astro.
+const posts = [
+  {
+    title: 'Microsoft 365 vs. correo gratuito: por qué tu empresa debería dar el paso',
+    excerpt: 'Ventajas de usar un correo profesional con tu dominio frente a las cuentas gratuitas: imagen, seguridad y productividad.',
+    category: 'Productividad',
+    date: '2026-05-20',
+    readingTime: '4 min',
+  },
+  {
+    title: 'Cómo digitalizar la facturación de tu negocio con STEL Order',
+    excerpt: 'Pasos para pasar del papel y las hojas de cálculo a una gestión ágil de presupuestos, facturas y clientes.',
+    category: 'Gestión',
+    date: '2026-04-28',
+    readingTime: '5 min',
+  },
+  {
+    title: '5 señales de que tu página web necesita una renovación',
+    excerpt: 'Si tu web es lenta, no se ve bien en el móvil o no genera contactos, es momento de plantear un cambio.',
+    category: 'Páginas web',
+    date: '2026-04-10',
+    readingTime: '3 min',
+  },
+];
+
+const formatDate = (value: string) =>
+  new Date(value).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<MainLayout
+  title="Blog"
+  description="Consejos prácticos sobre digitalización, productividad y tecnología para empresas. El blog de Zurano y Blazquez para pymes y autónomos."
+>
+  <Hero eyebrow="Blog" subtitle="Ideas, consejos y novedades sobre tecnología útil para tu empresa.">
+    <h1>Tecnología para empresas, explicada de forma sencilla</h1>
+  </Hero>
+
+  <section class="section">
+    <div class="container">
+      <SectionTitle
+        eyebrow="Últimos artículos"
+        title="Aprende a sacar más partido a la tecnología"
+        description="Contenido pensado para pymes y autónomos que quieren tomar mejores decisiones digitales."
+      />
+      <div class="grid grid--cards">
+        {posts.map((post) => (
+          <article class="post-card">
+            <div class="post-card__meta">
+              <span class="post-card__category">{post.category}</span>
+              <span class="post-card__time">{post.readingTime} de lectura</span>
+            </div>
+            <h2 class="post-card__title">{post.title}</h2>
+            <p class="post-card__excerpt">{post.excerpt}</p>
+            <footer class="post-card__footer">
+              <time datetime={post.date}>{formatDate(post.date)}</time>
+            </footer>
+          </article>
+        ))}
+      </div>
+      <p class="blog-note">
+        Estamos preparando más contenido. Muy pronto encontrarás aquí guías y novedades.
+      </p>
+    </div>
+  </section>
+
+  <CTA
+    title="¿Quieres que te avisemos de nuevos artículos?"
+    text="Escríbenos y te mantendremos al día de las novedades que pueden ayudar a tu empresa."
+    secondaryLabel=""
+  />
+</MainLayout>
+
+<style>
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+  }
+
+  .post-card__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .post-card__category {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent-dark);
+    background: var(--color-bg-alt);
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+  }
+
+  .post-card__time {
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+  }
+
+  .post-card__title {
+    font-size: var(--fs-md);
+    margin-bottom: var(--space-2);
+  }
+
+  .post-card__excerpt {
+    font-size: var(--fs-sm);
+    flex: 1;
+    margin-bottom: var(--space-4);
+  }
+
+  .post-card__footer {
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-3);
+  }
+
+  .blog-note {
+    margin-top: var(--space-5);
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: var(--fs-sm);
+  }
+</style>

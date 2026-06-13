@@ -1,0 +1,43 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+
+const benefits = [
+  'Facturas, presupuestos y albaranes en segundos',
+  'Control de clientes, productos y stock en un solo lugar',
+  'Acceso desde el ordenador, el móvil o la tableta',
+  'Implantación y formación a medida de tu negocio',
+  'Cumple con la normativa de facturación vigente',
+];
+
+const features = [
+  { icon: 'invoice', title: 'Facturación y ventas', text: 'Crea presupuestos, pedidos, albaranes y facturas profesionales y conviértelos con un clic.' },
+  { icon: 'enterprise', title: 'Gestión comercial', text: 'Controla clientes, oportunidades y el seguimiento de tu equipo de ventas desde cualquier lugar.' },
+  { icon: 'server', title: 'Catálogo y stock', text: 'Gestiona productos, tarifas y existencias con avisos automáticos de inventario.' },
+  { icon: 'web', title: 'Movilidad total', text: 'Trabaja desde el móvil o la tableta y sincroniza tu información en tiempo real.' },
+  { icon: 'support', title: 'Implantación guiada', text: 'Configuramos STEL Order según tu forma de trabajar y formamos a tu equipo.' },
+  { icon: 'shield', title: 'Datos seguros', text: 'Tu información en la nube, con copias de seguridad y acceso protegido.' },
+];
+
+const faq = [
+  { question: '¿Sirve para autónomos y pequeñas empresas?', answer: 'Sí. STEL Order está pensado para autónomos, comercios y pymes que quieren gestionar su negocio de forma sencilla.' },
+  { question: '¿Me ayudáis a ponerlo en marcha?', answer: 'Por supuesto. Realizamos la configuración inicial, importamos tus datos y formamos a tu equipo.' },
+  { question: '¿Puedo emitir facturas conformes a la ley?', answer: 'Sí, STEL Order se actualiza para cumplir con la normativa de facturación vigente.' },
+];
+---
+
+<MainLayout
+  title="STEL Order: gestión y facturación"
+  description="Implantación de STEL Order para autónomos y pymes: facturación, ventas, clientes y stock en una sola herramienta. Configuración, formación y soporte de Zurano y Blazquez."
+>
+  <ServiceDetail
+    eyebrow="STEL Order"
+    h1="STEL Order: gestiona y factura tu negocio sin esfuerzo"
+    subtitle="El software de gestión, facturación y ventas para autónomos y pymes. Lo implantamos, lo configuramos y te acompañamos."
+    introTitle="Tu negocio bajo control, desde donde estés"
+    introText="STEL Order centraliza la facturación, las ventas, los clientes y el inventario en una herramienta intuitiva. Te ayudamos a implantarlo adaptándolo a tu forma de trabajar para que ganes tiempo desde el primer día."
+    benefits={benefits}
+    features={features}
+    faq={faq}
+  />
+</MainLayout>

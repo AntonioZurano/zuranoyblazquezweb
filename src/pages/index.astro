@@ -1,0 +1,177 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CTA from '../components/CTA.astro';
+import Icon from '../components/Icon.astro';
+import { site, services } from '../data/site.js';
+
+const values = [
+  {
+    icon: 'shield',
+    title: 'Confianza',
+    text: 'Acuerdos claros, sin sorpresas. Te explicamos cada paso en un lenguaje que se entiende.',
+  },
+  {
+    icon: 'support',
+    title: 'Cercanía',
+    text: 'Hablas siempre con personas, no con un ticket. Soporte ágil y en español.',
+  },
+  {
+    icon: 'rocket',
+    title: 'Tecnología útil',
+    text: 'Implantamos solo lo que aporta valor real a tu negocio y mejora tu día a día.',
+  },
+];
+
+const steps = [
+  { num: '01', title: 'Te escuchamos', text: 'Analizamos cómo trabajas hoy y qué necesitas resolver.' },
+  { num: '02', title: 'Te proponemos', text: 'Diseñamos una solución a medida, sencilla y rentable.' },
+  { num: '03', title: 'Implantamos', text: 'Ponemos todo en marcha y formamos a tu equipo.' },
+  { num: '04', title: 'Te acompañamos', text: 'Mantenimiento y soporte continuo para que todo funcione.' },
+];
+---
+
+<MainLayout
+  title={`${site.name} | Soluciones digitales para empresas`}
+  description={site.description}
+>
+  <Hero
+    eyebrow="Soluciones digitales para empresas"
+    subtitle="Microsoft 365, STEL Order, páginas web, dominios, hosting, correo profesional y soporte tecnológico. Todo lo que tu empresa necesita para digitalizarse, de la mano de un equipo cercano."
+    primaryCta={{ label: 'Ver servicios', href: '/servicios/' }}
+    secondaryCta={{ label: 'Hablar con nosotros', href: '/contacto/' }}
+  >
+    <h1>Tecnología que impulsa tu empresa, sin complicaciones</h1>
+  </Hero>
+
+  <!-- Servicios -->
+  <section class="section">
+    <div class="container">
+      <SectionTitle
+        eyebrow="Qué hacemos"
+        title="Servicios pensados para pymes y autónomos"
+        description="Combinamos las mejores herramientas del mercado con un acompañamiento cercano para que tu negocio funcione mejor cada día."
+      />
+      <div class="grid grid--cards">
+        {services.map((service) => (
+          <ServiceCard
+            title={service.title}
+            summary={service.summary}
+            href={service.href}
+            icon={service.icon}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Por qué nosotros -->
+  <section class="section section--soft">
+    <div class="container">
+      <SectionTitle
+        eyebrow="Por qué Zurano y Blazquez"
+        title="Un socio tecnológico que habla tu idioma"
+        align="center"
+      />
+      <div class="grid grid--cards values">
+        {values.map((value) => (
+          <div class="value">
+            <span class="value__icon" aria-hidden="true">
+              <Icon name={value.icon} size={26} />
+            </span>
+            <h3>{value.title}</h3>
+            <p>{value.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo trabajamos -->
+  <section class="section">
+    <div class="container">
+      <SectionTitle
+        eyebrow="Cómo trabajamos"
+        title="Un método simple y transparente"
+        description="Desde el primer contacto hasta el soporte continuo, te acompañamos en cada fase."
+      />
+      <ol class="steps">
+        {steps.map((step) => (
+          <li class="step">
+            <span class="step__num">{step.num}</span>
+            <h3 class="step__title">{step.title}</h3>
+            <p class="step__text">{step.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <CTA />
+</MainLayout>
+
+<style>
+  .value {
+    text-align: center;
+    padding: var(--space-4);
+  }
+
+  .value__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-3);
+  }
+
+  .value h3 {
+    margin-bottom: var(--space-2);
+  }
+
+  .value p {
+    font-size: var(--fs-sm);
+  }
+
+  .steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-4);
+    counter-reset: step;
+  }
+
+  .step {
+    position: relative;
+    padding: var(--space-5);
+    background: var(--color-bg-soft);
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+  }
+
+  .step__num {
+    display: inline-block;
+    font-size: var(--fs-xl);
+    font-weight: 800;
+    color: var(--color-primary-light);
+    opacity: 0.5;
+    margin-bottom: var(--space-2);
+  }
+
+  .step__title {
+    margin-bottom: var(--space-2);
+    font-size: var(--fs-md);
+  }
+
+  .step__text {
+    font-size: var(--fs-sm);
+  }
+</style>

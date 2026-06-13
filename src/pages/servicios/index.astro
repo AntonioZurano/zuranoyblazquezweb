@@ -1,0 +1,43 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CTA from '../../components/CTA.astro';
+import { services } from '../../data/site.js';
+---
+
+<MainLayout
+  title="Servicios"
+  description="Descubre todos los servicios digitales de Zurano y Blazquez: Microsoft 365, STEL Order, páginas web, dominios, hosting, correo profesional, soporte tecnológico y soluciones para empresas."
+>
+  <Hero
+    eyebrow="Servicios"
+    subtitle="Todo lo que tu empresa necesita para trabajar mejor, en un único proveedor de confianza."
+    primaryCta={{ label: 'Pedir presupuesto', href: '/contacto/' }}
+  >
+    <h1>Servicios digitales para empresas que quieren avanzar</h1>
+  </Hero>
+
+  <section class="section">
+    <div class="container">
+      <SectionTitle
+        eyebrow="Catálogo"
+        title="Soluciones que se adaptan a tu negocio"
+        description="Puedes contratar cada servicio por separado o combinarlos en un proyecto integral. Tú eliges, nosotros te asesoramos."
+      />
+      <div class="grid grid--cards">
+        {services.map((service) => (
+          <ServiceCard
+            title={service.title}
+            summary={service.summary}
+            href={service.href}
+            icon={service.icon}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</MainLayout>

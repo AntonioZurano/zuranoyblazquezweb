@@ -1,0 +1,19 @@
+{
+  "name": "zuranoyblazquez-web",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Web corporativa de Zurano y Blazquez - Soluciones digitales para empresas",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "astro": "^6.4.6"
+  }
+}

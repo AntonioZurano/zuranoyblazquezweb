@@ -1,0 +1,40 @@
+---
+// Encabezado de sección reutilizable.
+// `as` permite elegir el nivel semántico del título (h2 por defecto) para
+// respetar la regla de un único h1 por página.
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  align?: 'left' | 'center';
+  as?: 'h1' | 'h2' | 'h3';
+}
+
+const { eyebrow, title, description, align = 'left', as: Tag = 'h2' } = Astro.props;
+---
+
+<header class:list={['section-title', `section-title--${align}`]}>
+  {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+  <Tag class="section-title__heading">{title}</Tag>
+  {description && <p class="section-title__desc lead">{description}</p>}
+</header>
+
+<style>
+  .section-title {
+    margin-bottom: var(--space-5);
+    max-width: 720px;
+  }
+
+  .section-title--center {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .section-title__heading {
+    margin: 0;
+  }
+
+  .section-title__desc {
+    margin-top: var(--space-3);
+  }
+</style>

@@ -1,0 +1,20 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<MainLayout
+  title="Página no encontrada"
+  description="La página que buscas no existe o se ha movido. Vuelve al inicio de Zurano y Blazquez."
+  noindex={true}
+>
+  <Hero
+    eyebrow="Error 404"
+    align="center"
+    subtitle="Lo sentimos, la página que buscas no existe o se ha movido."
+    primaryCta={{ label: 'Volver al inicio', href: '/' }}
+    secondaryCta={{ label: 'Ver servicios', href: '/servicios/' }}
+  >
+    <h1>Página no encontrada</h1>
+  </Hero>
+</MainLayout>

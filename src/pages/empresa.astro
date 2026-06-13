@@ -1,0 +1,153 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import CTA from '../components/CTA.astro';
+import Icon from '../components/Icon.astro';
+
+const principles = [
+  {
+    icon: 'check',
+    title: 'Soluciones, no productos',
+    text: 'No vendemos por vender. Recomendamos lo que de verdad ayuda a tu empresa.',
+  },
+  {
+    icon: 'support',
+    title: 'Trato directo',
+    text: 'Sin intermediarios ni largas esperas. Hablas con quien resuelve.',
+  },
+  {
+    icon: 'shield',
+    title: 'Compromiso a largo plazo',
+    text: 'Queremos ser tu socio tecnológico, no un proveedor de una sola vez.',
+  },
+  {
+    icon: 'rocket',
+    title: 'Mejora continua',
+    text: 'Tu negocio evoluciona y tu tecnología debe hacerlo contigo.',
+  },
+];
+---
+
+<MainLayout
+  title="Empresa"
+  description="Conoce a Zurano y Blazquez: un equipo cercano especializado en soluciones digitales para pymes, autónomos y empresas. Tecnología útil con trato humano."
+>
+  <Hero eyebrow="Sobre nosotros" subtitle="Somos el equipo que pone la tecnología al servicio de tu negocio, con cercanía y sentido común.">
+    <h1>Tecnología con nombre, cara y compromiso</h1>
+  </Hero>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <SectionTitle eyebrow="Quiénes somos" title="Cercanos por convicción, técnicos por vocación" />
+      <p class="lead">
+        Zurano y Blazquez nace para ayudar a pymes, autónomos y empresas a dar el salto digital sin
+        complicaciones. Sabemos que la tecnología solo tiene sentido cuando facilita el trabajo, ahorra
+        tiempo y hace crecer el negocio.
+      </p>
+      <p>
+        Por eso trabajamos como un socio tecnológico de confianza: escuchamos, proponemos soluciones
+        claras y nos quedamos a tu lado para que todo funcione. Desde el correo profesional hasta la
+        gestión de tu facturación o el desarrollo de tu página web, nos ocupamos de la parte técnica
+        para que tú te ocupes de lo importante: tu empresa.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <SectionTitle eyebrow="Nuestra forma de trabajar" title="Principios que nos definen" align="center" />
+      <div class="grid grid--cards">
+        {principles.map((item) => (
+          <article class="principle card">
+            <span class="principle__icon" aria-hidden="true">
+              <Icon name={item.icon} size={24} />
+            </span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="stats">
+        <div class="stat">
+          <span class="stat__num">100%</span>
+          <span class="stat__label">Soporte en español</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">+6</span>
+          <span class="stat__label">Servicios integrados</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">1</span>
+          <span class="stat__label">Interlocutor para todo</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">365</span>
+          <span class="stat__label">Días pensando en tu negocio</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    title="¿Quieres conocernos mejor?"
+    text="Escríbenos y te contamos cómo podemos ayudar a tu empresa. La primera conversación siempre es sin compromiso."
+  />
+</MainLayout>
+
+<style>
+  .principle__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .principle h3 {
+    margin-bottom: var(--space-2);
+    font-size: var(--fs-md);
+  }
+
+  .principle p {
+    font-size: var(--fs-sm);
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-4);
+    text-align: center;
+  }
+
+  .stat {
+    padding: var(--space-5) var(--space-3);
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--color-bg-soft), var(--color-bg-alt));
+    border: 1px solid var(--color-border);
+  }
+
+  .stat__num {
+    display: block;
+    font-size: var(--fs-2xl);
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .stat__label {
+    display: block;
+    margin-top: var(--space-2);
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+  }
+</style>

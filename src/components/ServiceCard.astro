@@ -1,0 +1,109 @@
+---
+import Icon from './Icon.astro';
+
+// Tarjeta de servicio reutilizable. Toda la tarjeta es clicable mediante un
+// enlace "stretched" para mejorar la usabilidad táctil y de ratón.
+interface Props {
+  title: string;
+  summary: string;
+  href: string;
+  icon?: string;
+}
+
+const { title, summary, href, icon = 'check' } = Astro.props;
+---
+
+<article class="service-card">
+  <span class="service-card__icon" aria-hidden="true">
+    <Icon name={icon} size={26} />
+  </span>
+  <h3 class="service-card__title">
+    <a href={href} class="service-card__link">{title}</a>
+  </h3>
+  <p class="service-card__summary">{summary}</p>
+  <span class="service-card__more">
+    Saber más
+    <Icon name="arrow" size={16} />
+  </span>
+</article>
+
+<style>
+  .service-card {
+    position: relative;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-sm);
+    transition:
+      transform var(--transition),
+      box-shadow var(--transition),
+      border-color var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: var(--color-primary-light);
+  }
+
+  .service-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .service-card:hover .service-card__icon {
+    background: var(--color-primary);
+    color: #fff;
+  }
+
+  .service-card__title {
+    margin: 0 0 var(--space-2);
+    font-size: var(--fs-lg);
+  }
+
+  .service-card__link {
+    color: var(--color-text);
+  }
+
+  /* Enlace que cubre toda la tarjeta para hacerla clicable */
+  .service-card__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .service-card:hover .service-card__link {
+    color: var(--color-primary);
+  }
+
+  .service-card__summary {
+    margin: 0 0 var(--space-4);
+    font-size: var(--fs-sm);
+    flex: 1;
+  }
+
+  .service-card__more {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-weight: 600;
+    font-size: var(--fs-sm);
+    color: var(--color-primary);
+  }
+
+  .service-card:hover .service-card__more {
+    color: var(--color-primary-dark);
+    gap: 0.65rem;
+  }
+</style>

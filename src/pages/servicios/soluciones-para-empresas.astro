@@ -1,0 +1,43 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+
+const benefits = [
+  'Un proyecto integral, no servicios sueltos',
+  'Análisis previo de tus necesidades reales',
+  'Combinación de las mejores herramientas para tu caso',
+  'Un único interlocutor que coordina todo',
+  'Acompañamiento y mejora continua',
+];
+
+const features = [
+  { icon: 'enterprise', title: 'Diagnóstico digital', text: 'Analizamos cómo trabajas hoy para detectar oportunidades de mejora y ahorro.' },
+  { icon: 'rocket', title: 'Plan a medida', text: 'Diseñamos una solución que combina los servicios que tu empresa realmente necesita.' },
+  { icon: 'microsoft', title: 'Productividad', text: 'Microsoft 365 y herramientas de colaboración para que tu equipo trabaje mejor.' },
+  { icon: 'invoice', title: 'Gestión', text: 'STEL Order y procesos digitales para controlar ventas, facturación y clientes.' },
+  { icon: 'web', title: 'Presencia online', text: 'Web profesional, dominio, hosting y correo para reforzar tu imagen y captar clientes.' },
+  { icon: 'support', title: 'Soporte continuo', text: 'Mantenimiento y asistencia para que todo el proyecto siga funcionando en el tiempo.' },
+];
+
+const faq = [
+  { question: '¿Tengo que contratar todos los servicios?', answer: 'No. Diseñamos la solución a partir de lo que tu empresa necesita. Puede ser un servicio o una combinación de varios.' },
+  { question: '¿Cómo empezamos?', answer: 'Empezamos por escucharte y analizar tu situación actual. A partir de ahí te proponemos un plan claro y sin compromiso.' },
+  { question: '¿Sirve para mi sector?', answer: 'Trabajamos con empresas y autónomos de distintos sectores, adaptando cada proyecto a su realidad concreta.' },
+];
+---
+
+<MainLayout
+  title="Soluciones digitales para empresas"
+  description="Proyectos de digitalización a medida para empresas: combinamos Microsoft 365, STEL Order, web, dominios y soporte en una solución integral. Zurano y Blazquez, tu socio tecnológico."
+>
+  <ServiceDetail
+    eyebrow="Soluciones para empresas"
+    h1="Soluciones digitales a medida para tu empresa"
+    subtitle="Combinamos nuestros servicios en un proyecto integral que resuelve las necesidades reales de tu negocio, con un único interlocutor."
+    introTitle="Digitalización con cabeza y a tu medida"
+    introText="Cada empresa es diferente. Por eso no ofrecemos paquetes cerrados, sino soluciones que combinan productividad, gestión, presencia online y soporte según lo que tu negocio necesita. Analizamos, proponemos, implantamos y te acompañamos."
+    benefits={benefits}
+    features={features}
+    faq={faq}
+  />
+</MainLayout>

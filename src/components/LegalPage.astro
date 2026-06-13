@@ -1,0 +1,54 @@
+---
+import Hero from './Hero.astro';
+
+// Plantilla para páginas de texto legal. El contenido se inserta vía slot
+// y recibe estilos tipográficos (prose) coherentes y legibles.
+interface Props {
+  title: string;
+  updated?: string;
+}
+
+const { title, updated } = Astro.props;
+---
+
+<Hero variant="compact">
+  <h1>{title}</h1>
+</Hero>
+
+<section class="section">
+  <div class="container container--narrow prose">
+    {updated && <p class="prose__updated">Última actualización: {updated}</p>}
+    <slot />
+  </div>
+</section>
+
+<style>
+  .prose :global(h2) {
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-3);
+    font-size: var(--fs-lg);
+  }
+
+  .prose :global(p) {
+    margin-bottom: var(--space-3);
+  }
+
+  .prose :global(ul) {
+    margin-bottom: var(--space-3);
+    color: var(--color-text-soft);
+  }
+
+  .prose__updated {
+    color: var(--color-text-muted);
+    font-size: var(--fs-sm);
+    margin-bottom: var(--space-4);
+  }
+
+  .prose :global(.notice) {
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-bg-alt);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+  }
+</style>

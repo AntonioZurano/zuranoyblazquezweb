@@ -1,0 +1,125 @@
+---
+// Hero reutilizable para la cabecera de las páginas.
+// Acepta título, subtítulo y hasta dos llamadas a la acción opcionales.
+// El contenido del título se pasa por slot para permitir que cada página
+// defina su único <h1>.
+interface Cta {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  subtitle?: string;
+  primaryCta?: Cta;
+  secondaryCta?: Cta;
+  align?: 'left' | 'center';
+  variant?: 'default' | 'compact';
+}
+
+const {
+  eyebrow,
+  subtitle,
+  primaryCta,
+  secondaryCta,
+  align = 'left',
+  variant = 'default',
+} = Astro.props;
+---
+
+<section class:list={['hero', `hero--${align}`, `hero--${variant}`]}>
+  <div class="container hero__inner">
+    {eyebrow && <span class="eyebrow hero__eyebrow">{eyebrow}</span>}
+    <div class="hero__title">
+      <slot />
+    </div>
+    {subtitle && <p class="hero__subtitle">{subtitle}</p>}
+    {
+      (primaryCta || secondaryCta) && (
+        <div class="hero__actions">
+          {primaryCta && (
+            <a href={primaryCta.href} class="btn btn--accent">
+              {primaryCta.label}
+            </a>
+          )}
+          {secondaryCta && (
+            <a href={secondaryCta.href} class="btn btn--ghost-light">
+              {secondaryCta.label}
+            </a>
+          )}
+        </div>
+      )
+    }
+    <slot name="extra" />
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    color: #fff;
+    background:
+      radial-gradient(circle at 80% -10%, rgba(0, 163, 163, 0.45), transparent 45%),
+      linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 55%, var(--color-primary-light) 100%);
+    padding-block: clamp(var(--space-7), 12vw, calc(var(--space-8) + 1rem));
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .hero--compact {
+    padding-block: clamp(var(--space-6), 8vw, var(--space-7));
+  }
+
+  .hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+  }
+
+  .hero--center .hero__inner {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .hero__eyebrow {
+    color: #aef0f0;
+  }
+
+  /* El <h1>/título proviene del slot: lo dejamos en blanco y heredado */
+  .hero__title :global(h1),
+  .hero__title :global(h2) {
+    color: #fff;
+    margin: 0;
+  }
+
+  .hero__subtitle {
+    margin-top: var(--space-4);
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 60ch;
+  }
+
+  .hero--center .hero__subtitle {
+    margin-inline: auto;
+  }
+
+  .hero__actions {
+    margin-top: var(--space-5);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .hero--center .hero__actions {
+    justify-content: center;
+  }
+</style>

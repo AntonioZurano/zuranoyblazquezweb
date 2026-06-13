@@ -1,0 +1,195 @@
+---
+import { site, footerLinks } from '../data/site.js';
+import Icon from './Icon.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a href="/" class="footer-brand" aria-label={`${site.name} — Inicio`}>
+        <span class="footer-brand__mark" aria-hidden="true">ZB</span>
+        <span class="footer-brand__name">{site.name}</span>
+      </a>
+      <p class="site-footer__desc">{site.description}</p>
+      <ul class="site-footer__contact">
+        <li>
+          <Icon name="mail" size={18} />
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </li>
+        <li>
+          <Icon name="phone" size={18} />
+          <a href={`tel:${site.phoneHref}`}>{site.phone}</a>
+        </li>
+        <li>
+          <Icon name="clock" size={18} />
+          <span>{site.schedule}</span>
+        </li>
+      </ul>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="Servicios">
+      <h2 class="site-footer__title">Servicios</h2>
+      <ul>
+        {footerLinks.servicios.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <nav class="site-footer__nav" aria-label="Empresa">
+      <h2 class="site-footer__title">Empresa</h2>
+      <ul>
+        {footerLinks.empresa.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <nav class="site-footer__nav" aria-label="Legal">
+      <h2 class="site-footer__title">Legal</h2>
+      <ul>
+        {footerLinks.legal.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+
+  <div class="site-footer__bottom">
+    <div class="container site-footer__bottom-inner">
+      <p>© {year} {site.legalName}. Todos los derechos reservados.</p>
+      <p>{site.tagline} · {site.domain}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #0c1828;
+    color: #c8d2e0;
+    margin-top: auto;
+  }
+
+  .site-footer a {
+    color: #c8d2e0;
+  }
+
+  .site-footer a:hover {
+    color: #fff;
+  }
+
+  .site-footer__inner {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: var(--space-5);
+    padding-block: var(--space-7);
+  }
+
+  .footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: #fff;
+  }
+
+  .footer-brand__mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-accent) 130%);
+    color: #fff;
+    font-weight: 800;
+    font-size: var(--fs-sm);
+  }
+
+  .footer-brand__name {
+    font-weight: 700;
+    font-size: var(--fs-md);
+    color: #fff;
+  }
+
+  .site-footer__desc {
+    margin: var(--space-3) 0 var(--space-4);
+    color: #9aa8bd;
+    font-size: var(--fs-sm);
+    max-width: 42ch;
+  }
+
+  .site-footer__contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .site-footer__contact li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--fs-sm);
+    color: #9aa8bd;
+  }
+
+  .site-footer__contact svg {
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .site-footer__title {
+    font-size: var(--fs-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #fff;
+    margin: 0 0 var(--space-3);
+  }
+
+  .site-footer__nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .site-footer__nav a {
+    font-size: var(--fs-sm);
+    color: #9aa8bd;
+  }
+
+  .site-footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .site-footer__bottom-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding-block: var(--space-4);
+    font-size: var(--fs-xs);
+    color: #7c8aa0;
+  }
+
+  .site-footer__bottom-inner p {
+    color: #7c8aa0;
+    margin: 0;
+  }
+
+  @media (max-width: 920px) {
+    .site-footer__inner {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .site-footer__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

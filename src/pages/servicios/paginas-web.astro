@@ -1,0 +1,43 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+
+const benefits = [
+  'Diseño moderno, profesional y adaptado a tu marca',
+  'Webs rápidas y optimizadas para móviles',
+  'Preparadas para posicionar en Google (SEO)',
+  'Fáciles de actualizar y de mantener',
+  'Acompañamiento desde la idea hasta la publicación',
+];
+
+const features = [
+  { icon: 'web', title: 'Diseño a medida', text: 'Creamos una web única alineada con tu imagen de marca y tus objetivos de negocio.' },
+  { icon: 'rocket', title: 'Rendimiento', text: 'Tiempos de carga mínimos y código limpio para una mejor experiencia y mejor SEO.' },
+  { icon: 'check', title: 'Responsive', text: 'Tu web se ve perfecta en móvil, tableta y ordenador, sin excepciones.' },
+  { icon: 'shield', title: 'Segura y fiable', text: 'Certificado SSL, buenas prácticas de seguridad y alojamiento estable.' },
+  { icon: 'enterprise', title: 'Orientada a resultados', text: 'Estructura pensada para convertir visitas en clientes y peticiones de contacto.' },
+  { icon: 'support', title: 'Soporte y mantenimiento', text: 'Te acompañamos tras la publicación con actualizaciones y mejoras continuas.' },
+];
+
+const faq = [
+  { question: '¿Cuánto tarda en estar lista mi web?', answer: 'Depende del proyecto, pero una web corporativa suele estar lista en pocas semanas. Te damos un plazo claro desde el inicio.' },
+  { question: '¿Podré actualizar los contenidos yo mismo?', answer: 'Sí. Preparamos la web para que puedas hacer cambios básicos con facilidad, o nos encargamos nosotros si lo prefieres.' },
+  { question: '¿La web estará preparada para Google?', answer: 'Sí, aplicamos buenas prácticas de SEO técnico: estructura semántica, velocidad, etiquetas y metadatos.' },
+];
+---
+
+<MainLayout
+  title="Diseño y desarrollo de páginas web"
+  description="Diseño y desarrollo de páginas web profesionales, rápidas, responsive y optimizadas para SEO. Webs corporativas para pymes y autónomos por Zurano y Blazquez."
+>
+  <ServiceDetail
+    eyebrow="Páginas web"
+    h1="Páginas web que transmiten confianza y generan clientes"
+    subtitle="Diseño y desarrollo de webs rápidas, responsive y optimizadas para SEO, pensadas para que tu empresa destaque."
+    introTitle="Tu mejor escaparate, abierto 24 horas"
+    introText="Una buena página web es la primera impresión que muchos clientes tendrán de tu empresa. Diseñamos y desarrollamos webs profesionales, rápidas y preparadas para posicionar en buscadores, cuidando cada detalle del diseño y la experiencia de usuario."
+    benefits={benefits}
+    features={features}
+    faq={faq}
+  />
+</MainLayout>

@@ -1,0 +1,174 @@
+---
+import Hero from './Hero.astro';
+import SectionTitle from './SectionTitle.astro';
+import CTA from './CTA.astro';
+import Icon from './Icon.astro';
+
+// Plantilla de contenido para las páginas de detalle de cada servicio.
+// Unifica la estructura (intro + beneficios + características + FAQ + CTA)
+// para que todas las páginas de servicio sean coherentes y fáciles de mantener.
+interface Feature {
+  icon: string;
+  title: string;
+  text: string;
+}
+
+interface Faq {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  eyebrow: string;
+  h1: string;
+  subtitle: string;
+  introTitle: string;
+  introText: string;
+  benefits: string[];
+  features: Feature[];
+  faq?: Faq[];
+}
+
+const { eyebrow, h1, subtitle, introTitle, introText, benefits, features, faq = [] } = Astro.props;
+---
+
+<Hero
+  eyebrow={eyebrow}
+  subtitle={subtitle}
+  variant="compact"
+  primaryCta={{ label: 'Solicitar información', href: '/contacto/' }}
+  secondaryCta={{ label: 'Ver todos los servicios', href: '/servicios/' }}
+>
+  <h1>{h1}</h1>
+</Hero>
+
+<section class="section">
+  <div class="container intro-grid">
+    <div>
+      <SectionTitle eyebrow="En qué consiste" title={introTitle} />
+      <p class="lead">{introText}</p>
+    </div>
+    <div class="intro-grid__benefits card">
+      <h3>Lo que consigues</h3>
+      <ul class="check-list">
+        {benefits.map((benefit) => <li>{benefit}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft">
+  <div class="container">
+    <SectionTitle eyebrow="Qué incluye" title="Características del servicio" align="center" />
+    <div class="grid grid--cards">
+      {features.map((feature) => (
+        <article class="feature card">
+          <span class="feature__icon" aria-hidden="true">
+            <Icon name={feature.icon} size={24} />
+          </span>
+          <h3>{feature.title}</h3>
+          <p>{feature.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+{
+  faq.length > 0 && (
+    <section class="section">
+      <div class="container container--narrow">
+        <SectionTitle eyebrow="Dudas frecuentes" title="Preguntas habituales" />
+        <div class="faq">
+          {faq.map((item) => (
+            <details class="faq__item">
+              <summary class="faq__question">{item.question}</summary>
+              <p class="faq__answer">{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<CTA />
+
+<style>
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .intro-grid__benefits h3 {
+    margin-bottom: var(--space-4);
+  }
+
+  .feature__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .feature h3 {
+    margin-bottom: var(--space-2);
+    font-size: var(--fs-md);
+  }
+
+  .feature p {
+    font-size: var(--fs-sm);
+  }
+
+  .faq {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .faq__item {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-white);
+    padding: var(--space-4);
+  }
+
+  .faq__question {
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .faq__question::after {
+    content: '+';
+    font-size: var(--fs-lg);
+    color: var(--color-primary);
+    transition: transform var(--transition);
+  }
+
+  .faq__item[open] .faq__question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq__answer {
+    margin-top: var(--space-3);
+    font-size: var(--fs-sm);
+  }
+
+  @media (max-width: 820px) {
+    .intro-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+    }
+  }
+</style>

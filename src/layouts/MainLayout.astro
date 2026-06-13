@@ -1,0 +1,81 @@
+---
+import { site } from '../data/site.js';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+// Layout principal. Centraliza el <head> y todo el SEO técnico:
+// title, description, canonical, Open Graph, Twitter Card y datos
+// estructurados (JSON-LD). Cada página pasa su propio title y description.
+interface Props {
+  title: string;
+  description: string;
+  /** Ruta de la imagen para compartir en redes (Open Graph). */
+  image?: string;
+  /** Evita la indexación de páginas que no deben aparecer en buscadores. */
+  noindex?: boolean;
+}
+
+const { title, description, image = '/og-default.svg', noindex = false } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
+const ogImage = new URL(image, site.url).href;
+
+// Datos estructurados de la organización para enriquecer los resultados.
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.name,
+  url: site.url,
+  description: site.description,
+  email: site.email,
+  telephone: site.phone,
+  areaServed: 'ES',
+  sameAs: [],
+};
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <meta name="theme-color" content="#0a4d8c" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="sitemap" href="/sitemap.xml" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+    <Header />
+    <main id="contenido" class="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

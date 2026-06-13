@@ -1,0 +1,43 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+
+const benefits = [
+  'Registro y gestión de tu dominio sin complicaciones',
+  'Alojamiento web rápido, estable y seguro',
+  'Correo profesional con tu propio dominio',
+  'Certificado SSL incluido para una web segura',
+  'Todo gestionado por un único proveedor de confianza',
+];
+
+const features = [
+  { icon: 'server', title: 'Dominios', text: 'Registramos y gestionamos tu dominio (.com, .es y muchos más) y renovaciones por ti.' },
+  { icon: 'rocket', title: 'Hosting fiable', text: 'Alojamiento optimizado para que tu web cargue rápido y esté siempre disponible.' },
+  { icon: 'mail', title: 'Correo profesional', text: 'Direcciones con tu dominio (tunombre@tuempresa.com) que dan imagen seria y de confianza.' },
+  { icon: 'shield', title: 'Seguridad SSL', text: 'Certificado SSL para que tu web muestre el candado y proteja los datos de tus visitas.' },
+  { icon: 'check', title: 'Copias de seguridad', text: 'Realizamos copias periódicas para que tu información esté siempre protegida.' },
+  { icon: 'support', title: 'Gestión integral', text: 'Nosotros nos ocupamos de la parte técnica: tú olvídate de configuraciones y renovaciones.' },
+];
+
+const faq = [
+  { question: '¿Podéis trasladar mi dominio actual?', answer: 'Sí. Gestionamos el traslado de tu dominio y tu correo desde tu proveedor actual sin que pierdas el servicio.' },
+  { question: '¿El correo funciona con Outlook y el móvil?', answer: 'Sí, configuramos el correo profesional en los programas y dispositivos que utilices habitualmente.' },
+  { question: '¿Qué pasa con las renovaciones?', answer: 'Nos encargamos de avisarte y gestionar las renovaciones para que tu dominio y servicios nunca caduquen por descuido.' },
+];
+---
+
+<MainLayout
+  title="Dominios, hosting y correo profesional"
+  description="Registro de dominios, hosting fiable y correo profesional con tu propio dominio. Zurano y Blazquez gestiona toda la parte técnica por ti, con seguridad y soporte cercano."
+>
+  <ServiceDetail
+    eyebrow="Dominios, hosting y correo"
+    h1="Dominios, hosting y correo profesional, sin quebraderos de cabeza"
+    subtitle="Registramos tu dominio, alojamos tu web y configuramos tu correo profesional. Toda la base técnica de tu presencia online, gestionada por nosotros."
+    introTitle="La base sobre la que se apoya tu negocio online"
+    introText="Un dominio propio, un alojamiento fiable y un correo profesional son la base de tu imagen en internet. Nos encargamos de configurarlo y mantenerlo todo para que transmitas seriedad y tu web funcione siempre."
+    benefits={benefits}
+    features={features}
+    faq={faq}
+  />
+</MainLayout>
