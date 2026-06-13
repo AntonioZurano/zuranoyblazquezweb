@@ -2,7 +2,9 @@
 
 Sitio web corporativo de **Zurano y Blazquez**, especialistas en soluciones digitales para empresas: Microsoft 365, STEL Order, diseño y desarrollo de páginas web, dominios, hosting, correo profesional y soporte tecnológico.
 
-Construido con [Astro 6](https://astro.build) priorizando **rendimiento, HTML semántico, SEO y facilidad de mantenimiento**. Esta es una primera versión funcional **sin backend** (el formulario de contacto es visual, todavía sin envío real).
+Construido con [Astro 6](https://astro.build) priorizando **rendimiento, HTML semántico, SEO y facilidad de mantenimiento**.
+
+> **Versión estable `v1.0.0`** — Primera versión lista para publicar. Incluye páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y páginas legales (textos provisionales pendientes de revisión).
 
 ---
 
@@ -111,13 +113,17 @@ Todos los datos compartidos (navegación, servicios, contacto) viven en `src/dat
 
 ---
 
-## Próximos pasos sugeridos (por features)
+## Próximos pasos sugeridos (post v1.0.0)
 
-- Conectar el formulario de contacto a un servicio de envío real (endpoint propio, Formspree, Resend, etc.).
-- Migrar el blog a [Content Collections](https://docs.astro.build/es/guides/content-collections/) para gestionar artículos en Markdown.
-- Añadir imágenes/optimización con `astro:assets`.
-- Revisar y completar los textos legales con asesoramiento profesional.
-- Sustituir la imagen Open Graph por una versión definitiva de marca.
+- Revisar y completar los **textos legales** con asesoramiento profesional (ahora provisionales).
+- **Activar el formulario** en Formsubmit tras publicar el dominio y probar un envío real.
+- Sustituir la **imagen Open Graph** por una versión rasterizada definitiva (PNG/JPG 1200×630).
+- Añadir imágenes/optimización con `astro:assets` cuando haya fotografía real.
+- Ampliar el blog con nuevos artículos en `src/content/blog`.
+
+El historial completo de versiones está en [`CHANGELOG.md`](./CHANGELOG.md) y el
+estado del roadmap en [`TODO.md`](./TODO.md). La guía de publicación está en
+[`DEPLOY.md`](./DEPLOY.md).
 
 ---
 

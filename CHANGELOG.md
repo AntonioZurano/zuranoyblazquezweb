@@ -6,6 +6,22 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [1.0.0] - 2026-06-13
+
+**Primera versión estable, lista para publicar en `zuranoyblazquez.com`.**
+
+### Resumen
+- Consolidación de todo el trabajo de las versiones 0.2.0–0.9.0.
+- Revisión completa de las 19 páginas: `title`, `description`, único `<h1>` y canonical correctos en todas.
+- Verificación automática de enlaces internos: **sin enlaces rotos**.
+- Navegación, footer, formulario, SEO, sitemap, `robots.txt`, favicon, responsive y accesibilidad revisados.
+- Documentación actualizada (`README.md`, `TODO.md`, `CHANGELOG.md`, `DEPLOY.md`).
+
+### Pendiente antes de la publicación definitiva
+- Revisión legal de los textos (provisionales).
+- Activación y prueba real del formulario en el dominio publicado.
+- Imagen Open Graph definitiva en formato rasterizado.
+
 ## [0.9.0] - 2026-06-13
 
 ### Añadido
