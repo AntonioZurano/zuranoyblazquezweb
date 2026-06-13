@@ -1,7 +1,7 @@
 ---
 import { site } from '../data/site.js';
+import { getUi } from '../i18n/ui.js';
 
-// Bloque de llamada a la acción reutilizable, normalmente al final de página.
 interface Props {
   title?: string;
   text?: string;
@@ -9,14 +9,18 @@ interface Props {
   primaryHref?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
+  locale?: 'es' | 'en';
 }
 
+const locale = Astro.props.locale ?? 'es';
+const defaults = getUi(locale).cta;
+
 const {
-  title = '¿Hablamos de tu proyecto?',
-  text = 'Cuéntanos qué necesita tu empresa y te propondremos la solución más sencilla, útil y rentable. Sin compromiso.',
-  primaryLabel = 'Solicitar información',
-  primaryHref = '/contacto/',
-  secondaryLabel = 'Llamar ahora',
+  title = defaults.title,
+  text = defaults.text,
+  primaryLabel = defaults.primaryLabel,
+  primaryHref = defaults.primaryHref,
+  secondaryLabel = defaults.secondaryLabel,
   secondaryHref = `tel:${site.phoneHref}`,
 } = Astro.props;
 ---

@@ -2,6 +2,8 @@
 import { site } from '../data/site.js';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getLocaleFromPath, getAlternateUrls } from '../i18n/routes.js';
+import { getUi } from '../i18n/ui.js';
 import '../styles/global.css';
 
 // Layout principal. Centraliza el <head> y todo el SEO técnico:
@@ -10,6 +12,8 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description: string;
+  /** Idioma de la página (`es` por defecto). */
+  lang?: 'es' | 'en';
   /** Ruta de la imagen para compartir en redes (Open Graph). */
   image?: string;
   /** Texto alternativo de la imagen Open Graph. */
@@ -25,16 +29,23 @@ interface Props {
 const {
   title,
   description,
+  lang: langProp,
   image = '/og-default.svg',
-  imageAlt = `${site.name} — ${site.tagline}`,
+  imageAlt,
   ogType = 'website',
   noindex = false,
   schema,
 } = Astro.props;
 
+const lang = langProp ?? getLocaleFromPath(Astro.url.pathname);
+const ui = getUi(lang);
 const canonical = new URL(Astro.url.pathname, site.url).href;
+const alternates = getAlternateUrls(Astro.url.pathname, site.url);
 const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
+const resolvedImageAlt = imageAlt ?? `${site.name} — ${ui.tagline}`;
 const ogImage = new URL(image, site.url).href;
+const ogLocale = lang === 'en' ? 'en_GB' : 'es_ES';
+const inLanguage = lang === 'en' ? 'en-GB' : 'es-ES';
 
 // Datos estructurados de la organización para enriquecer los resultados.
 const organizationSchema = {
@@ -55,7 +66,7 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: site.name,
   url: site.url,
-  inLanguage: 'es-ES',
+  inLanguage,
 };
 
 // Reúne todos los bloques JSON-LD (base + específicos de página).
@@ -64,7 +75,7 @@ const jsonLdBlocks = [organizationSchema, websiteSchema, ...extraSchemas];
 ---
 
 <!doctype html>
-<html lang="es" data-theme="light">
+<html lang={lang} data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <script is:inline>
@@ -87,6 +98,13 @@ const jsonLdBlocks = [organizationSchema, websiteSchema, ...extraSchemas];
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {!noindex && (
+      <>
+        <link rel="alternate" hreflang="es" href={alternates.es} />
+        <link rel="alternate" hreflang="en" href={alternates.en} />
+        <link rel="alternate" hreflang="x-default" href={alternates.es} />
+      </>
+    )}
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
 
     <meta name="theme-color" content="#0a4d8c" />
@@ -98,17 +116,19 @@ const jsonLdBlocks = [organizationSchema, websiteSchema, ...extraSchemas];
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:image:alt" content={resolvedImageAlt} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale" content={ogLocale} />
+    {lang === 'en' && <meta property="og:locale:alternate" content="es_ES" />}
+    {lang === 'es' && <meta property="og:locale:alternate" content="en_GB" />}
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-    <meta name="twitter:image:alt" content={imageAlt} />
+    <meta name="twitter:image:alt" content={resolvedImageAlt} />
 
     <link rel="sitemap" href="/sitemap.xml" />
 
@@ -117,7 +137,7 @@ const jsonLdBlocks = [organizationSchema, websiteSchema, ...extraSchemas];
     ))}
   </head>
   <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+    <a class="skip-link" href="#contenido">{ui.skipLink}</a>
     <Header />
     <main id="contenido" class="main">
       <slot />

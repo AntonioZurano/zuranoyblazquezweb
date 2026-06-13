@@ -8,9 +8,10 @@ interface Props {
   summary: string;
   href: string;
   icon?: string;
+  readMoreLabel?: string;
 }
 
-const { title, summary, href, icon = 'check' } = Astro.props;
+const { title, summary, href, icon = 'check', readMoreLabel = 'Saber más' } = Astro.props;
 ---
 
 <article class="service-card">
@@ -22,7 +23,7 @@ const { title, summary, href, icon = 'check' } = Astro.props;
   </h3>
   <p class="service-card__summary">{summary}</p>
   <span class="service-card__more">
-    Saber más
+    {readMoreLabel}
     <Icon name="arrow" size={16} />
   </span>
 </article>

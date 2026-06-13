@@ -3,10 +3,8 @@ import Hero from './Hero.astro';
 import SectionTitle from './SectionTitle.astro';
 import CTA from './CTA.astro';
 import Icon from './Icon.astro';
+import { getUi } from '../i18n/ui.js';
 
-// Plantilla de contenido para las páginas de detalle de cada servicio.
-// Unifica la estructura (intro + beneficios + características + FAQ + CTA)
-// para que todas las páginas de servicio sean coherentes y fáciles de mantener.
 interface Feature {
   icon: string;
   title: string;
@@ -27,17 +25,30 @@ interface Props {
   benefits: string[];
   features: Feature[];
   faq?: Faq[];
+  locale?: 'es' | 'en';
 }
 
-const { eyebrow, h1, subtitle, introTitle, introText, benefits, features, faq = [] } = Astro.props;
+const {
+  eyebrow,
+  h1,
+  subtitle,
+  introTitle,
+  introText,
+  benefits,
+  features,
+  faq = [],
+  locale = 'es',
+} = Astro.props;
+
+const sd = getUi(locale).serviceDetail;
 ---
 
 <Hero
   eyebrow={eyebrow}
   subtitle={subtitle}
   variant="compact"
-  primaryCta={{ label: 'Solicitar información', href: '/contacto/' }}
-  secondaryCta={{ label: 'Ver todos los servicios', href: '/servicios/' }}
+  primaryCta={{ label: sd.primaryCta, href: sd.contactHref }}
+  secondaryCta={{ label: sd.secondaryCta, href: sd.servicesHref }}
 >
   <h1>{h1}</h1>
 </Hero>
@@ -45,11 +56,11 @@ const { eyebrow, h1, subtitle, introTitle, introText, benefits, features, faq = 
 <section class="section">
   <div class="container intro-grid">
     <div>
-      <SectionTitle eyebrow="En qué consiste" title={introTitle} />
+      <SectionTitle eyebrow={sd.introEyebrow} title={introTitle} />
       <p class="lead">{introText}</p>
     </div>
     <div class="intro-grid__benefits card">
-      <h3>Lo que consigues</h3>
+      <h3>{sd.benefitsTitle}</h3>
       <ul class="check-list">
         {benefits.map((benefit) => <li>{benefit}</li>)}
       </ul>
@@ -59,7 +70,7 @@ const { eyebrow, h1, subtitle, introTitle, introText, benefits, features, faq = 
 
 <section class="section section--soft">
   <div class="container">
-    <SectionTitle eyebrow="Qué incluye" title="Características del servicio" align="center" />
+    <SectionTitle eyebrow={sd.featuresEyebrow} title={sd.featuresTitle} align="center" />
     <div class="grid grid--cards">
       {features.map((feature) => (
         <article class="feature card">
@@ -78,7 +89,7 @@ const { eyebrow, h1, subtitle, introTitle, introText, benefits, features, faq = 
   faq.length > 0 && (
     <section class="section">
       <div class="container container--narrow">
-        <SectionTitle eyebrow="Dudas frecuentes" title="Preguntas habituales" />
+        <SectionTitle eyebrow={sd.faqEyebrow} title={sd.faqTitle} />
         <div class="faq">
           {faq.map((item) => (
             <details class="faq__item">
@@ -92,7 +103,7 @@ const { eyebrow, h1, subtitle, introTitle, introText, benefits, features, faq = 
   )
 }
 
-<CTA />
+<CTA locale={locale} />
 
 <style>
   .intro-grid {

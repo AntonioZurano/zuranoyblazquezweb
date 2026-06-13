@@ -1,0 +1,44 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Hero from '../../../components/Hero.astro';
+import SectionTitle from '../../../components/SectionTitle.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+import CTA from '../../../components/CTA.astro';
+import { servicesPageEn, servicesEn } from '../../../i18n/en/data.js';
+import { getUi } from '../../../i18n/ui.js';
+
+const ui = getUi('en');
+---
+
+<MainLayout lang="en" title={servicesPageEn.metaTitle} description={servicesPageEn.metaDescription}>
+  <Hero
+    eyebrow={servicesPageEn.eyebrow}
+    subtitle={servicesPageEn.heroSubtitle}
+    primaryCta={servicesPageEn.primaryCta}
+  >
+    <h1>{servicesPageEn.heroTitle}</h1>
+  </Hero>
+
+  <section class="section">
+    <div class="container">
+      <SectionTitle
+        eyebrow={servicesPageEn.catalogEyebrow}
+        title={servicesPageEn.catalogTitle}
+        description={servicesPageEn.catalogDescription}
+      />
+      <div class="grid grid--cards">
+        {servicesEn.map((service) => (
+          <ServiceCard
+            title={service.title}
+            summary={service.summary}
+            href={service.href}
+            icon={service.icon}
+            readMoreLabel={ui.serviceCard.readMore}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTA locale="en" />
+</MainLayout>

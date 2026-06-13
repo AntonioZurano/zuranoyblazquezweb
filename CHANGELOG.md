@@ -6,6 +6,23 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [1.0.3] - 2026-06-13
+
+### Añadido
+- Soporte multidioma Español/Inglés con rutas inglesas bajo `/en/`.
+- Selector de idioma ES | EN en la cabecera, junto al selector de tema.
+- Metadatos `lang`, `canonical` y `hreflang` (`es`, `en`, `x-default`) en `MainLayout`.
+- Estructura de traducciones en `src/i18n/` (`routes.js`, `ui.js`, `en/data.js`, `en/services.js`).
+- Páginas principales traducidas al inglés: home, empresa, servicios, contacto, gracias y legales.
+- Formulario de contacto en inglés con redirección a `/en/thank-you/`.
+- Índice del blog en inglés (`/en/blog/`); artículos pendientes de traducción.
+
+### Mejorado
+- Header y Footer adaptados al idioma activo (navegación, textos y enlaces).
+- `ServiceDetail`, `CTA` y `ServiceCard` con soporte de locale para CTAs y etiquetas.
+- Página 404 con contenido según idioma de la ruta y enlace a la home alternativa.
+- Sitemap actualizado con rutas inglesas indexables.
+
 ## [1.0.2] - 2026-06-13
 
 ### Añadido

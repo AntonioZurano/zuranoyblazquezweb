@@ -1,0 +1,11 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+import { domainsHostingEmail } from '../../i18n/en/services.js';
+
+const s = domainsHostingEmail;
+---
+
+<MainLayout lang="en" title={s.metaTitle} description={s.metaDescription}>
+  <ServiceDetail locale="en" {...s} />
+</MainLayout>

@@ -4,7 +4,7 @@ Sitio web corporativo de **Zurano y Blazquez**, especialistas en soluciones digi
 
 Construido con [Astro 6](https://astro.build) priorizando **rendimiento, HTML semántico, SEO y facilidad de mantenimiento**.
 
-> **Versión estable `v1.0.0`** — Primera versión lista para publicar. Incluye páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y páginas legales (textos provisionales pendientes de revisión).
+> **Versión estable `v1.0.3`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y páginas legales (textos provisionales pendientes de revisión).
 
 ---
 
@@ -43,12 +43,18 @@ npm run preview  # previsualiza el build de producción
 └── src/
     ├── data/
     │   └── site.js           # Datos centrales: contacto, navegación y servicios
+    ├── i18n/
+    │   ├── routes.js         # Mapeo de rutas ES ↔ EN
+    │   ├── ui.js             # Textos de interfaz (nav, footer, formulario, etc.)
+    │   └── en/               # Contenido en inglés (home, servicios, etc.)
     ├── styles/
     │   └── global.css        # Sistema de diseño (variables, utilidades, componentes base)
     ├── layouts/
     │   └── MainLayout.astro   # Layout + <head> + SEO (title, meta, Open Graph, JSON-LD)
     ├── components/
-    │   ├── Header.astro       # Cabecera con navegación y menú móvil
+    │   ├── Header.astro       # Cabecera con navegación, selector de idioma y tema
+    │   ├── LanguageSwitcher.astro # Selector ES | EN
+    │   ├── ThemeToggle.astro  # Selector modo claro/oscuro
     │   ├── Footer.astro       # Pie con servicios, empresa, legal y contacto
     │   ├── Hero.astro         # Cabecera de página reutilizable
     │   ├── ServiceCard.astro  # Tarjeta de servicio
@@ -75,7 +81,35 @@ npm run preview  # previsualiza el build de producción
             ├── dominios-hosting-correo.astro
             ├── soporte-tecnologico.astro
             └── soluciones-para-empresas.astro
+        └── en/                        # Versión inglesa (prefijo /en/)
+            ├── index.astro
+            ├── company.astro
+            ├── services/
+            ├── contact.astro
+            └── …                        # Servicios, legales, blog, thank-you
 ```
+
+---
+
+## Multidioma (Español / Inglés)
+
+- **Idioma por defecto:** Español. Las rutas actuales se mantienen sin cambios (`/`, `/empresa/`, `/servicios/`, etc.).
+- **Inglés:** bajo el prefijo `/en/` (`/en/`, `/en/company/`, `/en/services/`, `/en/contact/`, etc.).
+- **Selector de idioma:** ES | EN en la cabecera, junto al selector de tema claro/oscuro.
+- **SEO:** cada página incluye `lang`, `canonical` y enlaces `hreflang` (`es`, `en`, `x-default` → español).
+- **Blog:** el índice existe en `/en/blog/`; los artículos siguen publicados solo en español (traducción pendiente).
+- **Traducciones:** `src/i18n/ui.js` (interfaz) y `src/i18n/en/` (contenido). Sin librerías externas de i18n.
+
+### Rutas principales
+
+| Español | Inglés |
+| ------- | ------ |
+| `/` | `/en/` |
+| `/empresa/` | `/en/company/` |
+| `/servicios/` | `/en/services/` |
+| `/servicios/microsoft-365/` | `/en/microsoft-365/` |
+| `/contacto/` | `/en/contact/` |
+| `/blog/` | `/en/blog/` |
 
 ---
 
@@ -102,6 +136,7 @@ Todos los datos compartidos (navegación, servicios, contacto) viven en `src/dat
 - Un único `<h1>` por página.
 - `title` y `meta description` propios por página.
 - Etiqueta `<link rel="canonical">` automática.
+- Atributo `lang` en `<html>` y enlaces `hreflang` (`es`, `en`, `x-default`).
 - Open Graph y Twitter Card.
 - Datos estructurados JSON-LD (`Organization`).
 - `sitemap.xml` generado por un endpoint nativo (`src/pages/sitemap.xml.ts`), sin dependencias externas y compatible con cualquier versión de Astro.
@@ -120,6 +155,7 @@ Todos los datos compartidos (navegación, servicios, contacto) viven en `src/dat
 - Sustituir la **imagen Open Graph** por una versión rasterizada definitiva (PNG/JPG 1200×630).
 - Añadir imágenes/optimización con `astro:assets` cuando haya fotografía real.
 - Ampliar el blog con nuevos artículos en `src/content/blog`.
+- Traducir los artículos del blog al inglés.
 
 El historial completo de versiones está en [`CHANGELOG.md`](./CHANGELOG.md) y el
 estado del roadmap en [`TODO.md`](./TODO.md). La guía de publicación está en
@@ -129,12 +165,12 @@ estado del roadmap en [`TODO.md`](./TODO.md). La guía de publicación está en
 
 ## Formulario de contacto (Formsubmit)
 
-El formulario de `/contacto` envía los datos mediante [Formsubmit.co](https://formsubmit.co)
+El formulario de `/contacto` (español) y `/en/contact/` (inglés) envía los datos mediante [Formsubmit.co](https://formsubmit.co)
 (sin backend propio). La configuración está centralizada en `src/data/site.js`
 dentro del objeto `contactForm`:
 
 - `recipient`: correo de destino de los mensajes (por defecto, `site.email`).
-- `redirectTo`: página de agradecimiento tras el envío (`/gracias/`).
+- `redirectTo`: página de agradecimiento tras el envío (`/gracias/` o `/en/thank-you/`).
 - `subject`: asunto del correo recibido.
 
 ### Activación (una sola vez, en producción)

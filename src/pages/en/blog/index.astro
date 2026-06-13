@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Hero from '../../../components/Hero.astro';
+import SectionTitle from '../../../components/SectionTitle.astro';
+import BlogCard from '../../../components/BlogCard.astro';
+import CTA from '../../../components/CTA.astro';
+import { blogPageEn } from '../../../i18n/en/data.js';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+---
+
+<MainLayout lang="en" title={blogPageEn.metaTitle} description={blogPageEn.metaDescription}>
+  <Hero eyebrow={blogPageEn.eyebrow} subtitle={blogPageEn.heroSubtitle}>
+    <h1>{blogPageEn.heroTitle}</h1>
+  </Hero>
+
+  <section class="section">
+    <div class="container">
+      <SectionTitle
+        eyebrow={blogPageEn.sectionEyebrow}
+        title={blogPageEn.sectionTitle}
+        description={blogPageEn.sectionDescription}
+      />
+      <p class="blog-note">{blogPageEn.pendingNote}</p>
+      {
+        posts.length > 0 ? (
+          <div class="grid grid--cards">
+            {posts.map((post) => (
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description}
+                href={`/blog/${post.id}/`}
+                category={post.data.category}
+                pubDate={post.data.pubDate}
+              />
+            ))}
+          </div>
+        ) : (
+          <p>{blogPageEn.empty}</p>
+        )
+      }
+    </div>
+  </section>
+
+  <CTA locale="en" title={blogPageEn.ctaTitle} text={blogPageEn.ctaText} secondaryLabel="" />
+</MainLayout>
+
+<style>
+  .blog-note {
+    margin: 0 0 var(--space-5);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-bg-alt);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+    color: var(--color-text-soft);
+  }
+</style>

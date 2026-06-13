@@ -1,0 +1,81 @@
+---
+import { getLocaleFromPath, getAlternateRoute } from '../i18n/routes.js';
+import { getUi } from '../i18n/ui.js';
+
+const currentPath = Astro.url.pathname;
+const locale = getLocaleFromPath(currentPath);
+const ui = getUi(locale);
+const esHref = getAlternateRoute(currentPath, 'es');
+const enHref = getAlternateRoute(currentPath, 'en');
+---
+
+<nav class="lang-switcher" aria-label={ui.langSwitcherLabel}>
+  <a
+    href={esHref}
+    class:list={['lang-switcher__link', { 'is-active': locale === 'es' }]}
+    hreflang="es"
+    lang="es"
+    aria-current={locale === 'es' ? 'true' : undefined}
+  >
+    ES
+  </a>
+  <span class="lang-switcher__sep" aria-hidden="true">|</span>
+  <a
+    href={enHref}
+    class:list={['lang-switcher__link', { 'is-active': locale === 'en' }]}
+    hreflang="en"
+    lang="en"
+    aria-current={locale === 'en' ? 'true' : undefined}
+  >
+    EN
+  </a>
+</nav>
+
+<style>
+  .lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .lang-switcher__sep {
+    color: var(--color-text-muted);
+    font-weight: 400;
+    user-select: none;
+  }
+
+  .lang-switcher__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    min-height: 2rem;
+    padding: 0.25rem 0.4rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition:
+      color var(--transition),
+      background var(--transition),
+      box-shadow var(--transition);
+  }
+
+  .lang-switcher__link:hover {
+    color: var(--color-primary);
+    background: var(--color-bg-soft);
+  }
+
+  .lang-switcher__link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  .lang-switcher__link.is-active {
+    color: var(--color-primary);
+    background: var(--color-bg-soft);
+    box-shadow: inset 0 0 0 1px var(--color-border);
+  }
+</style>

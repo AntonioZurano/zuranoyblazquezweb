@@ -1,0 +1,49 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import LegalPage from '../../components/LegalPage.astro';
+import { site } from '../../data/site.js';
+---
+
+<MainLayout
+  lang="en"
+  title="Cookies policy"
+  description="Cookies policy of Zurano y Blázquez. Information about the use of cookies on zuranoyblazquez.com."
+  noindex={true}
+>
+  <LegalPage title="Cookies policy">
+    <p class="notice">
+      Provisional text pending legal review. Update this policy according to the cookies actually
+      used on the website.
+    </p>
+
+    <h2>1. What are cookies?</h2>
+    <p>
+      Cookies are small text files stored on your device when you visit a website. They help the site
+      function correctly and improve the browsing experience.
+    </p>
+
+    <h2>2. Cookies used on this website</h2>
+    <p>
+      This website may use technical cookies necessary for its operation, such as those related to
+      theme preference (light/dark mode) stored locally in your browser.
+    </p>
+
+    <h2>3. Third-party cookies</h2>
+    <p>
+      If third-party services are integrated in the future (analytics, embedded content, etc.), this
+      policy will be updated accordingly.
+    </p>
+
+    <h2>4. Managing cookies</h2>
+    <p>
+      You can configure your browser to block or delete cookies. Please note that disabling certain
+      cookies may affect the functionality of the website.
+    </p>
+
+    <h2>5. Contact</h2>
+    <p>
+      For any questions about this cookies policy, contact {site.legalName} at
+      <a href={`mailto:${site.email}`}>{site.email}</a>.
+    </p>
+  </LegalPage>
+</MainLayout>

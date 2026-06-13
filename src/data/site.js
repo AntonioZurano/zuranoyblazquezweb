@@ -37,6 +37,16 @@ export const contactForm = {
   subject: 'Nueva consulta desde zuranoyblazquez.com',
 };
 
+// Formulario de contacto en inglés (misma integración Formsubmit).
+export const contactFormEn = {
+  recipient: site.email,
+  get endpoint() {
+    return `https://formsubmit.co/${this.recipient}`;
+  },
+  redirectTo: `${site.url}/en/thank-you/`,
+  subject: 'New enquiry from zuranoyblazquez.com',
+};
+
 // Navegación principal del Header.
 export const mainNav = [
   { label: 'Inicio', href: '/' },

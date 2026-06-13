@@ -1,20 +1,53 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/Hero.astro';
+import { getLocaleFromPath } from '../i18n/routes.js';
+import { getUi } from '../i18n/ui.js';
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const nf = getUi(locale).notFound;
+const homeHref = locale === 'en' ? '/en/' : '/';
+const servicesHref = locale === 'en' ? '/en/services/' : '/servicios/';
 ---
 
-<MainLayout
-  title="Página no encontrada"
-  description="La página que buscas no existe o se ha movido. Vuelve al inicio de Zurano y Blazquez."
-  noindex={true}
->
+<MainLayout lang={locale} title={nf.metaTitle} description={nf.metaDescription} noindex={true}>
   <Hero
-    eyebrow="Error 404"
+    eyebrow={nf.eyebrow}
     align="center"
-    subtitle="Lo sentimos, la página que buscas no existe o se ha movido."
-    primaryCta={{ label: 'Volver al inicio', href: '/' }}
-    secondaryCta={{ label: 'Ver servicios', href: '/servicios/' }}
+    subtitle={nf.heroSubtitle}
+    primaryCta={{ label: nf.primaryCta, href: homeHref }}
+    secondaryCta={{ label: nf.secondaryCta, href: servicesHref }}
   >
-    <h1>Página no encontrada</h1>
+    <h1>{nf.heroTitle}</h1>
   </Hero>
+
+  {
+    locale === 'es' && (
+      <section class="section">
+        <div class="container container--narrow not-found-links">
+          <p>
+            <a href="/en/">English home</a>
+          </p>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    locale === 'en' && nf.spanishHome && (
+      <section class="section">
+        <div class="container container--narrow not-found-links">
+          <p>
+            <a href="/">{nf.spanishHome}</a>
+          </p>
+        </div>
+      </section>
+    )
+  }
 </MainLayout>
+
+<style>
+  .not-found-links {
+    text-align: center;
+  }
+</style>

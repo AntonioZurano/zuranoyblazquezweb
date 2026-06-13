@@ -21,9 +21,11 @@ se fusiona en `main` y se etiqueta.
 - [x] **v0.9.0** — Preparación para despliegue en VPS.
 - [x] **v1.0.0** — Versión estable lista para publicar. 🎉
 - [x] **v1.0.2** — Modo claro / modo oscuro (selector de tema).
+- [x] **v1.0.3** — Soporte multidioma Español / Inglés (`/en`).
 
 ## Pendientes conocidos / notas
 
 - Los textos legales son **provisionales** y deben revisarse por asesoría legal.
+- Los **artículos del blog** están solo en español; la traducción al inglés queda pendiente.
 - El formulario de contacto requiere verificación real una vez publicado el dominio.
 - La imagen Open Graph (`/og-default.svg`) es provisional; sustituir por PNG/JPG 1200×630 definitivo.

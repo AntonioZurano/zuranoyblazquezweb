@@ -1,0 +1,137 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import CTA from '../../components/CTA.astro';
+import Icon from '../../components/Icon.astro';
+import { companyEn } from '../../i18n/en/data.js';
+---
+
+<MainLayout lang="en" title={companyEn.metaTitle} description={companyEn.metaDescription}>
+  <Hero eyebrow={companyEn.eyebrow} subtitle={companyEn.heroSubtitle}>
+    <h1>{companyEn.heroTitle}</h1>
+  </Hero>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <SectionTitle eyebrow={companyEn.whoEyebrow} title={companyEn.whoTitle} />
+      <p class="lead">{companyEn.lead}</p>
+      <p>{companyEn.body}</p>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container container--narrow">
+      <SectionTitle eyebrow="Mission and vision" title="What drives us" align="center" />
+      <div class="mission-grid">
+        <article class="card mission">
+          <h3>{companyEn.missionTitle}</h3>
+          <p>{companyEn.mission}</p>
+        </article>
+        <article class="card mission">
+          <h3>{companyEn.visionTitle}</h3>
+          <p>{companyEn.vision}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionTitle eyebrow={companyEn.valuesTitle} title="Principles that define us" align="center" />
+      <div class="grid grid--cards">
+        {companyEn.values.map((item) => (
+          <article class="principle card">
+            <span class="principle__icon" aria-hidden="true">
+              <Icon name={item.icon} size={24} />
+            </span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="stats">
+        {companyEn.stats.map((stat) => (
+          <div class="stat">
+            <span class="stat__num">{stat.num}</span>
+            <span class="stat__label">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTA locale="en" title={companyEn.ctaTitle} text={companyEn.ctaText} />
+</MainLayout>
+
+<style>
+  .mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+  }
+
+  .mission h3 {
+    margin-bottom: var(--space-3);
+  }
+
+  .mission p {
+    font-size: var(--fs-sm);
+  }
+
+  .principle__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .principle h3 {
+    margin-bottom: var(--space-2);
+    font-size: var(--fs-md);
+  }
+
+  .principle p {
+    font-size: var(--fs-sm);
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-4);
+    text-align: center;
+  }
+
+  .stat {
+    padding: var(--space-5) var(--space-3);
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--color-bg-soft), var(--color-bg-alt));
+    border: 1px solid var(--color-border);
+  }
+
+  .stat__num {
+    display: block;
+    font-size: var(--fs-2xl);
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .stat__label {
+    display: block;
+    margin-top: var(--space-2);
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+  }
+</style>

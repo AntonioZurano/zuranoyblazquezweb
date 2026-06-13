@@ -1,0 +1,200 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import CTA from '../../components/CTA.astro';
+import Icon from '../../components/Icon.astro';
+import { homeEn, servicesEn } from '../../i18n/en/data.js';
+import { getUi } from '../../i18n/ui.js';
+
+const ui = getUi('en');
+const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 3);
+---
+
+<MainLayout
+  lang="en"
+  title={homeEn.metaTitle}
+  description={homeEn.metaDescription}
+>
+  <Hero
+    eyebrow={homeEn.eyebrow}
+    subtitle={homeEn.heroSubtitle}
+    primaryCta={homeEn.primaryCta}
+    secondaryCta={homeEn.secondaryCta}
+  >
+    <h1>{homeEn.heroTitle}</h1>
+  </Hero>
+
+  <section class="section">
+    <div class="container">
+      <SectionTitle
+        eyebrow={homeEn.servicesEyebrow}
+        title={homeEn.servicesTitle}
+        description={homeEn.servicesDescription}
+      />
+      <div class="grid grid--cards">
+        {servicesEn.map((service) => (
+          <ServiceCard
+            title={service.title}
+            summary={service.summary}
+            href={service.href}
+            icon={service.icon}
+            readMoreLabel={ui.serviceCard.readMore}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <SectionTitle
+        eyebrow={homeEn.trustEyebrow}
+        title={homeEn.trustTitle}
+        description={homeEn.trustDescription}
+        align="center"
+      />
+      <div class="grid grid--cards values">
+        {homeEn.values.map((value) => (
+          <div class="value">
+            <span class="value__icon" aria-hidden="true">
+              <Icon name={value.icon} size={26} />
+            </span>
+            <h3>{value.title}</h3>
+            <p>{value.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionTitle
+        eyebrow={homeEn.stepsEyebrow}
+        title={homeEn.stepsTitle}
+        description={homeEn.stepsDescription}
+      />
+      <ol class="steps">
+        {homeEn.steps.map((step) => (
+          <li class="step">
+            <span class="step__num">{step.num}</span>
+            <h3 class="step__title">{step.title}</h3>
+            <p class="step__text">{step.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  {
+    latestPosts.length > 0 && (
+      <section class="section section--soft">
+        <div class="container">
+          <SectionTitle
+            eyebrow={homeEn.blogEyebrow}
+            title={homeEn.blogTitle}
+            description={homeEn.blogDescription}
+          />
+          <p class="home-blog__note">{homeEn.blogNote}</p>
+          <div class="grid grid--cards">
+            {latestPosts.map((post) => (
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description}
+                href={`/blog/${post.id}/`}
+                category={post.data.category}
+                pubDate={post.data.pubDate}
+              />
+            ))}
+          </div>
+          <p class="home-blog__more">
+            <a href="/en/blog/" class="btn btn--outline">{homeEn.blogMore}</a>
+          </p>
+        </div>
+      </section>
+    )
+  }
+
+  <CTA locale="en" />
+</MainLayout>
+
+<style>
+  .home-blog__note {
+    margin: 0 0 var(--space-4);
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+  }
+
+  .home-blog__more {
+    margin-top: var(--space-5);
+    text-align: center;
+  }
+
+  .value {
+    text-align: center;
+    padding: var(--space-4);
+  }
+
+  .value__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--color-card);
+    color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-3);
+  }
+
+  .value h3 {
+    margin-bottom: var(--space-2);
+  }
+
+  .value p {
+    font-size: var(--fs-sm);
+  }
+
+  .steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-4);
+    counter-reset: step;
+  }
+
+  .step {
+    position: relative;
+    padding: var(--space-5);
+    background: var(--color-bg-soft);
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+  }
+
+  .step__num {
+    display: inline-block;
+    font-size: var(--fs-xl);
+    font-weight: 800;
+    color: var(--color-primary-light);
+    opacity: 0.5;
+    margin-bottom: var(--space-2);
+  }
+
+  .step__title {
+    margin-bottom: var(--space-2);
+    font-size: var(--fs-md);
+  }
+
+  .step__text {
+    font-size: var(--fs-sm);
+  }
+</style>

@@ -20,6 +20,10 @@ const EXCLUDED = new Set<string>([
   '/aviso-legal/',
   '/politica-de-privacidad/',
   '/politica-de-cookies/',
+  '/en/thank-you/',
+  '/en/legal-notice/',
+  '/en/privacy-policy/',
+  '/en/cookies-policy/',
 ]);
 
 /** Convierte la ruta de un archivo de página en una URL con barra final. */
@@ -34,9 +38,10 @@ function filePathToRoute(filePath: string): string {
 /** Prioridad y frecuencia de cambio según el tipo de página (heurística SEO). */
 function seoHints(route: string): { priority: string; changefreq: string } {
   if (route === '/') return { priority: '1.0', changefreq: 'weekly' };
-  if (route === '/servicios/') return { priority: '0.9', changefreq: 'monthly' };
-  if (route.startsWith('/servicios/')) return { priority: '0.8', changefreq: 'monthly' };
-  if (route === '/blog/') return { priority: '0.7', changefreq: 'weekly' };
+  if (route === '/en/') return { priority: '0.9', changefreq: 'weekly' };
+  if (route === '/servicios/' || route === '/en/services/') return { priority: '0.9', changefreq: 'monthly' };
+  if (route.startsWith('/servicios/') || route.startsWith('/en/')) return { priority: '0.8', changefreq: 'monthly' };
+  if (route === '/blog/' || route === '/en/blog/') return { priority: '0.7', changefreq: 'weekly' };
   return { priority: '0.6', changefreq: 'monthly' };
 }
 

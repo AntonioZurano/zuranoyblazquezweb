@@ -1,33 +1,42 @@
 ---
-import { site, mainNav } from '../data/site.js';
+import { site } from '../data/site.js';
+import { getLocaleFromPath } from '../i18n/routes.js';
+import { getUi } from '../i18n/ui.js';
 import Icon from './Icon.astro';
 import ThemeToggle from './ThemeToggle.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
 
-// Cabecera con navegación principal, submenú de Servicios y menú móvil.
-// La marca de la ruta activa se calcula a partir de la URL actual.
 const currentPath = Astro.url.pathname;
+const locale = getLocaleFromPath(currentPath);
+const ui = getUi(locale);
+const mainNav = ui.mainNav;
+const homeHref = locale === 'en' ? '/en/' : '/';
+const contactHref = locale === 'en' ? '/en/contact/' : '/contacto/';
 
-// Resaltado visual: una sección está "activa" si la URL empieza por su ruta.
 const isActive = (href: string) => {
-  if (href === '/') return currentPath === '/';
+  if (href === '/' || href === '/en/') {
+    return currentPath === href || (href === '/en/' && currentPath === '/en');
+  }
   return currentPath === href || currentPath.startsWith(href);
 };
 
-// aria-current="page" solo para la página exacta (no para el padre de un submenú).
 const isCurrent = (href: string) => currentPath === href;
 ---
 
 <header class="site-header">
   <div class="container site-header__inner">
     <div class="site-header__start">
-      <a href="/" class="brand" aria-label={`${site.name} — Inicio`}>
+      <a href={homeHref} class="brand" aria-label={`${site.name} — ${ui.brandHome}`}>
         <span class="brand__mark" aria-hidden="true">ZB</span>
         <span class="brand__text">
           <span class="brand__name">{site.name}</span>
-          <span class="brand__tagline">{site.tagline}</span>
+          <span class="brand__tagline">{ui.tagline}</span>
         </span>
       </a>
-      <ThemeToggle />
+      <div class="site-header__controls">
+        <LanguageSwitcher />
+        <ThemeToggle />
+      </div>
     </div>
 
     <div class="site-header__actions">
@@ -36,61 +45,63 @@ const isCurrent = (href: string) => currentPath === href;
         type="button"
         aria-expanded="false"
         aria-controls="primary-nav"
-        aria-label="Abrir menú de navegación"
+        aria-label={ui.navToggleOpen}
+        data-open-label={ui.navToggleOpen}
+        data-close-label={ui.navToggleClose}
       >
         <span class="nav-toggle__bar"></span>
         <span class="nav-toggle__bar"></span>
         <span class="nav-toggle__bar"></span>
       </button>
 
-      <nav id="primary-nav" class="primary-nav" aria-label="Navegación principal">
-      <ul class="primary-nav__list">
-        {
-          mainNav.map((item) =>
-            item.children ? (
-              <li class="has-submenu">
-                <a
-                  href={item.href}
-                  class:list={['nav-link', { 'is-active': isActive(item.href) }]}
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  aria-current={isCurrent(item.href) ? 'page' : undefined}
-                >
-                  {item.label}
-                  <Icon name="arrow" size={14} class="nav-link__caret" />
-                </a>
-                <ul class="submenu">
-                  {item.children.map((child) => (
-                    <li>
-                      <a
-                        href={child.href}
-                        class:list={['submenu__link', { 'is-active': isActive(child.href) }]}
-                        aria-current={isCurrent(child.href) ? 'page' : undefined}
-                      >
-                        {child.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ) : (
-              <li>
-                <a
-                  href={item.href}
-                  class:list={['nav-link', { 'is-active': isActive(item.href) }]}
-                  aria-current={isCurrent(item.href) ? 'page' : undefined}
-                >
-                  {item.label}
-                </a>
-              </li>
+      <nav id="primary-nav" class="primary-nav" aria-label={ui.navAria}>
+        <ul class="primary-nav__list">
+          {
+            mainNav.map((item) =>
+              item.children ? (
+                <li class="has-submenu">
+                  <a
+                    href={item.href}
+                    class:list={['nav-link', { 'is-active': isActive(item.href) }]}
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-current={isCurrent(item.href) ? 'page' : undefined}
+                  >
+                    {item.label}
+                    <Icon name="arrow" size={14} class="nav-link__caret" />
+                  </a>
+                  <ul class="submenu">
+                    {item.children.map((child) => (
+                      <li>
+                        <a
+                          href={child.href}
+                          class:list={['submenu__link', { 'is-active': isActive(child.href) }]}
+                          aria-current={isCurrent(child.href) ? 'page' : undefined}
+                        >
+                          {child.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ) : (
+                <li>
+                  <a
+                    href={item.href}
+                    class:list={['nav-link', { 'is-active': isActive(item.href) }]}
+                    aria-current={isCurrent(item.href) ? 'page' : undefined}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              )
             )
-          )
-        }
-        <li class="primary-nav__cta">
-          <a href="/contacto/" class="btn btn--primary">Contacto</a>
-        </li>
-      </ul>
-    </nav>
+          }
+          <li class="primary-nav__cta">
+            <a href={contactHref} class="btn btn--primary">{ui.navContact}</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 </header>
@@ -118,6 +129,13 @@ const isCurrent = (href: string) => currentPath === href;
     align-items: center;
     gap: var(--space-2);
     min-width: 0;
+  }
+
+  .site-header__controls {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    flex-shrink: 0;
   }
 
   .site-header__actions {
@@ -348,7 +366,6 @@ const isCurrent = (href: string) => currentPath === href;
 </style>
 
 <script>
-  // Lógica del menú móvil. JS mínimo y sin dependencias.
   const header = document.querySelector('.site-header');
   const toggle = header?.querySelector<HTMLButtonElement>('.nav-toggle');
   const nav = header?.querySelector<HTMLElement>('.primary-nav');
@@ -356,11 +373,11 @@ const isCurrent = (href: string) => currentPath === href;
   toggle?.addEventListener('click', () => {
     const open = nav?.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded', String(Boolean(open)));
-    toggle.setAttribute('aria-label', open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+    const openLabel = toggle.dataset.openLabel ?? 'Open navigation menu';
+    const closeLabel = toggle.dataset.closeLabel ?? 'Close navigation menu';
+    toggle.setAttribute('aria-label', open ? closeLabel : openLabel);
   });
 
-  // En móvil, el enlace con submenú despliega/colapsa en lugar de navegar
-  // directamente al primer toque.
   const mql = window.matchMedia('(max-width: 920px)');
   header?.querySelectorAll<HTMLElement>('.has-submenu > .nav-link').forEach((link) => {
     link.addEventListener('click', (event) => {
