@@ -6,6 +6,11 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [1.1.3] - 2026-06-14
+
+### Corregido
+- Árbol de directorios en `README.md` actualizado tras la migración i18n a TypeScript (`routes.ts`, `ui.ts`).
+
 ## [1.1.2] - 2026-06-14
 
 ### Cambiado

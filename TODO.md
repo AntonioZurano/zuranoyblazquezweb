@@ -24,6 +24,7 @@ se fusiona en `main` y se etiqueta.
 - [x] **v1.0.3** — Soporte multidioma Español / Inglés (`/en`).
 - [x] **v1.1.0** — Refactor formulario de contacto + tipos compartidos.
 - [x] **v1.1.2** — Migración i18n a TypeScript.
+- [x] **v1.1.3** — Corrección del árbol de proyecto en README.
 
 ## Pendientes conocidos / notas
 

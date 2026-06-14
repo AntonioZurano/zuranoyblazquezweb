@@ -4,7 +4,7 @@ Sitio web corporativo de **Zurano y Blazquez**, especialistas en soluciones digi
 
 Construido con [Astro 6](https://astro.build) priorizando **rendimiento, HTML semántico, SEO y facilidad de mantenimiento**.
 
-> **Versión estable `v1.1.2`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y páginas legales (textos provisionales pendientes de revisión).
+> **Versión estable `v1.1.3`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y páginas legales (textos provisionales pendientes de revisión).
 
 ---
 
