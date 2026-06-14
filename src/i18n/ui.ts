@@ -308,8 +308,7 @@ export const ui = {
       sectionDescription:
         'Content for SMEs and freelancers who want to make better digital decisions.',
       empty: 'We are preparing the first articles. Check back soon.',
-      pendingNote:
-        'Blog posts are currently published in Spanish. English versions will be added in a future update.',
+      pendingNote: '',
       ctaTitle: 'Would you like to hear about new articles?',
       ctaText: 'Contact us and we will keep you updated on news that can help your business.',
     },

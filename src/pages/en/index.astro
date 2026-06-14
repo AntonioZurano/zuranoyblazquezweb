@@ -9,9 +9,11 @@ import CTA from '@components/CTA.astro';
 import Icon from '@components/Icon.astro';
 import { homeEn, servicesEn } from '@i18n/en/data';
 import { getUi } from '@i18n/ui';
+import { getPostHref, getPostsByLocale } from '@i18n/blog';
 
 const ui = getUi('en');
-const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
+const allPosts = await getCollection('blog');
+const latestPosts = getPostsByLocale(allPosts, 'en')
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
   .slice(0, 3);
 ---
@@ -101,13 +103,14 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
             title={homeEn.blogTitle}
             description={homeEn.blogDescription}
           />
-          <p class="home-blog__note">{homeEn.blogNote}</p>
+          {homeEn.blogNote && <p class="home-blog__note">{homeEn.blogNote}</p>}
           <div class="grid grid--cards">
             {latestPosts.map((post) => (
               <BlogCard
+                locale="en"
                 title={post.data.title}
                 description={post.data.description}
-                href={`/blog/${post.id}/`}
+                href={getPostHref(post)}
                 category={post.data.category}
                 pubDate={post.data.pubDate}
               />

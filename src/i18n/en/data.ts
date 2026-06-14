@@ -104,8 +104,7 @@ export const homeEn = {
   blogTitle: 'Latest articles',
   blogDescription: 'Tips and news about useful technology for businesses.',
   blogMore: 'View all articles',
-  blogNote:
-    'Blog articles are currently available in Spanish only. English translations are planned.',
+  blogNote: '',
 } satisfies HomePageContent;
 
 export const companyEn = {

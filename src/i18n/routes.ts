@@ -1,4 +1,9 @@
 import type { Locale } from '@types/locale';
+import {
+  getBlogPostAlternateRoute,
+  getBlogPostAlternateUrls,
+  isBlogPostPath,
+} from '@i18n/blog';
 
 /** Normaliza una ruta con barra final (excepto raíz). */
 export function normalizePath(path: string): string {
@@ -40,8 +45,8 @@ export function getAlternateRoute(pathname: string, targetLocale: Locale): strin
   const path = normalizePath(pathname);
   const currentLocale = getLocaleFromPath(pathname);
 
-  if (path.startsWith('/blog/') && path !== '/blog/') {
-    return targetLocale === 'en' ? '/en/blog/' : '/blog/';
+  if (isBlogPostPath(path)) {
+    return getBlogPostAlternateRoute(path, targetLocale);
   }
 
   if (currentLocale === targetLocale) {
@@ -64,6 +69,11 @@ export function getAlternateUrls(pathname: string, siteUrl: string): AlternateUr
   const path = normalizePath(pathname);
   const locale = getLocaleFromPath(path);
   const base = siteUrl.replace(/\/$/, '');
+
+  const blogAlternates = getBlogPostAlternateUrls(path, siteUrl);
+  if (blogAlternates) {
+    return blogAlternates;
+  }
 
   if (locale === 'en') {
     const esPath = getAlternateRoute(path, 'es');

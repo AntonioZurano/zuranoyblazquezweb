@@ -2,6 +2,8 @@
 title: 'Microsoft 365 para empresas: qué plan elegir'
 description: 'Comparativa sencilla de los planes de Microsoft 365 para empresas. Te ayudamos a elegir según tu número de usuarios, tus necesidades de correo, Office y seguridad.'
 pubDate: 2026-05-26
+lang: es
+translationKey: microsoft-365-plan
 category: 'Microsoft 365'
 author: 'Zurano y Blazquez'
 ---

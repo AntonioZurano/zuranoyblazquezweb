@@ -8,9 +8,11 @@ import BlogCard from '@components/BlogCard.astro';
 import CTA from '@components/CTA.astro';
 import Icon from '@components/Icon.astro';
 import { site, services } from '@data/site.js';
+import { getPostHref, getPostsByLocale } from '@i18n/blog';
 
 // Últimos 3 artículos del blog para mostrar en la Home.
-const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
+const allPosts = await getCollection('blog');
+const latestPosts = getPostsByLocale(allPosts, 'es')
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
   .slice(0, 3);
 
@@ -130,7 +132,7 @@ const steps = [
               <BlogCard
                 title={post.data.title}
                 description={post.data.description}
-                href={`/blog/${post.id}/`}
+                href={getPostHref(post)}
                 category={post.data.category}
                 pubDate={post.data.pubDate}
               />

@@ -2,6 +2,8 @@
 title: 'Qué necesita una pyme para empezar su digitalización'
 description: 'Guía práctica para autónomos y pymes que quieren dar sus primeros pasos en la digitalización: por dónde empezar, qué herramientas priorizar y errores a evitar.'
 pubDate: 2026-05-12
+lang: es
+translationKey: sme-digitalisation
 category: 'Digitalización'
 author: 'Zurano y Blazquez'
 ---

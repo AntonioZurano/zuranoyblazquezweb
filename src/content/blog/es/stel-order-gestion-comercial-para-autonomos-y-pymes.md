@@ -2,6 +2,8 @@
 title: 'STEL Order: gestión comercial para autónomos y pymes'
 description: 'Descubre cómo STEL Order ayuda a autónomos y pymes a gestionar presupuestos, facturas, clientes y stock desde el móvil o el ordenador, de forma sencilla.'
 pubDate: 2026-06-02
+lang: es
+translationKey: stel-order-management
 category: 'STEL Order'
 author: 'Zurano y Blazquez'
 ---

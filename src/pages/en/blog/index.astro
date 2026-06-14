@@ -6,8 +6,10 @@ import SectionTitle from '@components/SectionTitle.astro';
 import BlogCard from '@components/BlogCard.astro';
 import CTA from '@components/CTA.astro';
 import { getUi } from '@i18n/ui';
+import { getPostHref, getPostsByLocale } from '@i18n/blog';
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+const allPosts = await getCollection('blog');
+const posts = getPostsByLocale(allPosts, 'en').sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
 
@@ -26,7 +28,6 @@ const blog = getUi('en').blogIndex;
         title={blog.sectionTitle}
         description={blog.sectionDescription}
       />
-      {blog.pendingNote && <p class="blog-note">{blog.pendingNote}</p>}
       {
         posts.length > 0 ? (
           <div class="grid grid--cards">
@@ -35,7 +36,7 @@ const blog = getUi('en').blogIndex;
                 locale="en"
                 title={post.data.title}
                 description={post.data.description}
-                href={`/blog/${post.id}/`}
+                href={getPostHref(post)}
                 category={post.data.category}
                 pubDate={post.data.pubDate}
               />
@@ -50,15 +51,3 @@ const blog = getUi('en').blogIndex;
 
   <CTA locale="en" title={blog.ctaTitle} text={blog.ctaText} secondaryLabel="" />
 </MainLayout>
-
-<style>
-  .blog-note {
-    margin: 0 0 var(--space-5);
-    padding: var(--space-3) var(--space-4);
-    background: var(--color-bg-alt);
-    border-left: 3px solid var(--color-accent);
-    border-radius: var(--radius-sm);
-    font-size: var(--fs-sm);
-    color: var(--color-text-soft);
-  }
-</style>

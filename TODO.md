@@ -26,10 +26,10 @@ se fusiona en `main` y se etiqueta.
 - [x] **v1.1.2** — Migración i18n a TypeScript.
 - [x] **v1.1.3** — Corrección del árbol de proyecto en README.
 - [x] **v1.1.4** — Pulido i18n: blog, tema, servicios ES centralizados y alias de imports.
+- [x] **v1.1.5** — Traducción de artículos del blog al inglés y rutas `/en/blog/`.
 
 ## Pendientes conocidos / notas
 
 - Los textos legales son **provisionales** y deben revisarse por asesoría legal.
-- Los **artículos del blog** están solo en español; la traducción al inglés queda pendiente.
 - El formulario de contacto requiere verificación real una vez publicado el dominio.
 - La imagen Open Graph (`/og-default.svg`) es provisional; sustituir por PNG/JPG 1200×630 definitivo.

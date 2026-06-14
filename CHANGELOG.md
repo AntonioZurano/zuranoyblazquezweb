@@ -6,6 +6,22 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [1.1.5] - 2026-06-14
+
+### Corregido
+- Soporte multidioma de artículos del blog: rutas inglesas bajo `/en/blog/` y selector ES/EN en cada post.
+
+### Añadido
+- Traducciones al inglés de los 3 artículos existentes del blog.
+- Estructura `src/content/blog/es/` y `src/content/blog/en/` con `lang` y `translationKey`.
+- Módulo `src/i18n/blog.ts` con rutas equivalentes y helpers (`getPostHref`, `getBlogPostAlternateRoute`).
+- Ruta dinámica `src/pages/en/blog/[...slug].astro`.
+
+### Cambiado
+- Índices `/blog/` y `/en/blog/` listan solo artículos de su idioma.
+- Sitemap incluye posts en español e inglés.
+- Metadatos SEO (`lang`, canonical, hreflang) correctos en cada artículo.
+
 ## [1.1.4] - 2026-06-14
 
 ### Añadido

@@ -1,8 +1,17 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-// Colección del blog basada en archivos Markdown en src/content/blog.
-// Usa el "glob loader" de Astro 6 (content layer).
+const blogCategories = [
+  'Microsoft 365',
+  'STEL Order',
+  'Páginas web',
+  'Websites',
+  'Hosting y dominios',
+  'Hosting and Domains',
+  'Digitalización',
+  'Digital Transformation',
+] as const;
+
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
@@ -10,13 +19,13 @@ const blog = defineCollection({
     description: z.string(),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
-    category: z.enum([
-      'Microsoft 365',
-      'STEL Order',
-      'Páginas web',
-      'Hosting y dominios',
-      'Digitalización',
+    lang: z.enum(['es', 'en']),
+    translationKey: z.enum([
+      'sme-digitalisation',
+      'microsoft-365-plan',
+      'stel-order-management',
     ]),
+    category: z.enum(blogCategories),
     author: z.string().default('Zurano y Blazquez'),
     draft: z.boolean().default(false),
   }),

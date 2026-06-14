@@ -6,8 +6,10 @@ import SectionTitle from '@components/SectionTitle.astro';
 import BlogCard from '@components/BlogCard.astro';
 import CTA from '@components/CTA.astro';
 import { getUi } from '@i18n/ui';
+import { getPostHref, getPostsByLocale } from '@i18n/blog';
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+const allPosts = await getCollection('blog');
+const posts = getPostsByLocale(allPosts, 'es').sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
 
@@ -33,7 +35,7 @@ const blog = getUi('es').blogIndex;
               <BlogCard
                 title={post.data.title}
                 description={post.data.description}
-                href={`/blog/${post.id}/`}
+                href={getPostHref(post)}
                 category={post.data.category}
                 pubDate={post.data.pubDate}
               />

@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { site } from '@data/site.js';
+import { getPostHref } from '@i18n/blog';
 
 // Sitemap generado de forma nativa, sin dependencias externas.
 // Descubre automáticamente todas las páginas .astro de `src/pages` y las
@@ -56,7 +57,7 @@ export const GET: APIRoute = async () => {
 
   // Artículos del blog publicados.
   const posts = await getCollection('blog', ({ data }) => !data.draft);
-  const blogRoutes = posts.map((post) => `/blog/${post.id}/`);
+  const blogRoutes = posts.map((post) => getPostHref(post));
 
   const routes = Array.from(new Set([...staticRoutes, ...blogRoutes])).sort();
 

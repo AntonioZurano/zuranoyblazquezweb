@@ -4,7 +4,7 @@ Sitio web corporativo de **Zurano y Blazquez**, especialistas en soluciones digi
 
 Construido con [Astro 6](https://astro.build) priorizando **rendimiento, HTML semántico, SEO y facilidad de mantenimiento**.
 
-> **Versión estable `v1.1.4`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y páginas legales (textos provisionales pendientes de revisión).
+> **Versión estable `v1.1.5`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y páginas legales (textos provisionales pendientes de revisión).
 
 ---
 
@@ -102,8 +102,37 @@ npm run preview  # previsualiza el build de producción
 - **Inglés:** bajo el prefijo `/en/` (`/en/`, `/en/company/`, `/en/services/`, `/en/contact/`, etc.).
 - **Selector de idioma:** ES | EN en la cabecera, junto al selector de tema claro/oscuro.
 - **SEO:** cada página incluye `lang`, `canonical` y enlaces `hreflang` (`es`, `en`, `x-default` → español).
-- **Blog:** el índice existe en `/en/blog/`; los artículos siguen publicados solo en español (traducción pendiente).
-- **Traducciones:** `src/i18n/ui.ts` (interfaz) y `src/i18n/en/` (contenido). Sin librerías externas de i18n.
+- **Blog:** artículos en español bajo `/blog/` y en inglés bajo `/en/blog/`. Cada par de traducciones comparte un `translationKey` (ver más abajo).
+- **Traducciones:** `src/i18n/ui.ts` (interfaz), `src/i18n/en/` (contenido de páginas) y `src/i18n/blog.ts` (rutas equivalentes entre posts). Sin librerías externas de i18n.
+
+### Blog multidioma
+
+Los artículos viven en Content Collections bajo:
+
+```text
+src/content/blog/
+├── es/          # Posts en español → /blog/<slug>/
+└── en/          # Posts en inglés  → /en/blog/<slug>/
+```
+
+Frontmatter recomendado en cada post:
+
+```yaml
+title: "Título del artículo"
+description: "Descripción SEO"
+pubDate: 2026-05-12
+lang: es          # o en
+translationKey: microsoft-365-plan
+category: "Microsoft 365"
+author: "Zurano y Blazquez"
+```
+
+Pasos para añadir un artículo bilingüe:
+
+1. Crear el Markdown en `src/content/blog/es/<slug-es>.md` con `lang: es`.
+2. Crear la traducción en `src/content/blog/en/<slug-en>.md` con el mismo `translationKey` y `lang: en`.
+3. Registrar las rutas ES/EN en `src/i18n/blog.ts` (`blogTranslationRoutes`) para que el selector de idioma funcione dentro del post.
+4. Añadir el `translationKey` al enum en `src/content.config.ts` si es nuevo.
 
 ### Rutas principales
 

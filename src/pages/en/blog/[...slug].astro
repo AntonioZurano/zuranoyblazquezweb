@@ -6,7 +6,7 @@ import { getPostSlug } from '@i18n/blog';
 export async function getStaticPaths() {
   const posts = await getCollection(
     'blog',
-    ({ data }) => !data.draft && data.lang === 'es'
+    ({ data }) => !data.draft && data.lang === 'en'
   );
   return posts.map((post) => ({
     params: { slug: getPostSlug(post) },
@@ -19,7 +19,7 @@ const { Content } = await render(post);
 ---
 
 <PostLayout
-  locale="es"
+  locale="en"
   title={post.data.title}
   description={post.data.description}
   category={post.data.category}
