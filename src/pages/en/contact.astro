@@ -2,9 +2,10 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import Hero from '../../components/Hero.astro';
 import ContactSection from '../../components/ContactSection.astro';
-import { getUi } from '../../i18n/ui.js';
+import { getUi } from '../../i18n/ui.ts';
+import type { Locale } from '../../types/locale';
 
-const locale = 'en';
+const locale: Locale = 'en';
 const c = getUi(locale).contact;
 ---
 

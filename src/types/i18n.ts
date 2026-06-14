@@ -1,6 +1,52 @@
+import type { Locale } from './locale';
+
 export interface SelectOption {
   value: string;
   label: string;
+}
+
+export interface NavLink {
+  label: string;
+  href: string;
+}
+
+export interface NavItem extends NavLink {
+  children?: NavLink[];
+}
+
+export interface FooterUi {
+  servicesTitle: string;
+  companyTitle: string;
+  legalTitle: string;
+  aboutUs: string;
+  services: string;
+  blog: string;
+  contact: string;
+  legalNotice: string;
+  privacyPolicy: string;
+  cookiesPolicy: string;
+  copyright: string;
+}
+
+export interface ServiceDetailUi {
+  primaryCta: string;
+  secondaryCta: string;
+  contactHref: string;
+  servicesHref: string;
+  introEyebrow: string;
+  benefitsTitle: string;
+  featuresEyebrow: string;
+  featuresTitle: string;
+  faqEyebrow: string;
+  faqTitle: string;
+}
+
+export interface CtaUi {
+  title: string;
+  text: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel: string;
 }
 
 export interface ContactUi {
@@ -28,9 +74,53 @@ export interface ContactUi {
   privacyHref: string;
   submit: string;
   honeypotLabel: string;
-  /** Texto antes del enlace mailto (solo ES). */
   formNote?: string;
-  /** Nota legal breve bajo el botón (EN y fallback). */
   legalNote: string;
   services: SelectOption[];
 }
+
+export interface ThankYouUi {
+  metaTitle: string;
+  metaDescription: string;
+  eyebrow: string;
+  heroTitle: string;
+  heroSubtitle: string;
+  primaryCta: string;
+  secondaryCta: string;
+  urgent: string;
+}
+
+export interface NotFoundUi {
+  metaTitle: string;
+  metaDescription: string;
+  eyebrow: string;
+  heroTitle: string;
+  heroSubtitle: string;
+  primaryCta: string;
+  secondaryCta: string;
+  englishHome?: string;
+  spanishHome?: string;
+}
+
+export interface LocaleUi {
+  skipLink: string;
+  tagline: string;
+  siteDescription: string;
+  schedule: string;
+  brandHome: string;
+  langSwitcherLabel: string;
+  navToggleOpen: string;
+  navToggleClose: string;
+  navAria: string;
+  navContact: string;
+  mainNav: NavItem[];
+  footer: FooterUi;
+  serviceCard: { readMore: string };
+  serviceDetail: ServiceDetailUi;
+  cta: CtaUi;
+  contact: ContactUi;
+  thankYou: ThankYouUi;
+  notFound: NotFoundUi;
+}
+
+export type UiDictionary = Record<Locale, LocaleUi>;

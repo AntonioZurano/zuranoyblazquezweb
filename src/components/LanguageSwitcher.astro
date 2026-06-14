@@ -1,6 +1,6 @@
 ---
-import { getLocaleFromPath, getAlternateRoute } from '../i18n/routes.js';
-import { getUi } from '../i18n/ui.js';
+import { getLocaleFromPath, getAlternateRoute } from '../i18n/routes.ts';
+import { getUi } from '../i18n/ui.ts';
 
 const currentPath = Astro.url.pathname;
 const locale = getLocaleFromPath(currentPath);

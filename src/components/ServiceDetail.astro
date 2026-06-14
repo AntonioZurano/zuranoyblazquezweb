@@ -3,18 +3,9 @@ import Hero from './Hero.astro';
 import SectionTitle from './SectionTitle.astro';
 import CTA from './CTA.astro';
 import Icon from './Icon.astro';
-import { getUi } from '../i18n/ui.js';
-
-interface Feature {
-  icon: string;
-  title: string;
-  text: string;
-}
-
-interface Faq {
-  question: string;
-  answer: string;
-}
+import { getUi } from '../i18n/ui.ts';
+import type { Locale } from '../types/locale';
+import type { FaqItem, ServiceFeature } from '../types/service';
 
 interface Props {
   eyebrow: string;
@@ -23,9 +14,9 @@ interface Props {
   introTitle: string;
   introText: string;
   benefits: string[];
-  features: Feature[];
-  faq?: Faq[];
-  locale?: 'es' | 'en';
+  features: ServiceFeature[];
+  faq?: FaqItem[];
+  locale?: Locale;
 }
 
 const {

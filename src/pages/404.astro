@@ -1,8 +1,8 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/Hero.astro';
-import { getLocaleFromPath } from '../i18n/routes.js';
-import { getUi } from '../i18n/ui.js';
+import { getLocaleFromPath } from '../i18n/routes.ts';
+import { getUi } from '../i18n/ui.ts';
 
 const locale = getLocaleFromPath(Astro.url.pathname);
 const nf = getUi(locale).notFound;

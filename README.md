@@ -4,7 +4,7 @@ Sitio web corporativo de **Zurano y Blazquez**, especialistas en soluciones digi
 
 Construido con [Astro 6](https://astro.build) priorizando **rendimiento, HTML semántico, SEO y facilidad de mantenimiento**.
 
-> **Versión estable `v1.1.0`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y páginas legales (textos provisionales pendientes de revisión).
+> **Versión estable `v1.1.2`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y páginas legales (textos provisionales pendientes de revisión).
 
 ---
 
@@ -101,7 +101,7 @@ npm run preview  # previsualiza el build de producción
 - **Selector de idioma:** ES | EN en la cabecera, junto al selector de tema claro/oscuro.
 - **SEO:** cada página incluye `lang`, `canonical` y enlaces `hreflang` (`es`, `en`, `x-default` → español).
 - **Blog:** el índice existe en `/en/blog/`; los artículos siguen publicados solo en español (traducción pendiente).
-- **Traducciones:** `src/i18n/ui.js` (interfaz) y `src/i18n/en/` (contenido). Sin librerías externas de i18n.
+- **Traducciones:** `src/i18n/ui.ts` (interfaz) y `src/i18n/en/` (contenido). Sin librerías externas de i18n.
 
 ### Rutas principales
 
@@ -130,7 +130,7 @@ npm run preview  # previsualiza el build de producción
 | `SectionTitle` | Encabezado de sección (eyebrow + título + descripción) |
 | `Icon` | Librería de iconos SVG inline |
 
-Los servicios y datos de contacto globales viven en `src/data/site.ts`. La navegación y textos de interfaz están en `src/i18n/ui.js`. **Para cambiar teléfono, email o servicios, edita `site.ts`.**
+Los servicios y datos de contacto globales viven en `src/data/site.ts`. La navegación y textos de interfaz están en `src/i18n/ui.ts`. **Para cambiar teléfono, email o servicios, edita `site.ts`.**
 
 ---
 

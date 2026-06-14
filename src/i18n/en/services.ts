@@ -1,4 +1,4 @@
-// Contenido en inglés para las páginas de detalle de servicio.
+import type { ServicePageContent } from '../../types/service';
 
 export const microsoft365 = {
   metaTitle: 'Microsoft 365 for business',
@@ -33,7 +33,7 @@ export const microsoft365 = {
     { question: 'Which plan does my business need?', answer: 'It depends on your number of users and requirements. We advise you so you only pay for what you actually use.' },
     { question: 'Do you handle the setup?', answer: 'Yes. We take care of configuration, data migration and basic training for your team.' },
   ],
-};
+} satisfies ServicePageContent;
 
 export const stelOrder = {
   metaTitle: 'STEL Order: management and invoicing',
@@ -68,7 +68,7 @@ export const stelOrder = {
     { question: 'Do you help us get started?', answer: 'Absolutely. We handle initial configuration, import your data and train your team.' },
     { question: 'Can I issue legally compliant invoices?', answer: 'Yes. STEL Order is updated to comply with current invoicing regulations.' },
   ],
-};
+} satisfies ServicePageContent;
 
 export const websites = {
   metaTitle: 'Professional website design and development',
@@ -102,7 +102,7 @@ export const websites = {
     { question: 'Can I update content myself?', answer: 'Yes. We prepare the website so you can make basic changes easily, or we can handle updates if you prefer.' },
     { question: 'Will the website be ready for Google?', answer: 'Yes. We apply SEO best practices: semantic structure, speed, tags and metadata.' },
   ],
-};
+} satisfies ServicePageContent;
 
 export const domainsHostingEmail = {
   metaTitle: 'Domains, hosting and business email',
@@ -136,7 +136,7 @@ export const domainsHostingEmail = {
     { question: 'Does email work with Outlook and mobile?', answer: 'Yes. We configure professional email on the programs and devices you use every day.' },
     { question: 'What about renewals?', answer: 'We remind you and manage renewals so your domain and services never expire by oversight.' },
   ],
-};
+} satisfies ServicePageContent;
 
 export const technologySupport = {
   metaTitle: 'Technology support for businesses',
@@ -170,7 +170,7 @@ export const technologySupport = {
     { question: 'Is support remote or on-site?', answer: 'Most incidents are resolved remotely. When necessary, we assess the best way to help you.' },
     { question: 'Do you work with small businesses?', answer: 'Absolutely. We support freelancers, retailers and SMEs, adapting the service to each case.' },
   ],
-};
+} satisfies ServicePageContent;
 
 export const businessSolutions = {
   metaTitle: 'Digital solutions for businesses',
@@ -203,4 +203,4 @@ export const businessSolutions = {
     { question: 'How do we get started?', answer: 'We start by listening and analysing your current situation. From there we propose a clear plan with no obligation.' },
     { question: 'Is it suitable for my sector?', answer: 'We work with businesses and freelancers across different sectors, adapting each project to their specific reality.' },
   ],
-};
+} satisfies ServicePageContent;

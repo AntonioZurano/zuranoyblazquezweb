@@ -6,6 +6,18 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [1.1.2] - 2026-06-14
+
+### Cambiado
+- Migración de i18n de JavaScript a TypeScript: `routes.ts`, `ui.ts`, `en/data.ts`, `en/services.ts`.
+- Tipos completos en `src/types/i18n.ts` (`LocaleUi`, `UiDictionary`) y `src/types/service.ts` (`ServicePageContent`, contenido EN).
+- `ui.ts` usa `satisfies UiDictionary` para garantizar paridad ES/EN en compile time.
+- Contenido EN validado con `satisfies` (`HomePageContent`, `CompanyPageContent`, servicios, etc.).
+- Componentes `ServiceDetail`, `CTA`, `MainLayout` y páginas de contacto usan el tipo `Locale` compartido.
+
+### Eliminado
+- Archivos JavaScript obsoletos en `src/i18n/` (`routes.js`, `ui.js`, `en/data.js`, `en/services.js`).
+
 ## [1.1.0] - 2026-06-14
 
 ### Añadido

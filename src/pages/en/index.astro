@@ -7,8 +7,8 @@ import ServiceCard from '../../components/ServiceCard.astro';
 import BlogCard from '../../components/BlogCard.astro';
 import CTA from '../../components/CTA.astro';
 import Icon from '../../components/Icon.astro';
-import { homeEn, servicesEn } from '../../i18n/en/data.js';
-import { getUi } from '../../i18n/ui.js';
+import { homeEn, servicesEn } from '../../i18n/en/data.ts';
+import { getUi } from '../../i18n/ui.ts';
 
 const ui = getUi('en');
 const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))

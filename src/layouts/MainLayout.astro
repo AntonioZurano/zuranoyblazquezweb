@@ -2,8 +2,9 @@
 import { site } from '../data/site.js';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { getLocaleFromPath, getAlternateUrls } from '../i18n/routes.js';
-import { getUi } from '../i18n/ui.js';
+import { getLocaleFromPath, getAlternateUrls } from '../i18n/routes.ts';
+import { getUi } from '../i18n/ui.ts';
+import type { Locale } from '../types/locale';
 import '../styles/global.css';
 
 // Layout principal. Centraliza el <head> y todo el SEO técnico:
@@ -13,7 +14,7 @@ interface Props {
   title: string;
   description: string;
   /** Idioma de la página (`es` por defecto). */
-  lang?: 'es' | 'en';
+  lang?: Locale;
   /** Ruta de la imagen para compartir en redes (Open Graph). */
   image?: string;
   /** Texto alternativo de la imagen Open Graph. */

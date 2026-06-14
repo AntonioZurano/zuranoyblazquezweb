@@ -1,6 +1,12 @@
-// Datos de contenido en inglés: servicios, home, empresa, etc.
+import type {
+  BlogPageContent,
+  CompanyPageContent,
+  EnServiceItem,
+  HomePageContent,
+  ServicesPageContent,
+} from '../../types/service';
 
-export const servicesEn = [
+export const servicesEn: EnServiceItem[] = [
   {
     title: 'Microsoft 365 for business',
     slug: 'microsoft-365',
@@ -101,7 +107,7 @@ export const homeEn = {
   blogMore: 'View all articles',
   blogNote:
     'Blog articles are currently available in Spanish only. English translations are planned.',
-};
+} satisfies HomePageContent;
 
 export const companyEn = {
   metaTitle: 'About Zurano y Blázquez',
@@ -139,7 +145,7 @@ export const companyEn = {
   ctaTitle: 'Would you like to know us better?',
   ctaText:
     'Get in touch and we will explain how we can help your business. The first conversation is always without obligation.',
-};
+} satisfies CompanyPageContent;
 
 export const servicesPageEn = {
   metaTitle: 'Digital services for businesses',
@@ -154,7 +160,7 @@ export const servicesPageEn = {
   catalogTitle: 'Solutions tailored to your business',
   catalogDescription:
     'You can hire each service separately or combine them in an integrated project. You choose; we advise.',
-};
+} satisfies ServicesPageContent;
 
 export const blogPageEn = {
   metaTitle: 'Blog',
@@ -171,4 +177,4 @@ export const blogPageEn = {
     'Blog posts are currently published in Spanish. English versions will be added in a future update.',
   ctaTitle: 'Would you like to hear about new articles?',
   ctaText: 'Contact us and we will keep you updated on news that can help your business.',
-};
+} satisfies BlogPageContent;

@@ -1,8 +1,7 @@
-// Mapeo centralizado de rutas ES ↔ EN.
-// Las rutas españolas reales usan /servicios/<slug>/; las inglesas van bajo /en/.
+import type { Locale } from '../types/locale';
 
 /** Normaliza una ruta con barra final (excepto raíz). */
-export function normalizePath(path) {
+export function normalizePath(path: string): string {
   if (!path || path === '/') return '/';
   return path.endsWith('/') ? path : `${path}/`;
 }
@@ -24,41 +23,44 @@ export const routeMapEsToEn = {
   '/aviso-legal/': '/en/legal-notice/',
   '/politica-de-privacidad/': '/en/privacy-policy/',
   '/politica-de-cookies/': '/en/cookies-policy/',
-};
+} as const satisfies Record<string, string>;
 
 /** Mapa inglés → español (generado a partir del mapa principal). */
-export const routeMapEnToEs = Object.fromEntries(
+export const routeMapEnToEs: Record<string, string> = Object.fromEntries(
   Object.entries(routeMapEsToEn).map(([es, en]) => [en, es])
 );
 
 /** Detecta el idioma a partir de la ruta actual. */
-export function getLocaleFromPath(pathname) {
+export function getLocaleFromPath(pathname: string): Locale {
   return normalizePath(pathname).startsWith('/en/') || pathname === '/en' ? 'en' : 'es';
 }
 
 /** Devuelve la ruta equivalente en el idioma indicado. */
-export function getAlternateRoute(pathname, targetLocale) {
+export function getAlternateRoute(pathname: string, targetLocale: Locale): string {
   const path = normalizePath(pathname);
   const currentLocale = getLocaleFromPath(pathname);
 
-  // Artículos del blog: por ahora solo existe versión en español.
   if (path.startsWith('/blog/') && path !== '/blog/') {
     return targetLocale === 'en' ? '/en/blog/' : '/blog/';
   }
 
-  // Mismo idioma: mantener la ruta actual.
   if (currentLocale === targetLocale) {
     return path;
   }
 
   if (targetLocale === 'en') {
-    return routeMapEsToEn[path] ?? '/en/';
+    return routeMapEsToEn[path as keyof typeof routeMapEsToEn] ?? '/en/';
   }
   return routeMapEnToEs[path] ?? '/';
 }
 
+export interface AlternateUrls {
+  es: string;
+  en: string;
+}
+
 /** URLs absolutas para hreflang (requiere site.url). */
-export function getAlternateUrls(pathname, siteUrl) {
+export function getAlternateUrls(pathname: string, siteUrl: string): AlternateUrls {
   const path = normalizePath(pathname);
   const locale = getLocaleFromPath(path);
   const base = siteUrl.replace(/\/$/, '');

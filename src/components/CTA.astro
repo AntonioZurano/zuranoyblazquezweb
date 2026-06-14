@@ -1,6 +1,7 @@
 ---
 import { site } from '../data/site.js';
-import { getUi } from '../i18n/ui.js';
+import { getUi } from '../i18n/ui.ts';
+import type { Locale } from '../types/locale';
 
 interface Props {
   title?: string;
@@ -9,7 +10,7 @@ interface Props {
   primaryHref?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
-  locale?: 'es' | 'en';
+  locale?: Locale;
 }
 
 const locale = Astro.props.locale ?? 'es';

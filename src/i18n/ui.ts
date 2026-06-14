@@ -1,3 +1,6 @@
+import type { Locale } from '../types/locale';
+import type { LocaleUi, UiDictionary } from '../types/i18n';
+
 // Textos de interfaz por idioma: navegación, footer, CTAs, formulario, etc.
 
 export const ui = {
@@ -257,9 +260,9 @@ export const ui = {
       spanishHome: 'Inicio en español',
     },
   },
-};
+} satisfies UiDictionary;
 
 /** Devuelve los textos de interfaz para un idioma. */
-export function getUi(locale) {
+export function getUi(locale: Locale): LocaleUi {
   return ui[locale] ?? ui.es;
 }
