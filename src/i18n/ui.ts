@@ -1,5 +1,5 @@
-import type { Locale } from '../types/locale';
-import type { LocaleUi, UiDictionary } from '../types/i18n';
+import type { Locale } from '@types/locale';
+import type { LocaleUi, UiDictionary } from '@types/i18n';
 
 // Textos de interfaz por idioma: navegación, footer, CTAs, formulario, etc.
 
@@ -132,6 +132,33 @@ export const ui = {
       secondaryCta: 'Ver servicios',
       englishHome: 'English home',
     },
+    themeToggle: {
+      dark: 'Activar modo oscuro',
+      light: 'Activar modo claro',
+    },
+    blogPost: {
+      backToBlog: '← Volver al blog',
+      readArticle: 'Leer artículo',
+      byAuthor: 'Por {author}',
+      updatedOn: 'Actualizado el {date}',
+    },
+    blogIndex: {
+      metaTitle: 'Blog',
+      metaDescription:
+        'Consejos prácticos sobre digitalización, Microsoft 365, STEL Order, páginas web y tecnología para empresas. El blog de Zurano y Blazquez para pymes y autónomos.',
+      eyebrow: 'Blog',
+      heroTitle: 'Tecnología para empresas, explicada de forma sencilla',
+      heroSubtitle: 'Ideas, consejos y novedades sobre tecnología útil para tu empresa.',
+      sectionEyebrow: 'Últimos artículos',
+      sectionTitle: 'Aprende a sacar más partido a la tecnología',
+      sectionDescription:
+        'Contenido pensado para pymes y autónomos que quieren tomar mejores decisiones digitales.',
+      empty: 'Estamos preparando los primeros artículos. Vuelve pronto.',
+      pendingNote: '',
+      ctaTitle: '¿Quieres que te avisemos de nuevos artículos?',
+      ctaText:
+        'Escríbenos y te mantendremos al día de las novedades que pueden ayudar a tu empresa.',
+    },
   },
   en: {
     skipLink: 'Skip to main content',
@@ -258,6 +285,33 @@ export const ui = {
       secondaryCta: 'View services',
       englishHome: 'English home',
       spanishHome: 'Inicio en español',
+    },
+    themeToggle: {
+      dark: 'Switch to dark mode',
+      light: 'Switch to light mode',
+    },
+    blogPost: {
+      backToBlog: '← Back to blog',
+      readArticle: 'Read article',
+      byAuthor: 'By {author}',
+      updatedOn: 'Updated on {date}',
+    },
+    blogIndex: {
+      metaTitle: 'Blog',
+      metaDescription:
+        'Practical advice on digitalisation, Microsoft 365, STEL Order, websites and technology for businesses.',
+      eyebrow: 'Blog',
+      heroTitle: 'Technology for businesses, explained clearly',
+      heroSubtitle: 'Ideas, tips and news about useful technology for your company.',
+      sectionEyebrow: 'Latest articles',
+      sectionTitle: 'Get more from technology',
+      sectionDescription:
+        'Content for SMEs and freelancers who want to make better digital decisions.',
+      empty: 'We are preparing the first articles. Check back soon.',
+      pendingNote:
+        'Blog posts are currently published in Spanish. English versions will be added in a future update.',
+      ctaTitle: 'Would you like to hear about new articles?',
+      ctaText: 'Contact us and we will keep you updated on news that can help your business.',
     },
   },
 } satisfies UiDictionary;

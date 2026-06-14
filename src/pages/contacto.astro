@@ -1,9 +1,9 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import Hero from '../components/Hero.astro';
-import ContactSection from '../components/ContactSection.astro';
-import { getUi } from '../i18n/ui.ts';
-import type { Locale } from '../types/locale';
+import MainLayout from '@layouts/MainLayout.astro';
+import Hero from '@components/Hero.astro';
+import ContactSection from '@components/ContactSection.astro';
+import { getUi } from '@i18n/ui';
+import type { Locale } from '@types/locale';
 
 const locale: Locale = 'es';
 const c = getUi(locale).contact;

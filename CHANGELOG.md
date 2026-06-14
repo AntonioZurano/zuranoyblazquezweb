@@ -6,6 +6,20 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [1.1.4] - 2026-06-14
+
+### Añadido
+- `src/i18n/format.ts` con `formatDate()` para fechas localizadas (ES/EN).
+- `src/i18n/es/services.ts` con contenido centralizado de las 6 páginas de servicio en español.
+- Textos de blog, artículos y selector de tema en `ui.ts` (`blogIndex`, `blogPost`, `themeToggle`).
+
+### Cambiado
+- `ThemeToggle`, `PostLayout` y `BlogCard` usan textos y fechas según idioma.
+- Páginas `/servicios/*` simplificadas; importan contenido desde `@i18n/es/services`.
+- Índices de blog ES/EN unificados con `getUi().blogIndex` (eliminado `blogPageEn` de `en/data.ts`).
+- Imports migrados a alias `@i18n/*`, `@types/*`, `@data/*`, `@components/*` y `@layouts/*`.
+- Página Empresa: sección de valores ampliada a 6 tarjetas con grid responsive (3×2 en escritorio).
+
 ## [1.1.3] - 2026-06-14
 
 ### Corregido

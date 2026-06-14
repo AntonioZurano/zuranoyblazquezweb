@@ -1,5 +1,5 @@
-import type { Locale } from '../types/locale';
-import type { ContactFormConfig, FooterLinks, ServiceItem, SiteConfig } from '../types/site';
+import type { Locale } from '@types/locale';
+import type { ContactFormConfig, FooterLinks, ServiceItem, SiteConfig } from '@types/site';
 
 export const site: SiteConfig = {
   name: 'Zurano y Blazquez',

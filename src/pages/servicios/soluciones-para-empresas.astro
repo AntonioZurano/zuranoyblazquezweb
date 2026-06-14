@@ -1,43 +1,11 @@
 ---
-import MainLayout from '../../layouts/MainLayout.astro';
-import ServiceDetail from '../../components/ServiceDetail.astro';
+import MainLayout from '@layouts/MainLayout.astro';
+import ServiceDetail from '@components/ServiceDetail.astro';
+import { solucionesParaEmpresas } from '@i18n/es/services';
 
-const benefits = [
-  'Soluciones para empresas que empiezan de cero',
-  'Soluciones para empresas que quieren organizarse mejor',
-  'Soluciones para empresas que quieren vender más',
-  'Un proyecto integral, no servicios sueltos',
-  'Un único interlocutor que coordina y acompaña',
-];
-
-const features = [
-  { icon: 'rocket', title: 'Empresas que empiezan', text: 'Dominio, correo profesional, web y las herramientas básicas para arrancar con buen pie.' },
-  { icon: 'enterprise', title: 'Empresas que quieren organizarse', text: 'Microsoft 365 y STEL Order para ordenar la gestión, la facturación y el trabajo en equipo.' },
-  { icon: 'web', title: 'Empresas que quieren vender más', text: 'Web orientada a conversión, landing pages y presencia online para captar más clientes.' },
-  { icon: 'check', title: 'Diagnóstico digital', text: 'Analizamos cómo trabajas hoy para detectar oportunidades de mejora y ahorro.' },
-  { icon: 'invoice', title: 'Plan a medida', text: 'Combinamos solo los servicios que tu empresa realmente necesita, sin paquetes cerrados.' },
-  { icon: 'support', title: 'Soporte continuo', text: 'Mantenimiento y asistencia para que todo el proyecto siga funcionando en el tiempo.' },
-];
-
-const faq = [
-  { question: '¿Tengo que contratar todos los servicios?', answer: 'No. Diseñamos la solución a partir de lo que tu empresa necesita. Puede ser un servicio o una combinación de varios.' },
-  { question: '¿Cómo empezamos?', answer: 'Empezamos por escucharte y analizar tu situación actual. A partir de ahí te proponemos un plan claro y sin compromiso.' },
-  { question: '¿Sirve para mi sector?', answer: 'Trabajamos con empresas y autónomos de distintos sectores, adaptando cada proyecto a su realidad concreta.' },
-];
+const s = solucionesParaEmpresas;
 ---
 
-<MainLayout
-  title="Soluciones digitales para empresas"
-  description="Proyectos de digitalización a medida para empresas: combinamos Microsoft 365, STEL Order, web, dominios y soporte en una solución integral. Zurano y Blazquez, tu socio tecnológico."
->
-  <ServiceDetail
-    eyebrow="Soluciones para empresas"
-    h1="Soluciones digitales a medida para tu empresa"
-    subtitle="Combinamos nuestros servicios en un proyecto integral que resuelve las necesidades reales de tu negocio, con un único interlocutor."
-    introTitle="Digitalización con cabeza y a tu medida"
-    introText="Cada empresa es diferente. Por eso no ofrecemos paquetes cerrados, sino soluciones que combinan productividad, gestión, presencia online y soporte según lo que tu negocio necesita. Analizamos, proponemos, implantamos y te acompañamos."
-    benefits={benefits}
-    features={features}
-    faq={faq}
-  />
+<MainLayout title={s.metaTitle} description={s.metaDescription}>
+  <ServiceDetail {...s} />
 </MainLayout>

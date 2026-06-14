@@ -1,15 +1,23 @@
 ---
-// Botón de alternancia entre modo claro y oscuro.
-// La preferencia se guarda en localStorage (clave: zb-theme).
-// El script temprano en MainLayout evita parpadeo al cargar.
+import { getUi } from '@i18n/ui';
+import type { Locale } from '@types/locale';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'es' } = Astro.props;
+const labels = getUi(locale).themeToggle;
 ---
 
 <button
   type="button"
   class="theme-toggle"
   data-theme-toggle
-  aria-label="Activar modo oscuro"
-  title="Activar modo oscuro"
+  data-theme-dark-label={labels.dark}
+  data-theme-light-label={labels.light}
+  aria-label={labels.dark}
+  title={labels.dark}
 >
   <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -68,7 +76,6 @@
     justify-content: center;
   }
 
-  /* Modo claro: mostrar luna (activar oscuro). Modo oscuro: mostrar sol (activar claro). */
   :global([data-theme='light']) .theme-toggle__icon--sun,
   :global(:not([data-theme])) .theme-toggle__icon--sun {
     display: none;
@@ -90,7 +97,9 @@
     const btn = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
     if (!btn) return;
     const isDark = getTheme() === 'dark';
-    const label = isDark ? 'Activar modo claro' : 'Activar modo oscuro';
+    const label = isDark
+      ? (btn.dataset.themeLightLabel ?? 'Switch to light mode')
+      : (btn.dataset.themeDarkLabel ?? 'Switch to dark mode');
     btn.setAttribute('aria-label', label);
     btn.setAttribute('title', label);
   }

@@ -1,44 +1,11 @@
 ---
-import MainLayout from '../../layouts/MainLayout.astro';
-import ServiceDetail from '../../components/ServiceDetail.astro';
+import MainLayout from '@layouts/MainLayout.astro';
+import ServiceDetail from '@components/ServiceDetail.astro';
+import { soporteTecnologico } from '@i18n/es/services';
 
-const benefits = [
-  'Ayuda técnica cercana y en español',
-  'Configuración de tus herramientas y equipos',
-  'Revisión y resolución ágil de incidencias',
-  'Acompañamiento digital continuo para tu empresa',
-  'Un único interlocutor para toda tu tecnología',
-  'Tranquilidad para centrarte en tu negocio',
-];
-
-const features = [
-  { icon: 'support', title: 'Ayuda técnica', text: 'Resolvemos la mayoría de incidencias en remoto, de forma rápida y sin desplazamientos.' },
-  { icon: 'check', title: 'Configuración de herramientas', text: 'Instalamos y configuramos correo, equipos, impresoras y las aplicaciones que usas a diario.' },
-  { icon: 'clock', title: 'Revisión de incidencias', text: 'Analizamos y solucionamos los problemas para minimizar el tiempo de parada.' },
-  { icon: 'shield', title: 'Mantenimiento proactivo', text: 'Revisiones y actualizaciones para anticiparnos a los problemas antes de que ocurran.' },
-  { icon: 'enterprise', title: 'Acompañamiento digital', text: 'Te asesoramos en tus decisiones tecnológicas con un lenguaje claro y cercano.' },
-  { icon: 'server', title: 'Soporte a medida', text: 'Planes adaptados a las necesidades y al tamaño de tu empresa.' },
-];
-
-const faq = [
-  { question: '¿Atendéis incidencias puntuales?', answer: 'Sí. Puedes contar con nosotros tanto para incidencias puntuales como para un mantenimiento continuo.' },
-  { question: '¿El soporte es remoto o presencial?', answer: 'La mayoría de incidencias se resuelven en remoto. Cuando es necesario, valoramos la mejor forma de ayudarte.' },
-  { question: '¿Trabajáis con empresas pequeñas?', answer: 'Por supuesto. Damos soporte a autónomos, comercios y pymes adaptando el servicio a cada caso.' },
-];
+const s = soporteTecnologico;
 ---
 
-<MainLayout
-  title="Soporte tecnológico para empresas"
-  description="Soporte tecnológico cercano y mantenimiento proactivo para pymes y autónomos. Zurano y Blazquez resuelve tus incidencias y cuida tu tecnología para que trabajes sin interrupciones."
->
-  <ServiceDetail
-    eyebrow="Soporte tecnológico"
-    h1="Soporte tecnológico cercano para que todo funcione"
-    subtitle="Asistencia técnica ágil y mantenimiento proactivo. Cuidamos tu tecnología para que tú te ocupes de tu negocio."
-    introTitle="Tu departamento de informática de confianza"
-    introText="Cuando algo falla, necesitas una solución rápida y sin tecnicismos. Te ofrecemos soporte cercano y mantenimiento preventivo para que tu tecnología funcione de forma estable y tú puedas concentrarte en lo que de verdad importa."
-    benefits={benefits}
-    features={features}
-    faq={faq}
-  />
+<MainLayout title={s.metaTitle} description={s.metaDescription}>
+  <ServiceDetail {...s} />
 </MainLayout>

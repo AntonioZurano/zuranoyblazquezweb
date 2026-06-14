@@ -25,6 +25,7 @@ se fusiona en `main` y se etiqueta.
 - [x] **v1.1.0** — Refactor formulario de contacto + tipos compartidos.
 - [x] **v1.1.2** — Migración i18n a TypeScript.
 - [x] **v1.1.3** — Corrección del árbol de proyecto en README.
+- [x] **v1.1.4** — Pulido i18n: blog, tema, servicios ES centralizados y alias de imports.
 
 ## Pendientes conocidos / notas
 

@@ -1,45 +1,11 @@
 ---
-import MainLayout from '../../layouts/MainLayout.astro';
-import ServiceDetail from '../../components/ServiceDetail.astro';
+import MainLayout from '@layouts/MainLayout.astro';
+import ServiceDetail from '@components/ServiceDetail.astro';
+import { microsoft365 } from '@i18n/es/services';
 
-const benefits = [
-  'Correo profesional con tu propio dominio y 50 GB por buzón',
-  'Office completo: Word, Excel, PowerPoint y Outlook siempre actualizados',
-  'OneDrive con 1 TB de almacenamiento en la nube por usuario',
-  'Trabajo colaborativo con Teams y SharePoint',
-  'Configuración de tu dominio y registros DNS incluida',
-  'Alta y gestión de usuarios y licencias por nosotros',
-  'Seguridad básica: protección de cuentas y de tus datos',
-];
-
-const features = [
-  { icon: 'mail', title: 'Correo profesional', text: 'Buzones con tu dominio, calendarios compartidos y contactos sincronizados en todos tus dispositivos.' },
-  { icon: 'web', title: 'Aplicaciones Office', text: 'Word, Excel, PowerPoint y Outlook siempre al día, en escritorio y en la web, sin gestionar actualizaciones.' },
-  { icon: 'server', title: 'OneDrive en la nube', text: '1 TB por usuario para guardar, sincronizar y compartir archivos con seguridad desde cualquier lugar.' },
-  { icon: 'support', title: 'Trabajo colaborativo', text: 'Reuniones, chat y edición conjunta de documentos en tiempo real con Teams y SharePoint.' },
-  { icon: 'check', title: 'Dominio, usuarios y licencias', text: 'Configuramos tu dominio y DNS, damos de alta a los usuarios y gestionamos las licencias por ti.' },
-  { icon: 'shield', title: 'Seguridad básica', text: 'Protección frente a amenazas, control de accesos y datos siempre disponibles en la nube.' },
-];
-
-const faq = [
-  { question: '¿Puedo conservar mi dirección de correo actual?', answer: 'Sí. Configuramos Microsoft 365 con tu dominio para que mantengas tus direcciones de correo profesionales.' },
-  { question: '¿Qué plan necesita mi empresa?', answer: 'Depende de tu número de usuarios y necesidades. Te asesoramos para que pagues solo por lo que realmente usas.' },
-  { question: '¿Os encargáis de la instalación?', answer: 'Sí, nos ocupamos de la configuración, la migración de datos y la formación básica de tu equipo.' },
-];
+const s = microsoft365;
 ---
 
-<MainLayout
-  title="Microsoft 365 para empresas"
-  description="Microsoft 365 para pymes y autónomos: correo profesional, Office, Teams y almacenamiento en la nube con licencias gestionadas y soporte en español por Zurano y Blazquez."
->
-  <ServiceDetail
-    eyebrow="Microsoft 365"
-    h1="Microsoft 365 para trabajar mejor en equipo"
-    subtitle="Correo profesional, Office, Teams y almacenamiento en la nube, con licencias gestionadas y soporte cercano en español."
-    introTitle="La productividad de Microsoft, sin complicaciones"
-    introText="Microsoft 365 reúne las herramientas que tu empresa usa cada día en una única suscripción. Nosotros nos encargamos de las licencias, la configuración y la migración para que tu equipo solo tenga que trabajar."
-    benefits={benefits}
-    features={features}
-    faq={faq}
-  />
+<MainLayout title={s.metaTitle} description={s.metaDescription}>
+  <ServiceDetail {...s} />
 </MainLayout>

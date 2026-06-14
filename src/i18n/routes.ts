@@ -1,4 +1,4 @@
-import type { Locale } from '../types/locale';
+import type { Locale } from '@types/locale';
 
 /** Normaliza una ruta con barra final (excepto raíz). */
 export function normalizePath(path: string): string {

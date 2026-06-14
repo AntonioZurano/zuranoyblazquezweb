@@ -14,6 +14,33 @@ export interface NavItem extends NavLink {
   children?: NavLink[];
 }
 
+export interface ThemeToggleUi {
+  dark: string;
+  light: string;
+}
+
+export interface BlogPostUi {
+  backToBlog: string;
+  readArticle: string;
+  byAuthor: string;
+  updatedOn: string;
+}
+
+export interface BlogIndexUi {
+  metaTitle: string;
+  metaDescription: string;
+  eyebrow: string;
+  heroTitle: string;
+  heroSubtitle: string;
+  sectionEyebrow: string;
+  sectionTitle: string;
+  sectionDescription: string;
+  empty: string;
+  pendingNote: string;
+  ctaTitle: string;
+  ctaText: string;
+}
+
 export interface FooterUi {
   servicesTitle: string;
   companyTitle: string;
@@ -121,6 +148,9 @@ export interface LocaleUi {
   contact: ContactUi;
   thankYou: ThankYouUi;
   notFound: NotFoundUi;
+  themeToggle: ThemeToggleUi;
+  blogPost: BlogPostUi;
+  blogIndex: BlogIndexUi;
 }
 
 export type UiDictionary = Record<Locale, LocaleUi>;

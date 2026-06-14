@@ -1,10 +1,11 @@
 ---
-import MainLayout from './MainLayout.astro';
-import CategoryBadge from '../components/CategoryBadge.astro';
-import { site } from '../data/site.js';
+import MainLayout from '@layouts/MainLayout.astro';
+import CategoryBadge from '@components/CategoryBadge.astro';
+import { site } from '@data/site.js';
+import { getUi } from '@i18n/ui';
+import { formatDate } from '@i18n/format';
+import type { Locale } from '@types/locale';
 
-// Layout para los artículos del blog. Recibe los datos del post y renderiza
-// el contenido Markdown a través del slot, con estilos de lectura (prose).
 interface Props {
   title: string;
   description: string;
@@ -12,15 +13,18 @@ interface Props {
   author: string;
   pubDate: Date;
   updatedDate?: Date;
+  locale?: Locale;
 }
 
-const { title, description, category, author, pubDate, updatedDate } = Astro.props;
+const { title, description, category, author, pubDate, updatedDate, locale = 'es' } =
+  Astro.props;
 
-const fmt = (d: Date) =>
-  d.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+const ui = getUi(locale);
+const blogBackHref = locale === 'en' ? '/en/blog/' : '/blog/';
+const formattedPubDate = formatDate(pubDate, locale);
 const isoDate = pubDate.toISOString().split('T')[0];
+const authorLine = ui.blogPost.byAuthor.replace('{author}', author);
 
-// Datos estructurados del artículo para buscadores.
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
@@ -33,18 +37,18 @@ const articleSchema = {
 };
 ---
 
-<MainLayout title={title} description={description} ogType="article" schema={articleSchema}>
+<MainLayout lang={locale} title={title} description={description} ogType="article" schema={articleSchema}>
   <article class="post">
     <header class="post__header">
       <div class="container container--narrow">
-        <a href="/blog/" class="post__back">← Volver al blog</a>
+        <a href={blogBackHref} class="post__back">{ui.blogPost.backToBlog}</a>
         <div class="post__meta">
           <CategoryBadge category={category} />
-          <time datetime={isoDate}>{fmt(pubDate)}</time>
+          <time datetime={isoDate}>{formattedPubDate}</time>
         </div>
         <h1 class="post__title">{title}</h1>
         <p class="post__lead">{description}</p>
-        <p class="post__author">Por {author}</p>
+        <p class="post__author">{authorLine}</p>
       </div>
     </header>
 
@@ -53,7 +57,9 @@ const articleSchema = {
         <slot />
       </div>
       {updatedDate && (
-        <p class="post__updated">Actualizado el {fmt(updatedDate)}</p>
+        <p class="post__updated">
+          {ui.blogPost.updatedOn.replace('{date}', formatDate(updatedDate, locale))}
+        </p>
       )}
     </div>
   </article>
@@ -108,7 +114,6 @@ const articleSchema = {
     padding-bottom: var(--space-6);
   }
 
-  /* Estilos de lectura para el contenido Markdown */
   .prose :global(h2) {
     margin-top: var(--space-5);
     margin-bottom: var(--space-3);

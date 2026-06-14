@@ -1,13 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
-import MainLayout from '../layouts/MainLayout.astro';
-import Hero from '../components/Hero.astro';
-import SectionTitle from '../components/SectionTitle.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-import BlogCard from '../components/BlogCard.astro';
-import CTA from '../components/CTA.astro';
-import Icon from '../components/Icon.astro';
-import { site, services } from '../data/site.js';
+import MainLayout from '@layouts/MainLayout.astro';
+import Hero from '@components/Hero.astro';
+import SectionTitle from '@components/SectionTitle.astro';
+import ServiceCard from '@components/ServiceCard.astro';
+import BlogCard from '@components/BlogCard.astro';
+import CTA from '@components/CTA.astro';
+import Icon from '@components/Icon.astro';
+import { site, services } from '@data/site.js';
 
 // Últimos 3 artículos del blog para mostrar en la Home.
 const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))

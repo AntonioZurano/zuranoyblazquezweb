@@ -4,7 +4,7 @@ Sitio web corporativo de **Zurano y Blazquez**, especialistas en soluciones digi
 
 Construido con [Astro 6](https://astro.build) priorizando **rendimiento, HTML semántico, SEO y facilidad de mantenimiento**.
 
-> **Versión estable `v1.1.3`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y páginas legales (textos provisionales pendientes de revisión).
+> **Versión estable `v1.1.4`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y páginas legales (textos provisionales pendientes de revisión).
 
 ---
 
@@ -46,7 +46,9 @@ npm run preview  # previsualiza el build de producción
     ├── types/                # Tipos TypeScript compartidos (locale, i18n, service, site)
     ├── i18n/
     │   ├── routes.ts         # Mapeo de rutas ES ↔ EN
-    │   ├── ui.ts             # Textos de interfaz (nav, footer, formulario, etc.)
+    │   ├── ui.ts             # Textos de interfaz (nav, footer, formulario, blog, tema)
+    │   ├── format.ts         # Formateo de fechas por idioma
+    │   ├── es/               # Contenido de servicios en español
     │   └── en/               # Contenido en inglés (home, servicios, etc.)
     ├── styles/
     │   └── global.css        # Sistema de diseño (variables, utilidades, componentes base)

@@ -1,31 +1,30 @@
 ---
 import { getCollection } from 'astro:content';
-import MainLayout from '../../layouts/MainLayout.astro';
-import Hero from '../../components/Hero.astro';
-import SectionTitle from '../../components/SectionTitle.astro';
-import BlogCard from '../../components/BlogCard.astro';
-import CTA from '../../components/CTA.astro';
+import MainLayout from '@layouts/MainLayout.astro';
+import Hero from '@components/Hero.astro';
+import SectionTitle from '@components/SectionTitle.astro';
+import BlogCard from '@components/BlogCard.astro';
+import CTA from '@components/CTA.astro';
+import { getUi } from '@i18n/ui';
 
-// Recupera los artículos publicados (no borradores) ordenados por fecha desc.
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
+
+const blog = getUi('es').blogIndex;
 ---
 
-<MainLayout
-  title="Blog"
-  description="Consejos prácticos sobre digitalización, Microsoft 365, STEL Order, páginas web y tecnología para empresas. El blog de Zurano y Blazquez para pymes y autónomos."
->
-  <Hero eyebrow="Blog" subtitle="Ideas, consejos y novedades sobre tecnología útil para tu empresa.">
-    <h1>Tecnología para empresas, explicada de forma sencilla</h1>
+<MainLayout title={blog.metaTitle} description={blog.metaDescription}>
+  <Hero eyebrow={blog.eyebrow} subtitle={blog.heroSubtitle}>
+    <h1>{blog.heroTitle}</h1>
   </Hero>
 
   <section class="section">
     <div class="container">
       <SectionTitle
-        eyebrow="Últimos artículos"
-        title="Aprende a sacar más partido a la tecnología"
-        description="Contenido pensado para pymes y autónomos que quieren tomar mejores decisiones digitales."
+        eyebrow={blog.sectionEyebrow}
+        title={blog.sectionTitle}
+        description={blog.sectionDescription}
       />
       {
         posts.length > 0 ? (
@@ -41,15 +40,11 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
             ))}
           </div>
         ) : (
-          <p>Estamos preparando los primeros artículos. Vuelve pronto.</p>
+          <p>{blog.empty}</p>
         )
       }
     </div>
   </section>
 
-  <CTA
-    title="¿Quieres que te avisemos de nuevos artículos?"
-    text="Escríbenos y te mantendremos al día de las novedades que pueden ayudar a tu empresa."
-    secondaryLabel=""
-  />
+  <CTA title={blog.ctaTitle} text={blog.ctaText} secondaryLabel="" />
 </MainLayout>

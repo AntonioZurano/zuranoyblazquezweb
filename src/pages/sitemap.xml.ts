@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
-import { site } from '../data/site.js';
+import { site } from '@data/site.js';
 
 // Sitemap generado de forma nativa, sin dependencias externas.
 // Descubre automáticamente todas las páginas .astro de `src/pages` y las

@@ -1,14 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
-import MainLayout from '../../layouts/MainLayout.astro';
-import Hero from '../../components/Hero.astro';
-import SectionTitle from '../../components/SectionTitle.astro';
-import ServiceCard from '../../components/ServiceCard.astro';
-import BlogCard from '../../components/BlogCard.astro';
-import CTA from '../../components/CTA.astro';
-import Icon from '../../components/Icon.astro';
-import { homeEn, servicesEn } from '../../i18n/en/data.ts';
-import { getUi } from '../../i18n/ui.ts';
+import MainLayout from '@layouts/MainLayout.astro';
+import Hero from '@components/Hero.astro';
+import SectionTitle from '@components/SectionTitle.astro';
+import ServiceCard from '@components/ServiceCard.astro';
+import BlogCard from '@components/BlogCard.astro';
+import CTA from '@components/CTA.astro';
+import Icon from '@components/Icon.astro';
+import { homeEn, servicesEn } from '@i18n/en/data';
+import { getUi } from '@i18n/ui';
 
 const ui = getUi('en');
 const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))

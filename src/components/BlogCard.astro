@@ -1,23 +1,22 @@
 ---
-import CategoryBadge from './CategoryBadge.astro';
+import CategoryBadge from '@components/CategoryBadge.astro';
+import { getUi } from '@i18n/ui';
+import { formatDate } from '@i18n/format';
+import type { Locale } from '@types/locale';
 
-// Tarjeta de artículo del blog. Toda la tarjeta es clicable mediante un
-// enlace "stretched".
 interface Props {
   title: string;
   description: string;
   href: string;
   category: string;
   pubDate: Date;
+  locale?: Locale;
 }
 
-const { title, description, href, category, pubDate } = Astro.props;
+const { title, description, href, category, pubDate, locale = 'es' } = Astro.props;
 
-const formattedDate = pubDate.toLocaleDateString('es-ES', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-});
+const ui = getUi(locale);
+const formattedDate = formatDate(pubDate, locale);
 const isoDate = pubDate.toISOString().split('T')[0];
 ---
 
@@ -30,7 +29,7 @@ const isoDate = pubDate.toISOString().split('T')[0];
     <a href={href} class="blog-card__link">{title}</a>
   </h3>
   <p class="blog-card__desc">{description}</p>
-  <span class="blog-card__more">Leer artículo</span>
+  <span class="blog-card__more">{ui.blogPost.readArticle}</span>
 </article>
 
 <style>
