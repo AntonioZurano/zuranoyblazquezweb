@@ -43,10 +43,10 @@ npm run preview  # previsualiza el build de producción
 └── src/
     ├── data/
     │   └── site.ts           # Datos centrales: contacto, servicios y getContactFormConfig()
-    ├── types/                # Tipos TypeScript compartidos (locale, i18n, site)
+    ├── types/                # Tipos TypeScript compartidos (locale, i18n, service, site)
     ├── i18n/
-    │   ├── routes.js         # Mapeo de rutas ES ↔ EN
-    │   ├── ui.js             # Textos de interfaz (nav, footer, formulario, etc.)
+    │   ├── routes.ts         # Mapeo de rutas ES ↔ EN
+    │   ├── ui.ts             # Textos de interfaz (nav, footer, formulario, etc.)
     │   └── en/               # Contenido en inglés (home, servicios, etc.)
     ├── styles/
     │   └── global.css        # Sistema de diseño (variables, utilidades, componentes base)
