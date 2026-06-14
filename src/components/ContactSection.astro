@@ -1,0 +1,45 @@
+---
+import ContactInfo from './ContactInfo.astro';
+import ContactForm from './ContactForm.astro';
+import { getUi } from '../i18n/ui.js';
+import { getContactFormConfig, site } from '../data/site.ts';
+import type { Locale } from '../types/locale';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const ui = getUi(locale);
+const copy = ui.contact;
+const form = getContactFormConfig(locale);
+---
+
+<section class="section">
+  <div class="container contact-grid">
+    <ContactInfo
+      copy={copy}
+      schedule={ui.schedule}
+      email={site.email}
+      phone={site.phone}
+      phoneHref={site.phoneHref}
+    />
+    <ContactForm locale={locale} copy={copy} form={form} />
+  </div>
+</section>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.4fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  @media (max-width: 820px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+    }
+  }
+</style>

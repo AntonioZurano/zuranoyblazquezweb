@@ -4,7 +4,7 @@ Sitio web corporativo de **Zurano y Blazquez**, especialistas en soluciones digi
 
 Construido con [Astro 6](https://astro.build) priorizando **rendimiento, HTML semántico, SEO y facilidad de mantenimiento**.
 
-> **Versión estable `v1.0.3`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y páginas legales (textos provisionales pendientes de revisión).
+> **Versión estable `v1.1.0`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y páginas legales (textos provisionales pendientes de revisión).
 
 ---
 
@@ -42,7 +42,8 @@ npm run preview  # previsualiza el build de producción
 │   └── robots.txt
 └── src/
     ├── data/
-    │   └── site.js           # Datos centrales: contacto, navegación y servicios
+    │   └── site.ts           # Datos centrales: contacto, servicios y getContactFormConfig()
+    ├── types/                # Tipos TypeScript compartidos (locale, i18n, site)
     ├── i18n/
     │   ├── routes.js         # Mapeo de rutas ES ↔ EN
     │   ├── ui.js             # Textos de interfaz (nav, footer, formulario, etc.)
@@ -57,7 +58,9 @@ npm run preview  # previsualiza el build de producción
     │   ├── ThemeToggle.astro  # Selector modo claro/oscuro
     │   ├── Footer.astro       # Pie con servicios, empresa, legal y contacto
     │   ├── Hero.astro         # Cabecera de página reutilizable
-    │   ├── ServiceCard.astro  # Tarjeta de servicio
+    │   ├── ContactSection.astro # Bloque contacto (info + formulario)
+    │   ├── ContactForm.astro  # Formulario Formsubmit reutilizable
+    │   ├── ContactInfo.astro  # Datos de contacto (email, teléfono, horario)
     │   ├── ServiceDetail.astro# Plantilla de contenido para páginas de servicio
     │   ├── CTA.astro          # Bloque de llamada a la acción
     │   ├── SectionTitle.astro # Encabezado de sección
@@ -127,7 +130,7 @@ npm run preview  # previsualiza el build de producción
 | `SectionTitle` | Encabezado de sección (eyebrow + título + descripción) |
 | `Icon` | Librería de iconos SVG inline |
 
-Todos los datos compartidos (navegación, servicios, contacto) viven en `src/data/site.js`. **Para cambiar un teléfono, un email o añadir un servicio, edita solo ese archivo.**
+Los servicios y datos de contacto globales viven en `src/data/site.ts`. La navegación y textos de interfaz están en `src/i18n/ui.js`. **Para cambiar teléfono, email o servicios, edita `site.ts`.**
 
 ---
 
@@ -144,7 +147,7 @@ Todos los datos compartidos (navegación, servicios, contacto) viven en `src/dat
 - Páginas legales y de error marcadas como `noindex`.
 - HTML semántico y atributos de accesibilidad (skip link, `aria-*`).
 
-> Importante: actualiza el `site` en `astro.config.mjs` y los datos de `src/data/site.js` (email, teléfono, dirección) con la información real antes de publicar.
+> Importante: actualiza el `site` en `astro.config.mjs` y los datos de `src/data/site.ts` (email, teléfono, dirección) con la información real antes de publicar.
 
 ---
 
@@ -166,8 +169,8 @@ estado del roadmap en [`TODO.md`](./TODO.md). La guía de publicación está en
 ## Formulario de contacto (Formsubmit)
 
 El formulario de `/contacto` (español) y `/en/contact/` (inglés) envía los datos mediante [Formsubmit.co](https://formsubmit.co)
-(sin backend propio). La configuración está centralizada en `src/data/site.js`
-dentro del objeto `contactForm`:
+(sin backend propio). La configuración está centralizada en `src/data/site.ts`
+mediante `getContactFormConfig(locale)`:
 
 - `recipient`: correo de destino de los mensajes (por defecto, `site.email`).
 - `redirectTo`: página de agradecimiento tras el envío (`/gracias/` o `/en/thank-you/`).

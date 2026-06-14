@@ -1,8 +1,7 @@
-// Configuración central del sitio. Centralizar estos datos facilita el
-// mantenimiento: cambiar un teléfono, un email o un enlace se hace en un
-// único lugar y se propaga a toda la web.
+import type { Locale } from '../types/locale';
+import type { ContactFormConfig, FooterLinks, ServiceItem, SiteConfig } from '../types/site';
 
-export const site = {
+export const site: SiteConfig = {
   name: 'Zurano y Blazquez',
   legalName: 'Zurano y Blazquez',
   domain: 'zuranoyblazquez.com',
@@ -17,58 +16,33 @@ export const site = {
   schedule: 'Lunes a viernes, 9:00 – 18:00',
 };
 
-// Configuración del formulario de contacto.
-// Usamos Formsubmit.co como solución sencilla sin backend para la primera
-// versión. Para cambiar el correo de destino, edita `recipient`.
-//
-// IMPORTANTE (producción):
-//   1. El primer envío genera un correo de activación a `recipient`; hay que
-//      confirmarlo una sola vez.
-//   2. Tras activarlo, se recomienda sustituir `endpoint` por el alias que
-//      ofrece Formsubmit (p. ej. 'https://formsubmit.co/el/xxxxxxx') para no
-//      exponer el correo real en el HTML público.
-export const contactForm = {
-  recipient: site.email,
-  get endpoint() {
-    return `https://formsubmit.co/${this.recipient}`;
-  },
-  // URL a la que se redirige tras un envío correcto.
-  redirectTo: `${site.url}/gracias/`,
-  subject: 'Nueva consulta desde zuranoyblazquez.com',
-};
+function buildFormsubmitEndpoint(recipient: string): string {
+  return `https://formsubmit.co/${recipient}`;
+}
 
-// Formulario de contacto en inglés (misma integración Formsubmit).
-export const contactFormEn = {
-  recipient: site.email,
-  get endpoint() {
-    return `https://formsubmit.co/${this.recipient}`;
-  },
-  redirectTo: `${site.url}/en/thank-you/`,
-  subject: 'New enquiry from zuranoyblazquez.com',
-};
+/** Configuración del formulario de contacto según idioma (Formsubmit.co). */
+export function getContactFormConfig(locale: Locale): ContactFormConfig {
+  const recipient = site.email;
+  const endpoint = buildFormsubmitEndpoint(recipient);
 
-// Navegación principal del Header.
-export const mainNav = [
-  { label: 'Inicio', href: '/' },
-  { label: 'Empresa', href: '/empresa/' },
-  {
-    label: 'Servicios',
-    href: '/servicios/',
-    children: [
-      { label: 'Microsoft 365', href: '/servicios/microsoft-365/' },
-      { label: 'STEL Order', href: '/servicios/stel-order/' },
-      { label: 'Páginas web', href: '/servicios/paginas-web/' },
-      { label: 'Dominios, hosting y correo', href: '/servicios/dominios-hosting-correo/' },
-      { label: 'Soporte tecnológico', href: '/servicios/soporte-tecnologico/' },
-      { label: 'Soluciones para empresas', href: '/servicios/soluciones-para-empresas/' },
-    ],
-  },
-  { label: 'Blog', href: '/blog/' },
-  { label: 'Escríbenos', href: '/contacto/' },
-];
+  if (locale === 'en') {
+    return {
+      recipient,
+      endpoint,
+      redirectTo: `${site.url}/en/thank-you/`,
+      subject: 'New enquiry from zuranoyblazquez.com',
+    };
+  }
 
-// Catálogo de servicios. Se reutiliza en Inicio, Servicios y Footer.
-export const services = [
+  return {
+    recipient,
+    endpoint,
+    redirectTo: `${site.url}/gracias/`,
+    subject: 'Nueva consulta desde zuranoyblazquez.com',
+  };
+}
+
+export const services: ServiceItem[] = [
   {
     title: 'Microsoft 365',
     slug: 'microsoft-365',
@@ -119,8 +93,7 @@ export const services = [
   },
 ];
 
-// Enlaces agrupados para el Footer.
-export const footerLinks = {
+export const footerLinks: FooterLinks = {
   servicios: services.map((s) => ({ label: s.title, href: s.href })),
   empresa: [
     { label: 'Sobre nosotros', href: '/empresa/' },

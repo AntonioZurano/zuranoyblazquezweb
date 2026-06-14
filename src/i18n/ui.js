@@ -88,7 +88,9 @@ export const ui = {
       messageLabel: 'Mensaje *',
       privacyLabel: 'He leído y acepto la',
       privacyLink: 'política de privacidad',
+      privacyHref: '/politica-de-privacidad/',
       submit: 'Enviar mensaje',
+      honeypotLabel: 'No rellenar este campo',
       formNote:
         'Al enviar, aceptas que tratemos tus datos para responder a tu consulta. También puedes escribirnos a',
       legalNote:
@@ -215,9 +217,9 @@ export const ui = {
       messageLabel: 'Message *',
       privacyLabel: 'I have read and accept the',
       privacyLink: 'privacy policy',
+      privacyHref: '/en/privacy-policy/',
       submit: 'Send request',
-      formNote:
-        'By submitting, you agree that we may process your data to respond to your enquiry. You can also email us at',
+      honeypotLabel: 'Do not fill this field',
       legalNote:
         'The data submitted through this form will only be used to respond to your information request.',
       services: [

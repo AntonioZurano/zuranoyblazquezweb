@@ -6,6 +6,23 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [1.1.0] - 2026-06-14
+
+### Añadido
+- Tipos compartidos en `src/types/` (`locale.ts`, `i18n.ts`, `site.ts`).
+- Componentes reutilizables de contacto: `ContactInfo`, `ContactForm` y `ContactSection`.
+- Función `getContactFormConfig(locale)` para centralizar Formsubmit por idioma.
+
+### Cambiado
+- `src/data/site.js` migrado a `src/data/site.ts` (servicios y footer sin cambios funcionales).
+- Páginas `/contacto/` y `/en/contact/` simplificadas; formulario e info de contacto unificados.
+- Textos de contacto en `ui.js`: `privacyHref`, `honeypotLabel` y notas legales por idioma.
+- Eliminados `contactForm`, `contactFormEn` y `mainNav` duplicados de `site.ts` (nav solo en i18n).
+
+### Mejorado
+- ~400 líneas duplicadas entre páginas de contacto ES/EN eliminadas.
+- IDs de campos del formulario únicos por idioma (accesibilidad).
+
 ## [1.0.3] - 2026-06-13
 
 ### Añadido

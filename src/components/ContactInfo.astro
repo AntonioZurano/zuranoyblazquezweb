@@ -1,0 +1,86 @@
+---
+import Icon from './Icon.astro';
+import type { ContactUi } from '../types/i18n';
+
+interface Props {
+  copy: Pick<
+    ContactUi,
+    'infoTitle' | 'infoIntro' | 'emailLabel' | 'phoneLabel' | 'scheduleLabel'
+  >;
+  schedule: string;
+  email: string;
+  phone: string;
+  phoneHref: string;
+}
+
+const { copy, schedule, email, phone, phoneHref } = Astro.props;
+---
+
+<aside class="contact-info">
+  <h2 class="contact-info__title">{copy.infoTitle}</h2>
+  <p>{copy.infoIntro}</p>
+  <ul class="contact-info__list">
+    <li>
+      <span class="contact-info__icon" aria-hidden="true"><Icon name="mail" size={20} /></span>
+      <div>
+        <span class="contact-info__label">{copy.emailLabel}</span>
+        <a href={`mailto:${email}`}>{email}</a>
+      </div>
+    </li>
+    <li>
+      <span class="contact-info__icon" aria-hidden="true"><Icon name="phone" size={20} /></span>
+      <div>
+        <span class="contact-info__label">{copy.phoneLabel}</span>
+        <a href={`tel:${phoneHref}`}>{phone}</a>
+      </div>
+    </li>
+    <li>
+      <span class="contact-info__icon" aria-hidden="true"><Icon name="clock" size={20} /></span>
+      <div>
+        <span class="contact-info__label">{copy.scheduleLabel}</span>
+        <span>{schedule}</span>
+      </div>
+    </li>
+  </ul>
+</aside>
+
+<style>
+  .contact-info__title {
+    font-size: var(--fs-lg);
+    margin-bottom: var(--space-3);
+  }
+
+  .contact-info__list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-4) 0 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .contact-info__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .contact-info__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .contact-info__label {
+    display: block;
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+  }
+</style>
