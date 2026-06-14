@@ -1,9 +1,9 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import Hero from '../components/Hero.astro';
-import SectionTitle from '../components/SectionTitle.astro';
-import CTA from '../components/CTA.astro';
-import Icon from '../components/Icon.astro';
+import MainLayout from '@layouts/MainLayout.astro';
+import Hero from '@components/Hero.astro';
+import SectionTitle from '@components/SectionTitle.astro';
+import CTA from '@components/CTA.astro';
+import Icon from '@components/Icon.astro';
 
 const principles = [
   {
@@ -25,6 +25,16 @@ const principles = [
     icon: 'rocket',
     title: 'Mejora continua',
     text: 'Tu negocio evoluciona y tu tecnología debe hacerlo contigo.',
+  },
+  {
+    icon: 'enterprise',
+    title: 'Visión práctica',
+    text: 'Aplicamos tecnología con sentido común, pensando en el uso real dentro de tu empresa.',
+  },
+  {
+    icon: 'mail',
+    title: 'Cercanía local',
+    text: 'Conocemos las necesidades de las pymes y autónomos que buscan soluciones claras y soporte cercano.',
   },
 ];
 ---
@@ -57,7 +67,7 @@ const principles = [
   <section class="section section--soft">
     <div class="container">
       <SectionTitle eyebrow="Nuestra forma de trabajar" title="Principios que nos definen" align="center" />
-      <div class="grid grid--cards">
+      <div class="grid grid--cards grid--principles">
         {principles.map((item) => (
           <article class="principle card">
             <span class="principle__icon" aria-hidden="true">

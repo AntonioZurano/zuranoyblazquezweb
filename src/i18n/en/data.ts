@@ -1,10 +1,9 @@
 import type {
-  BlogPageContent,
   CompanyPageContent,
   EnServiceItem,
   HomePageContent,
   ServicesPageContent,
-} from '../../types/service';
+} from '@types/service';
 
 export const servicesEn: EnServiceItem[] = [
   {
@@ -135,6 +134,8 @@ export const companyEn = {
     { icon: 'support', title: 'Commitment', text: 'Direct contact without intermediaries. You speak with the people who solve your issues.' },
     { icon: 'shield', title: 'Proximity', text: 'We want to be your long-term technology partner, not a one-off supplier.' },
     { icon: 'rocket', title: 'Evolution', text: 'Your business evolves and your technology should evolve with it.' },
+    { icon: 'enterprise', title: 'Practical vision', text: 'We apply technology with common sense, focusing on real-world use within your company.' },
+    { icon: 'mail', title: 'Local proximity', text: 'We understand the needs of SMEs and freelancers looking for clear solutions and close support.' },
   ],
   stats: [
     { num: '100%', label: 'Support in English and Spanish' },
@@ -161,20 +162,3 @@ export const servicesPageEn = {
   catalogDescription:
     'You can hire each service separately or combine them in an integrated project. You choose; we advise.',
 } satisfies ServicesPageContent;
-
-export const blogPageEn = {
-  metaTitle: 'Blog',
-  metaDescription:
-    'Practical advice on digitalisation, Microsoft 365, STEL Order, websites and technology for businesses.',
-  eyebrow: 'Blog',
-  heroTitle: 'Technology for businesses, explained clearly',
-  heroSubtitle: 'Ideas, tips and news about useful technology for your company.',
-  sectionEyebrow: 'Latest articles',
-  sectionTitle: 'Get more from technology',
-  sectionDescription: 'Content for SMEs and freelancers who want to make better digital decisions.',
-  empty: 'We are preparing the first articles. Check back soon.',
-  pendingNote:
-    'Blog posts are currently published in Spanish. English versions will be added in a future update.',
-  ctaTitle: 'Would you like to hear about new articles?',
-  ctaText: 'Contact us and we will keep you updated on news that can help your business.',
-} satisfies BlogPageContent;

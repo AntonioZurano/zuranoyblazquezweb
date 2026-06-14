@@ -1,10 +1,10 @@
 ---
-import MainLayout from '../../layouts/MainLayout.astro';
-import Hero from '../../components/Hero.astro';
-import SectionTitle from '../../components/SectionTitle.astro';
-import CTA from '../../components/CTA.astro';
-import Icon from '../../components/Icon.astro';
-import { companyEn } from '../../i18n/en/data.ts';
+import MainLayout from '@layouts/MainLayout.astro';
+import Hero from '@components/Hero.astro';
+import SectionTitle from '@components/SectionTitle.astro';
+import CTA from '@components/CTA.astro';
+import Icon from '@components/Icon.astro';
+import { companyEn } from '@i18n/en/data';
 ---
 
 <MainLayout lang="en" title={companyEn.metaTitle} description={companyEn.metaDescription}>
@@ -39,7 +39,7 @@ import { companyEn } from '../../i18n/en/data.ts';
   <section class="section">
     <div class="container">
       <SectionTitle eyebrow={companyEn.valuesTitle} title="Principles that define us" align="center" />
-      <div class="grid grid--cards">
+      <div class="grid grid--cards grid--principles">
         {companyEn.values.map((item) => (
           <article class="principle card">
             <span class="principle__icon" aria-hidden="true">
