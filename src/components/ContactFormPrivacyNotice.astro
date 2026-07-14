@@ -1,0 +1,75 @@
+---
+import { getFormPrivacyNoticeCopy } from '@i18n/legal/form-privacy-notice';
+import { site } from '@data/site.ts';
+import type { Locale } from '@types/locale';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = getFormPrivacyNoticeCopy(locale);
+const rightsItem = copy.items.find((item) => item.label.startsWith('Derech') || item.label.startsWith('Rights'));
+const otherItems = copy.items.filter((item) => item !== rightsItem);
+---
+
+<div class="form-privacy-notice">
+  <h3 class="form-privacy-notice__title">{copy.title}</h3>
+
+  {
+    otherItems.map((item) => (
+      <p class="form-privacy-notice__item">
+        <strong>{item.label}</strong> {item.text}
+      </p>
+    ))
+  }
+
+  {
+    rightsItem && (
+      <p class="form-privacy-notice__item">
+        <strong>{rightsItem.label}</strong> {rightsItem.text}
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+    )
+  }
+
+  <p class="form-privacy-notice__item">
+    {copy.additionalInfoBefore}
+    <a href={copy.privacyPolicyHref}>{copy.additionalInfoLink}</a>
+    {copy.additionalInfoAfter}
+  </p>
+</div>
+
+<style>
+  .form-privacy-notice {
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-4);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-bg-alt);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+  }
+
+  .form-privacy-notice__title {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+    color: var(--color-text);
+  }
+
+  .form-privacy-notice__item {
+    font-size: var(--fs-sm);
+    color: var(--color-text-soft);
+    line-height: 1.6;
+    margin-bottom: var(--space-2);
+  }
+
+  .form-privacy-notice__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .form-privacy-notice__item strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+</style>

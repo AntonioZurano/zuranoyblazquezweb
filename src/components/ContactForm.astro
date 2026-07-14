@@ -2,7 +2,7 @@
 import type { ContactUi } from '@types/i18n';
 import type { ContactFormConfig } from '@types/site';
 import type { Locale } from '@types/locale';
-import LegalDataCollectionNotice from '@components/LegalDataCollectionNotice.astro';
+import ContactFormPrivacyNotice from '@components/ContactFormPrivacyNotice.astro';
 
 interface Props {
   locale: Locale;
@@ -66,15 +66,15 @@ const honeypotId = `_honey-${locale}`;
       <textarea id={`mensaje-${locale}`} name="mensaje" rows="5" required />
     </div>
 
+    <ContactFormPrivacyNotice locale={locale} />
+
     <div class="form-field form-field--check">
-      <input type="checkbox" id={`privacidad-${locale}`} name="privacidad" required />
+      <input type="checkbox" id={`privacidad-${locale}`} name="privacidad" value="aceptada" required />
       <label for={`privacidad-${locale}`}>
-        {copy.privacyLabel}{' '}
+        {copy.privacyAcceptBefore}
         <a href={copy.privacyHref}>{copy.privacyLink}</a>. *
       </label>
     </div>
-
-    <LegalDataCollectionNotice locale={locale} variant="form" showTitle={false} />
 
     <button type="submit" class="btn btn--primary contact-form__submit">{copy.submit}</button>
   </form>

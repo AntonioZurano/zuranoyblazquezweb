@@ -96,7 +96,7 @@ export interface ContactUi {
   serviceLabel: string;
   servicePlaceholder: string;
   messageLabel: string;
-  privacyLabel: string;
+  privacyAcceptBefore: string;
   privacyLink: string;
   privacyHref: string;
   submit: string;
