@@ -1,8 +1,11 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
 import LegalPage from '@components/LegalPage.astro';
-import LegalDataCollectionNotice from '@components/LegalDataCollectionNotice.astro';
-import { getLegalAddress, site } from '@data/site.js';
+import LegalNoticeContent from '@components/LegalNoticeContent.astro';
+import {
+  legalNoticeUpdated,
+  legalNoticeUpdatedLabel,
+} from '@i18n/legal/legal-notice';
 ---
 
 <MainLayout
@@ -11,45 +14,11 @@ import { getLegalAddress, site } from '@data/site.js';
   description="Legal notice for Zurano y Blázquez. Information about the owner of zuranoyblazquez.com and terms of use."
   noindex={true}
 >
-  <LegalPage title="Legal notice">
-    <p class="notice">
-      Provisional text pending legal review. Replace this information with the actual company details
-      before final publication.
-    </p>
-
-    <h2>1. Identifying information</h2>
-    <p>
-      In compliance with applicable regulations, the owner of this website is {site.legalName}, with
-      registered address in {getLegalAddress('en')} and contact email
-      <a href={`mailto:${site.email}`}>{site.email}</a>.
-    </p>
-
-    <h2>2. Purpose</h2>
-    <p>
-      This legal notice governs the use of the website {site.domain}, which {site.legalName} makes
-      available to internet users for informational purposes about its services.
-    </p>
-
-    <h2>3. Terms of use</h2>
-    <p>
-      Access to and use of this website implies acceptance of these terms. Users agree to make proper
-      use of the content and not to use it for activities contrary to the law.
-    </p>
-
-    <h2>4. Intellectual property</h2>
-    <p>
-      The contents of this website, including text, images, design and code, are owned by
-      {site.legalName} or third parties who have authorised their use, and are protected by
-      intellectual and industrial property law.
-    </p>
-
-    <h2>5. Liability</h2>
-    <p>
-      {site.legalName} is not liable for misuse of the content or for any damage arising from
-      browsing. It reserves the right to modify the information on the site without prior notice.
-    </p>
-
-    <h2>6. Data collection on the website (LSSICE + LOPD Spanish Laws)</h2>
-    <LegalDataCollectionNotice locale="en" variant="page" showTitle={false} />
+  <LegalPage
+    title="Legal notice"
+    updated={legalNoticeUpdated.en}
+    updatedLabel={legalNoticeUpdatedLabel.en}
+  >
+    <LegalNoticeContent locale="en" />
   </LegalPage>
 </MainLayout>

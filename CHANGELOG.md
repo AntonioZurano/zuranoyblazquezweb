@@ -10,6 +10,7 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 - Cambio textos políticas.
 - Política de privacidad (ES): texto oficial completo con 25 secciones.
 - Formulario de contacto: aviso reducido de protección de datos (ES/EN).
+- Aviso legal (ES): texto oficial completo con 22 secciones.
 
 ## [1.1.5] - 2026-06-14
 

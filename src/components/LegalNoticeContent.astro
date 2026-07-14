@@ -1,6 +1,6 @@
 ---
 import LegalDocumentContent from '@components/LegalDocumentContent.astro';
-import { getPrivacyPolicySections } from '@i18n/legal/privacy-policy';
+import { getLegalNoticeSections } from '@i18n/legal/legal-notice';
 import type { Locale } from '@types/locale';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { locale } = Astro.props;
-const sections = getPrivacyPolicySections(locale);
+const sections = getLegalNoticeSections(locale);
 ---
 
 <LegalDocumentContent sections={sections} />

@@ -1,8 +1,11 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
 import LegalPage from '@components/LegalPage.astro';
-import LegalDataCollectionNotice from '@components/LegalDataCollectionNotice.astro';
-import { site } from '@data/site.js';
+import LegalNoticeContent from '@components/LegalNoticeContent.astro';
+import {
+  legalNoticeUpdated,
+  legalNoticeUpdatedLabel,
+} from '@i18n/legal/legal-notice';
 ---
 
 <MainLayout
@@ -10,47 +13,11 @@ import { site } from '@data/site.js';
   description="Aviso legal de Zurano y Blazquez. Información sobre el titular del sitio web zuranoyblazquez.com y las condiciones de uso."
   noindex={true}
 >
-  <LegalPage title="Aviso legal">
-    <p class="notice">
-      Texto orientativo pendiente de revisión legal. Sustituye estos datos por la información real
-      del titular antes de la publicación definitiva.
-    </p>
-
-    <h2>1. Datos identificativos</h2>
-    <p>
-      En cumplimiento de la normativa aplicable, se informa de que el titular de este sitio web es
-      {site.legalName}, con domicilio en {site.address} y correo de contacto
-      <a href={`mailto:${site.email}`}>{site.email}</a>.
-    </p>
-
-    <h2>2. Objeto</h2>
-    <p>
-      El presente aviso legal regula el uso del sitio web {site.domain}, que {site.legalName} pone a
-      disposición de los usuarios de internet con carácter informativo sobre sus servicios.
-    </p>
-
-    <h2>3. Condiciones de uso</h2>
-    <p>
-      El acceso y la navegación por este sitio web implican la aceptación de las presentes
-      condiciones. El usuario se compromete a hacer un uso adecuado de los contenidos y a no
-      emplearlos para actividades contrarias a la ley.
-    </p>
-
-    <h2>4. Propiedad intelectual</h2>
-    <p>
-      Los contenidos de este sitio web, incluyendo textos, imágenes, diseño y código, son titularidad
-      de {site.legalName} o de terceros que han autorizado su uso, y están protegidos por la normativa
-      de propiedad intelectual e industrial.
-    </p>
-
-    <h2>5. Responsabilidad</h2>
-    <p>
-      {site.legalName} no se hace responsable del uso indebido de los contenidos ni de los posibles
-      daños derivados de la navegación. Se reserva el derecho a modificar la información del sitio sin
-      previo aviso.
-    </p>
-
-    <h2>6. Recogida de datos en página web (LSSICE + LOPD)</h2>
-    <LegalDataCollectionNotice locale="es" variant="page" showTitle={false} />
+  <LegalPage
+    title="Aviso legal"
+    updated={legalNoticeUpdated.es}
+    updatedLabel={legalNoticeUpdatedLabel.es}
+  >
+    <LegalNoticeContent locale="es" />
   </LegalPage>
 </MainLayout>
