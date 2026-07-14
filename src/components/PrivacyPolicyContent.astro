@@ -1,0 +1,82 @@
+---
+import { getPrivacyPolicySections } from '@i18n/legal/privacy-policy';
+import { site } from '@data/site.ts';
+import type { Locale } from '@types/locale';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const sections = getPrivacyPolicySections(locale);
+---
+
+{
+  sections.map((section) => (
+    <>
+      <h2>{section.title}</h2>
+      {section.blocks.map((block) => {
+        if (block.type === 'p') {
+          return <p>{block.text}</p>;
+        }
+
+        if (block.type === 'h3') {
+          return <h3>{block.text}</h3>;
+        }
+
+        if (block.type === 'ul') {
+          return (
+            <ul>
+              {block.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          );
+        }
+
+        if (block.type === 'p-email') {
+          return (
+            <p>
+              {block.before}
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+              {block.after}
+            </p>
+          );
+        }
+
+        if (block.type === 'p-link') {
+          return (
+            <p>
+              {block.before}
+              <a href={block.href} rel={block.external ? 'noopener noreferrer' : undefined}>
+                {block.linkText}
+              </a>
+              {block.after}
+            </p>
+          );
+        }
+
+        if (block.type === 'address') {
+          return (
+            <p>
+              {block.lines.map((line, index) => (
+                <>
+                  {index > 0 && <br />}
+                  <strong>{line}</strong>
+                </>
+              ))}
+              {block.email && (
+                <>
+                  <br />
+                  <a href={`mailto:${site.email}`}>{site.email}</a>
+                </>
+              )}
+            </p>
+          );
+        }
+
+        return null;
+      })}
+    </>
+  ))
+}

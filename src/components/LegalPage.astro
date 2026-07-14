@@ -6,9 +6,10 @@ import Hero from './Hero.astro';
 interface Props {
   title: string;
   updated?: string;
+  updatedLabel?: string;
 }
 
-const { title, updated } = Astro.props;
+const { title, updated, updatedLabel = 'Última actualización:' } = Astro.props;
 ---
 
 <Hero variant="compact">
@@ -17,7 +18,7 @@ const { title, updated } = Astro.props;
 
 <section class="section">
   <div class="container container--narrow prose">
-    {updated && <p class="prose__updated">Última actualización: {updated}</p>}
+    {updated && <p class="prose__updated">{updatedLabel} {updated}</p>}
     <slot />
   </div>
 </section>
@@ -33,8 +34,19 @@ const { title, updated } = Astro.props;
     margin-bottom: var(--space-3);
   }
 
+  .prose :global(h3) {
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-2);
+    font-size: var(--fs-md);
+  }
+
+  .prose :global(li) {
+    margin-bottom: var(--space-2);
+  }
+
   .prose :global(ul) {
     margin-bottom: var(--space-3);
+    padding-left: var(--space-4);
     color: var(--color-text-soft);
   }
 
