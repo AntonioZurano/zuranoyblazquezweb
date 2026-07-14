@@ -1,7 +1,8 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
 import LegalPage from '@components/LegalPage.astro';
-import { site } from '@data/site.js';
+import LegalDataCollectionNotice from '@components/LegalDataCollectionNotice.astro';
+import { getLegalAddress, site } from '@data/site.js';
 ---
 
 <MainLayout
@@ -19,7 +20,7 @@ import { site } from '@data/site.js';
     <h2>1. Identifying information</h2>
     <p>
       In compliance with applicable regulations, the owner of this website is {site.legalName}, with
-      registered address in {site.address} and contact email
+      registered address in {getLegalAddress('en')} and contact email
       <a href={`mailto:${site.email}`}>{site.email}</a>.
     </p>
 
@@ -47,5 +48,8 @@ import { site } from '@data/site.js';
       {site.legalName} is not liable for misuse of the content or for any damage arising from
       browsing. It reserves the right to modify the information on the site without prior notice.
     </p>
+
+    <h2>6. Data collection on the website (LSSICE + LOPD Spanish Laws)</h2>
+    <LegalDataCollectionNotice locale="en" variant="page" showTitle={false} />
   </LegalPage>
 </MainLayout>

@@ -101,8 +101,6 @@ export interface ContactUi {
   privacyHref: string;
   submit: string;
   honeypotLabel: string;
-  formNote?: string;
-  legalNote: string;
   services: SelectOption[];
 }
 

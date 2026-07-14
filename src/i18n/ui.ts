@@ -94,10 +94,6 @@ export const ui = {
       privacyHref: '/politica-de-privacidad/',
       submit: 'Enviar mensaje',
       honeypotLabel: 'No rellenar este campo',
-      formNote:
-        'Al enviar, aceptas que tratemos tus datos para responder a tu consulta. También puedes escribirnos a',
-      legalNote:
-        'Los datos enviados a través de este formulario se utilizarán únicamente para responder a tu solicitud de información.',
       services: [
         { value: 'microsoft-365', label: 'Microsoft 365' },
         { value: 'stel-order', label: 'STEL Order' },
@@ -250,8 +246,6 @@ export const ui = {
       privacyHref: '/en/privacy-policy/',
       submit: 'Send request',
       honeypotLabel: 'Do not fill this field',
-      legalNote:
-        'The data submitted through this form will only be used to respond to your information request.',
       services: [
         { value: 'microsoft-365', label: 'Microsoft 365' },
         { value: 'stel-order', label: 'STEL Order' },

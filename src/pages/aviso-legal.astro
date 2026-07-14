@@ -1,6 +1,7 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
 import LegalPage from '@components/LegalPage.astro';
+import LegalDataCollectionNotice from '@components/LegalDataCollectionNotice.astro';
 import { site } from '@data/site.js';
 ---
 
@@ -48,5 +49,8 @@ import { site } from '@data/site.js';
       daños derivados de la navegación. Se reserva el derecho a modificar la información del sitio sin
       previo aviso.
     </p>
+
+    <h2>6. Recogida de datos en página web (LSSICE + LOPD)</h2>
+    <LegalDataCollectionNotice locale="es" variant="page" showTitle={false} />
   </LegalPage>
 </MainLayout>
