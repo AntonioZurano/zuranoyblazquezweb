@@ -4,7 +4,7 @@ Sitio web corporativo de **Zurano y Blazquez**, especialistas en soluciones digi
 
 Construido con [Astro 6](https://astro.build) priorizando **rendimiento, HTML semántico, SEO y facilidad de mantenimiento**.
 
-> **Versión estable `v1.1.5`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y páginas legales (textos provisionales pendientes de revisión).
+> **Versión estable `v1.1.6`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y textos legales oficiales en español (aviso legal, privacidad y cookies). Las versiones inglesas de aviso legal y privacidad son placeholders; la política de cookies está traducida al inglés.
 
 ---
 
@@ -184,12 +184,11 @@ Los servicios y datos de contacto globales viven en `src/data/site.ts`. La naveg
 
 ## Próximos pasos sugeridos (post v1.0.0)
 
-- Revisar y completar los **textos legales** con asesoramiento profesional (ahora provisionales).
+- Publicar traducciones oficiales al inglés de **aviso legal** y **política de privacidad** (actualmente placeholders).
 - **Activar el formulario** en Formsubmit tras publicar el dominio y probar un envío real.
 - Sustituir la **imagen Open Graph** por una versión rasterizada definitiva (PNG/JPG 1200×630).
 - Añadir imágenes/optimización con `astro:assets` cuando haya fotografía real.
 - Ampliar el blog con nuevos artículos en `src/content/blog`.
-- Traducir los artículos del blog al inglés.
 
 El historial completo de versiones está en [`CHANGELOG.md`](./CHANGELOG.md) y el
 estado del roadmap en [`TODO.md`](./TODO.md). La guía de publicación está en

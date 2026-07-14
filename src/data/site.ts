@@ -3,7 +3,8 @@ import type { ContactFormConfig, FooterLinks, ServiceItem, SiteConfig } from '@t
 
 export const site: SiteConfig = {
   name: 'Zurano y Blazquez',
-  legalName: 'Zurano y Blazquez',
+  legalName: 'ZURANO Y BLAZQUEZ S.L.',
+  cif: 'B30571939',
   domain: 'zuranoyblazquez.com',
   url: 'https://zuranoyblazquez.com',
   tagline: 'Soluciones digitales para empresas',
@@ -12,9 +13,17 @@ export const site: SiteConfig = {
   email: 'info@zuranoyblazquez.com',
   phone: '+34 617 414 350',
   phoneHref: '+34617414350',
-  address: 'España',
+  address: 'LORCA (MURCIA), C.P. 30813, CAMINO LA NORIA Nº 8 DIPUTACION LA ESCUCHA',
+  legalAddress: {
+    es: 'LORCA (MURCIA), C.P. 30813, CAMINO LA NORIA Nº 8 DIPUTACION LA ESCUCHA',
+    en: 'LORCA (MURCIA), C.P. 30813, CALLE CAMINO LA NORIA Nº 8 DIPUTACION LA ESCUCHA',
+  },
   schedule: 'Lunes a viernes, 9:00 – 18:00',
 };
+
+export function getLegalAddress(locale: Locale): string {
+  return locale === 'en' ? site.legalAddress.en : site.legalAddress.es;
+}
 
 function buildFormsubmitEndpoint(recipient: string): string {
   return `https://formsubmit.co/${recipient}`;

@@ -6,6 +6,26 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [1.1.6] - 2026-07-14
+
+### Añadido
+- Política de cookies (ES + EN): texto oficial con 11 secciones, tabla de almacenamiento local y soporte de bloques `table` en documentos legales.
+- Formulario de contacto: campos ocultos de consentimiento (`version_clausula_privacidad`, `formulario`, `fecha_aceptacion_privacidad`) centralizados en `form-consent.ts`.
+- Componente `CookiesPolicyContent.astro` y módulo `src/i18n/legal/cookies-policy.ts`.
+
+### Cambiado
+- Aviso legal (ES): texto oficial completo con 22 secciones.
+- Política de privacidad (ES): texto oficial completo con 25 secciones.
+- Formulario de contacto: aviso reducido de protección de datos (ES/EN) y checkbox `aceptacion_politica_privacidad`.
+- `tsconfig.json`: rutas de alias corregidas (`./src/...`).
+
+### Eliminado
+- `LegalDataCollectionNotice.astro` y `data-collection.ts` (código muerto tras el aviso LOPD del formulario).
+
+### Notas
+- Aviso legal y política de privacidad en inglés siguen como placeholders con enlace a la versión española.
+- El sitio usa `localStorage` (`zb-theme`) para el tema; no se muestran cookies de analítica ni banner de consentimiento.
+
 ## [1.1.5] - 2026-06-14
 
 ### Corregido

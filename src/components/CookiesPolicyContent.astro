@@ -1,0 +1,14 @@
+---
+import LegalDocumentContent from '@components/LegalDocumentContent.astro';
+import { getCookiesPolicySections } from '@i18n/legal/cookies-policy';
+import type { Locale } from '@types/locale';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const sections = getCookiesPolicySections(locale);
+---
+
+<LegalDocumentContent sections={sections} />

@@ -1,7 +1,11 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
 import LegalPage from '@components/LegalPage.astro';
-import { site } from '@data/site.js';
+import PrivacyPolicyContent from '@components/PrivacyPolicyContent.astro';
+import {
+  privacyPolicyUpdated,
+  privacyPolicyUpdatedLabel,
+} from '@i18n/legal/privacy-policy';
 ---
 
 <MainLayout
@@ -10,47 +14,11 @@ import { site } from '@data/site.js';
   description="Privacy policy of Zurano y Blázquez. Information on how we process personal data collected through zuranoyblazquez.com."
   noindex={true}
 >
-  <LegalPage title="Privacy policy">
-    <p class="notice">
-      Provisional text pending legal review. This policy must be reviewed by legal counsel before
-      final publication.
-    </p>
-
-    <h2>1. Data controller</h2>
-    <p>
-      The controller of personal data collected through this website is {site.legalName}, contact
-      email <a href={`mailto:${site.email}`}>{site.email}</a>.
-    </p>
-
-    <h2>2. Purpose of processing</h2>
-    <p>
-      Personal data submitted through the contact form will be used solely to respond to information
-      requests and to manage the commercial relationship arising from such requests.
-    </p>
-
-    <h2>3. Legal basis</h2>
-    <p>
-      Processing is based on the consent of the data subject when submitting the contact form, and on
-      the legitimate interest in managing enquiries received.
-    </p>
-
-    <h2>4. Data retention</h2>
-    <p>
-      Data will be retained for as long as necessary to respond to the enquiry and, where applicable,
-      for the periods required by applicable law.
-    </p>
-
-    <h2>5. Rights of data subjects</h2>
-    <p>
-      You may exercise your rights of access, rectification, erasure, restriction, objection and
-      portability by writing to <a href={`mailto:${site.email}`}>{site.email}</a>. You also have the
-      right to lodge a complaint with the relevant supervisory authority.
-    </p>
-
-    <h2>6. Security</h2>
-    <p>
-      {site.legalName} applies appropriate technical and organisational measures to protect personal
-      data against unauthorised access, alteration or disclosure.
-    </p>
+  <LegalPage
+    title="Privacy policy"
+    updated={privacyPolicyUpdated.en}
+    updatedLabel={privacyPolicyUpdatedLabel.en}
+  >
+    <PrivacyPolicyContent locale="en" />
   </LegalPage>
 </MainLayout>

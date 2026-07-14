@@ -89,15 +89,11 @@ export const ui = {
       serviceLabel: '¿Sobre qué servicio quieres información?',
       servicePlaceholder: 'Selecciona una opción',
       messageLabel: 'Mensaje *',
-      privacyLabel: 'He leído y acepto la',
-      privacyLink: 'política de privacidad',
+      privacyAcceptBefore: 'He leído y acepto la ',
+      privacyLink: 'Política de Privacidad',
       privacyHref: '/politica-de-privacidad/',
       submit: 'Enviar mensaje',
       honeypotLabel: 'No rellenar este campo',
-      formNote:
-        'Al enviar, aceptas que tratemos tus datos para responder a tu consulta. También puedes escribirnos a',
-      legalNote:
-        'Los datos enviados a través de este formulario se utilizarán únicamente para responder a tu solicitud de información.',
       services: [
         { value: 'microsoft-365', label: 'Microsoft 365' },
         { value: 'stel-order', label: 'STEL Order' },
@@ -245,13 +241,11 @@ export const ui = {
       serviceLabel: 'Service of interest',
       servicePlaceholder: 'Select an option',
       messageLabel: 'Message *',
-      privacyLabel: 'I have read and accept the',
-      privacyLink: 'privacy policy',
+      privacyAcceptBefore: 'I have read and accept the ',
+      privacyLink: 'Privacy Policy',
       privacyHref: '/en/privacy-policy/',
       submit: 'Send request',
       honeypotLabel: 'Do not fill this field',
-      legalNote:
-        'The data submitted through this form will only be used to respond to your information request.',
       services: [
         { value: 'microsoft-365', label: 'Microsoft 365' },
         { value: 'stel-order', label: 'STEL Order' },
