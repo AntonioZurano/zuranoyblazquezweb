@@ -3,6 +3,7 @@ import type { ContactUi } from '@types/i18n';
 import type { ContactFormConfig } from '@types/site';
 import type { Locale } from '@types/locale';
 import ContactFormPrivacyNotice from '@components/ContactFormPrivacyNotice.astro';
+import { getContactFormConsent } from '@i18n/legal/form-consent';
 
 interface Props {
   locale: Locale;
@@ -11,18 +12,23 @@ interface Props {
 }
 
 const { locale, copy, form } = Astro.props;
+const consent = getContactFormConsent(locale);
 const honeypotId = `_honey-${locale}`;
+const formId = `contact-form-${locale}`;
 ---
 
 <div class="contact-form-wrapper card">
   <h2 class="contact-form__title">{copy.formTitle}</h2>
   <p class="contact-form__intro">{copy.formIntro}</p>
 
-  <form class="contact-form" method="POST" action={form.endpoint}>
+  <form id={formId} class="contact-form" method="POST" action={form.endpoint}>
     <input type="hidden" name="_subject" value={form.subject} />
     <input type="hidden" name="_next" value={form.redirectTo} />
     <input type="hidden" name="_captcha" value="false" />
     <input type="hidden" name="_template" value="table" />
+    <input type="hidden" name="version_clausula_privacidad" value={consent.clauseVersion} />
+    <input type="hidden" name="formulario" value={consent.formId} />
+    <input type="hidden" name="fecha_aceptacion_privacidad" value="" />
 
     <div class="visually-hidden" aria-hidden="true">
       <label for={honeypotId}>{copy.honeypotLabel}</label>
@@ -69,7 +75,14 @@ const honeypotId = `_honey-${locale}`;
     <ContactFormPrivacyNotice locale={locale} />
 
     <div class="form-field form-field--check">
-      <input type="checkbox" id={`privacidad-${locale}`} name="privacidad" value="aceptada" required />
+      <input
+        type="checkbox"
+        id={`privacidad-${locale}`}
+        name="aceptacion_politica_privacidad"
+        value={consent.acceptanceValue}
+        required
+        aria-required="true"
+      />
       <label for={`privacidad-${locale}`}>
         {copy.privacyAcceptBefore}
         <a href={copy.privacyHref}>{copy.privacyLink}</a>. *
@@ -79,6 +92,18 @@ const honeypotId = `_honey-${locale}`;
     <button type="submit" class="btn btn--primary contact-form__submit">{copy.submit}</button>
   </form>
 </div>
+
+<script define:vars={{ formId }}>
+  const contactForm = document.getElementById(formId);
+
+  contactForm?.addEventListener('submit', () => {
+    const dateField = contactForm.querySelector('input[name="fecha_aceptacion_privacidad"]');
+
+    if (dateField instanceof HTMLInputElement) {
+      dateField.value = new Date().toISOString();
+    }
+  });
+</script>
 
 <style>
   .contact-form__title {

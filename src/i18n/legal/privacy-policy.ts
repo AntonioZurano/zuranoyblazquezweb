@@ -780,6 +780,9 @@ export const privacyPolicyUpdated = {
   en: '14 July 2026',
 } as const;
 
+/** Versión de la cláusula de privacidad del formulario (ISO 8601, alineada con la política). */
+export const privacyPolicyClauseVersion = '2026-07-14';
+
 export const privacyPolicyUpdatedLabel = {
   es: 'Última actualización:',
   en: 'Last updated:',
