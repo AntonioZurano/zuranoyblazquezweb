@@ -27,6 +27,7 @@ se fusiona en `main` y se etiqueta.
 - [x] **v1.1.3** — Corrección del árbol de proyecto en README.
 - [x] **v1.1.4** — Pulido i18n: blog, tema, servicios ES centralizados y alias de imports.
 - [x] **v1.1.5** — Traducción de artículos del blog al inglés y rutas `/en/blog/`.
+- [ ] **v1.1.6** — Cambio textos políticas.
 
 ## Pendientes conocidos / notas
 

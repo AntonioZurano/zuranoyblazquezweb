@@ -6,6 +6,9 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+### Cambiado
+- Cambio textos políticas.
+
 ## [1.1.5] - 2026-06-14
 
 ### Corregido
