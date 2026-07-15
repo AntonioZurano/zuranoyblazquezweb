@@ -1,5 +1,5 @@
-import type { Locale } from '@types/locale';
-import type { LegalSection } from '@types/legal';
+import type { Locale } from '@apptypes/locale';
+import type { LegalSection } from '@apptypes/legal';
 
 const legalNoticeEs: LegalSection[] = [
   {
@@ -9,7 +9,7 @@ const legalNoticeEs: LegalSection[] = [
         type: 'p',
         text: 'En cumplimiento de lo dispuesto en la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico —en adelante, «LSSI-CE»—, se facilita a los usuarios la siguiente información identificativa del titular de este sitio web:',
       },
-      { type: 'labeled', label: 'Titular:', text: 'ZURANO Y BLÁZQUEZ, S.L.' },
+      { type: 'labeled', label: 'Titular:', text: 'ZURANO Y BLAZQUEZ, S.L.' },
       { type: 'labeled', label: 'CIF:', text: 'B30571939' },
       {
         type: 'labeled',
@@ -37,7 +37,7 @@ const legalNoticeEs: LegalSection[] = [
       },
       {
         type: 'p',
-        text: 'En adelante, ZURANO Y BLÁZQUEZ, S.L. podrá ser denominada el titular, la empresa o el prestador.',
+        text: 'En adelante, ZURANO Y BLAZQUEZ, S.L. podrá ser denominada el titular, la empresa o el prestador.',
       },
       {
         type: 'p-link',
@@ -55,7 +55,7 @@ const legalNoticeEs: LegalSection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'El presente sitio web tiene como finalidad ofrecer información sobre ZURANO Y BLÁZQUEZ, S.L., su actividad y los productos y servicios que comercializa o presta.',
+        text: 'El presente sitio web tiene como finalidad ofrecer información sobre ZURANO Y BLAZQUEZ, S.L., su actividad y los productos y servicios que comercializa o presta.',
       },
       {
         type: 'p',
@@ -73,7 +73,7 @@ const legalNoticeEs: LegalSection[] = [
           'Servicios relacionados con software y sistemas informáticos.',
           'Soporte técnico, consultoría y mantenimiento informático.',
           'Automatización de procesos y soluciones tecnológicas.',
-          'Cualquier otro producto o servicio tecnológico ofrecido por ZURANO Y BLÁZQUEZ, S.L.',
+          'Cualquier otro producto o servicio tecnológico ofrecido por ZURANO Y BLAZQUEZ, S.L.',
         ],
       },
       {
@@ -149,7 +149,7 @@ const legalNoticeEs: LegalSection[] = [
       },
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. podrá limitar, suspender o bloquear el acceso de aquellos usuarios que incumplan estas condiciones, sin perjuicio de las acciones legales que puedan corresponder.',
+        text: 'ZURANO Y BLAZQUEZ, S.L. podrá limitar, suspender o bloquear el acceso de aquellos usuarios que incumplan estas condiciones, sin perjuicio de las acciones legales que puedan corresponder.',
       },
     ],
   },
@@ -162,7 +162,7 @@ const legalNoticeEs: LegalSection[] = [
       },
       {
         type: 'p',
-        text: 'Los datos introducidos en los formularios se envían por correo electrónico a ZURANO Y BLÁZQUEZ, S.L.',
+        text: 'Los datos introducidos en los formularios se envían por correo electrónico a ZURANO Y BLAZQUEZ, S.L.',
       },
       {
         type: 'p',
@@ -175,7 +175,7 @@ const legalNoticeEs: LegalSection[] = [
           'No crean cuentas de usuario.',
           'No generan una suscripción automática a una newsletter.',
           'No implican la contratación automática de ningún producto o servicio.',
-          'No obligan a ZURANO Y BLÁZQUEZ, S.L. a aceptar la solicitud recibida.',
+          'No obligan a ZURANO Y BLAZQUEZ, S.L. a aceptar la solicitud recibida.',
         ],
       },
       {
@@ -237,7 +237,7 @@ const legalNoticeEs: LegalSection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'Algunos productos o servicios comercializados por ZURANO Y BLÁZQUEZ, S.L., como nombres de dominio, licencias de software, alojamiento web, servicios de correo electrónico o servicios en la nube, dependen de proveedores, fabricantes, distribuidores, registros o plataformas de terceros.',
+        text: 'Algunos productos o servicios comercializados por ZURANO Y BLAZQUEZ, S.L., como nombres de dominio, licencias de software, alojamiento web, servicios de correo electrónico o servicios en la nube, dependen de proveedores, fabricantes, distribuidores, registros o plataformas de terceros.',
       },
       {
         type: 'p',
@@ -260,7 +260,7 @@ const legalNoticeEs: LegalSection[] = [
       },
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. no será responsable de cambios, interrupciones o decisiones imputables exclusivamente a dichos terceros, sin perjuicio de las obligaciones que legal o contractualmente le correspondan frente al cliente.',
+        text: 'ZURANO Y BLAZQUEZ, S.L. no será responsable de cambios, interrupciones o decisiones imputables exclusivamente a dichos terceros, sin perjuicio de las obligaciones que legal o contractualmente le correspondan frente al cliente.',
       },
     ],
   },
@@ -269,7 +269,7 @@ const legalNoticeEs: LegalSection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'Todos los contenidos del sitio web, salvo indicación expresa en contrario, son titularidad de ZURANO Y BLÁZQUEZ, S.L. o se utilizan con autorización o licencia de sus respectivos titulares.',
+        text: 'Todos los contenidos del sitio web, salvo indicación expresa en contrario, son titularidad de ZURANO Y BLAZQUEZ, S.L. o se utilizan con autorización o licencia de sus respectivos titulares.',
       },
       {
         type: 'p',
@@ -339,11 +339,11 @@ const legalNoticeEs: LegalSection[] = [
       },
       {
         type: 'p',
-        text: 'El sitio web se ejecuta en un servidor privado virtual —VPS— administrado por ZURANO Y BLÁZQUEZ, S.L. y contratado a Profesional Hosting como proveedor de infraestructura.',
+        text: 'El sitio web se ejecuta en un servidor privado virtual —VPS— administrado por ZURANO Y BLAZQUEZ, S.L. y contratado a Profesional Hosting como proveedor de infraestructura.',
       },
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. adopta medidas razonables para mantener el sitio web disponible, actualizado y seguro. No obstante, no puede garantizar:',
+        text: 'ZURANO Y BLAZQUEZ, S.L. adopta medidas razonables para mantener el sitio web disponible, actualizado y seguro. No obstante, no puede garantizar:',
       },
       {
         type: 'ul',
@@ -376,7 +376,7 @@ const legalNoticeEs: LegalSection[] = [
       },
       {
         type: 'p',
-        text: 'Cuando sea razonablemente posible, ZURANO Y BLÁZQUEZ, S.L. procurará reducir la duración y el impacto de estas interrupciones.',
+        text: 'Cuando sea razonablemente posible, ZURANO Y BLAZQUEZ, S.L. procurará reducir la duración y el impacto de estas interrupciones.',
       },
     ],
   },
@@ -385,7 +385,7 @@ const legalNoticeEs: LegalSection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. procura que la información publicada en el sitio web sea correcta y esté actualizada.',
+        text: 'ZURANO Y BLAZQUEZ, S.L. procura que la información publicada en el sitio web sea correcta y esté actualizada.',
       },
       {
         type: 'p',
@@ -403,7 +403,7 @@ const legalNoticeEs: LegalSection[] = [
       },
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. podrá modificar, corregir, actualizar o eliminar los contenidos del sitio web en cualquier momento.',
+        text: 'ZURANO Y BLAZQUEZ, S.L. podrá modificar, corregir, actualizar o eliminar los contenidos del sitio web en cualquier momento.',
       },
       {
         type: 'p',
@@ -416,7 +416,7 @@ const legalNoticeEs: LegalSection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'Dentro de los límites permitidos por la legislación aplicable, ZURANO Y BLÁZQUEZ, S.L. no será responsable de los daños derivados de:',
+        text: 'Dentro de los límites permitidos por la legislación aplicable, ZURANO Y BLAZQUEZ, S.L. no será responsable de los daños derivados de:',
       },
       {
         type: 'ul',
@@ -454,7 +454,7 @@ const legalNoticeEs: LegalSection[] = [
       },
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L.:',
+        text: 'ZURANO Y BLAZQUEZ, S.L.:',
       },
       {
         type: 'ul',
@@ -488,7 +488,7 @@ const legalNoticeEs: LegalSection[] = [
         type: 'ul',
         items: [
           'El enlace sea lícito.',
-          'No cause perjuicio a la imagen o reputación de ZURANO Y BLÁZQUEZ, S.L.',
+          'No cause perjuicio a la imagen o reputación de ZURANO Y BLAZQUEZ, S.L.',
           'No se indique falsamente que existe una relación, colaboración, patrocinio o autorización.',
           'No se utilicen las marcas o logotipos del titular sin autorización.',
           'No se presente el sitio web dentro de marcos o frames que alteren su visualización.',
@@ -497,7 +497,7 @@ const legalNoticeEs: LegalSection[] = [
       },
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. podrá solicitar la retirada de cualquier enlace que incumpla estas condiciones.',
+        text: 'ZURANO Y BLAZQUEZ, S.L. podrá solicitar la retirada de cualquier enlace que incumpla estas condiciones.',
       },
     ],
   },
@@ -565,7 +565,7 @@ const legalNoticeEs: LegalSection[] = [
       },
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. no enviará comunicaciones comerciales electrónicas no solicitadas cuando no exista consentimiento u otra base jurídica que lo permita.',
+        text: 'ZURANO Y BLAZQUEZ, S.L. no enviará comunicaciones comerciales electrónicas no solicitadas cuando no exista consentimiento u otra base jurídica que lo permita.',
       },
       {
         type: 'p',
@@ -583,7 +583,7 @@ const legalNoticeEs: LegalSection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. adopta medidas técnicas y organizativas razonables para proteger el sitio web, el servidor y sus sistemas.',
+        text: 'ZURANO Y BLAZQUEZ, S.L. adopta medidas técnicas y organizativas razonables para proteger el sitio web, el servidor y sus sistemas.',
       },
       {
         type: 'p',
@@ -638,7 +638,7 @@ const legalNoticeEs: LegalSection[] = [
       },
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. examinará las comunicaciones recibidas y adoptará, cuando corresponda, las medidas razonables necesarias.',
+        text: 'ZURANO Y BLAZQUEZ, S.L. examinará las comunicaciones recibidas y adoptará, cuando corresponda, las medidas razonables necesarias.',
       },
       {
         type: 'p',
@@ -651,7 +651,7 @@ const legalNoticeEs: LegalSection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. podrá modificar este Aviso Legal para adaptarlo a:',
+        text: 'ZURANO Y BLAZQUEZ, S.L. podrá modificar este Aviso Legal para adaptarlo a:',
       },
       {
         type: 'ul',
@@ -714,7 +714,7 @@ const legalNoticeEs: LegalSection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'Para cualquier consulta relacionada con el sitio web o con este Aviso Legal, el usuario puede contactar con ZURANO Y BLÁZQUEZ, S.L. mediante los siguientes medios:',
+        text: 'Para cualquier consulta relacionada con el sitio web o con este Aviso Legal, el usuario puede contactar con ZURANO Y BLAZQUEZ, S.L. mediante los siguientes medios:',
       },
       { type: 'p-email', before: 'Correo electrónico: ', after: '' },
       { type: 'labeled', label: 'Teléfono:', text: '617 414 350' },

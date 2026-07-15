@@ -41,13 +41,19 @@ function seoHints(route: string): { priority: string; changefreq: string } {
   if (route === '/') return { priority: '1.0', changefreq: 'weekly' };
   if (route === '/en/') return { priority: '0.9', changefreq: 'weekly' };
   if (route === '/servicios/' || route === '/en/services/') return { priority: '0.9', changefreq: 'monthly' };
-  if (route.startsWith('/servicios/') || route.startsWith('/en/')) return { priority: '0.8', changefreq: 'monthly' };
   if (route === '/blog/' || route === '/en/blog/') return { priority: '0.7', changefreq: 'weekly' };
+  if (route.startsWith('/blog/') || route.startsWith('/en/blog/')) return { priority: '0.6', changefreq: 'weekly' };
+  if (route.startsWith('/servicios/') || route.startsWith('/en/')) return { priority: '0.8', changefreq: 'monthly' };
   return { priority: '0.6', changefreq: 'monthly' };
 }
 
+/** Formatea una fecha como YYYY-MM-DD (formato W3C aceptado por sitemaps). */
+function toIsoDate(date: Date): string {
+  return date.toISOString().split('T')[0];
+}
+
 export const GET: APIRoute = async () => {
-  const lastmod = new Date().toISOString().split('T')[0];
+  const buildDate = toIsoDate(new Date());
 
   // Rutas estáticas (se omiten las plantillas dinámicas con [param]).
   const staticRoutes = Object.keys(pageModules)
@@ -55,9 +61,16 @@ export const GET: APIRoute = async () => {
     .map(filePathToRoute)
     .filter((route) => !EXCLUDED.has(route));
 
-  // Artículos del blog publicados.
+  // Artículos del blog publicados. Se registra su fecha real de
+  // publicación/actualización para el `lastmod` de cada entrada.
   const posts = await getCollection('blog', ({ data }) => !data.draft);
   const blogRoutes = posts.map((post) => getPostHref(post));
+  const blogLastmod = new Map<string, string>(
+    posts.map((post) => [
+      getPostHref(post),
+      toIsoDate(post.data.updatedDate ?? post.data.pubDate),
+    ]),
+  );
 
   const routes = Array.from(new Set([...staticRoutes, ...blogRoutes])).sort();
 
@@ -65,6 +78,7 @@ export const GET: APIRoute = async () => {
     .map((route) => {
       const { priority, changefreq } = seoHints(route);
       const loc = new URL(route, site.url).href;
+      const lastmod = blogLastmod.get(route) ?? buildDate;
       return `  <url>
     <loc>${loc}</loc>
     <lastmod>${lastmod}</lastmod>

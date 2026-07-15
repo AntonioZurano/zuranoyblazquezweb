@@ -1,53 +1,93 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
-import Hero from '@components/Hero.astro';
-import { getLocaleFromPath } from '@i18n/routes';
 import { getUi } from '@i18n/ui';
 
-const locale = getLocaleFromPath(Astro.url.pathname);
-const nf = getUi(locale).notFound;
-const homeHref = locale === 'en' ? '/en/' : '/';
-const servicesHref = locale === 'en' ? '/en/services/' : '/servicios/';
+// La página 404 se genera como un único `/404.html` estático. En hosts
+// estáticos ese archivo se sirve para cualquier ruta desconocida, incluidas
+// las `/en/...`, por lo que el idioma se ajusta en cliente según la URL.
+const es = getUi('es').notFound;
+const en = getUi('en').notFound;
 ---
 
-<MainLayout lang={locale} title={nf.metaTitle} description={nf.metaDescription} noindex={true}>
-  <Hero
-    eyebrow={nf.eyebrow}
-    align="center"
-    subtitle={nf.heroSubtitle}
-    primaryCta={{ label: nf.primaryCta, href: homeHref }}
-    secondaryCta={{ label: nf.secondaryCta, href: servicesHref }}
-  >
-    <h1>{nf.heroTitle}</h1>
-  </Hero>
-
-  {
-    locale === 'es' && (
-      <section class="section">
-        <div class="container container--narrow not-found-links">
-          <p>
-            <a href="/en/">English home</a>
-          </p>
-        </div>
-      </section>
-    )
-  }
-
-  {
-    locale === 'en' && nf.spanishHome && (
-      <section class="section">
-        <div class="container container--narrow not-found-links">
-          <p>
-            <a href="/">{nf.spanishHome}</a>
-          </p>
-        </div>
-      </section>
-    )
-  }
+<MainLayout lang="es" title={es.metaTitle} description={es.metaDescription} noindex={true}>
+  <section class="section not-found">
+    <div class="container container--narrow not-found__inner">
+      <span class="eyebrow" data-nf="eyebrow" data-en={en.eyebrow}>{es.eyebrow}</span>
+      <h1 data-nf="heroTitle" data-en={en.heroTitle}>{es.heroTitle}</h1>
+      <p class="lead" data-nf="heroSubtitle" data-en={en.heroSubtitle}>{es.heroSubtitle}</p>
+      <div class="not-found__actions">
+        <a
+          class="btn btn--primary"
+          href="/"
+          data-nf="primaryCta"
+          data-en={en.primaryCta}
+          data-href-en="/en/"
+        >
+          {es.primaryCta}
+        </a>
+        <a
+          class="btn btn--outline"
+          href="/servicios/"
+          data-nf="secondaryCta"
+          data-en={en.secondaryCta}
+          data-href-en="/en/services/"
+        >
+          {es.secondaryCta}
+        </a>
+      </div>
+      <p class="not-found__alt">
+        <a
+          href="/en/"
+          data-nf="altHome"
+          data-en={en.spanishHome ?? 'Inicio en español'}
+          data-href-en="/"
+        >
+          {es.englishHome}
+        </a>
+      </p>
+    </div>
+  </section>
 </MainLayout>
 
+<script
+  is:inline
+  define:vars={{
+    metaTitleEn: en.metaTitle,
+    metaDescriptionEn: en.metaDescription,
+  }}
+>
+  (function () {
+    if (!location.pathname.startsWith('/en/')) return;
+
+    document.documentElement.lang = 'en';
+    document.title = metaTitleEn;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', metaDescriptionEn);
+
+    document.querySelectorAll('[data-nf]').forEach((el) => {
+      const en = el.getAttribute('data-en');
+      if (en) el.textContent = en;
+      const href = el.getAttribute('data-href-en');
+      if (href) el.setAttribute('href', href);
+    });
+  })();
+</script>
+
 <style>
-  .not-found-links {
+  .not-found__inner {
     text-align: center;
+    padding-block: var(--space-6);
+  }
+
+  .not-found__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: center;
+    margin-top: var(--space-5);
+  }
+
+  .not-found__alt {
+    margin-top: var(--space-5);
   }
 </style>

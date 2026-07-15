@@ -8,7 +8,7 @@
       "@layouts/*": ["./src/layouts/*"],
       "@data/*": ["./src/data/*"],
       "@i18n/*": ["./src/i18n/*"],
-      "@types/*": ["./src/types/*"]
+      "@apptypes/*": ["./src/types/*"]
     }
   }
 }

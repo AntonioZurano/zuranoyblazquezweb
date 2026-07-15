@@ -16,7 +16,16 @@ export interface SiteConfig {
     es: string;
     en: string;
   };
+  postalAddress: PostalAddress;
   schedule: string;
+}
+
+export interface PostalAddress {
+  streetAddress: string;
+  postalCode: string;
+  addressLocality: string;
+  addressRegion: string;
+  addressCountry: string;
 }
 
 export interface ContactFormConfig {

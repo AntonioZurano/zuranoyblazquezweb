@@ -105,19 +105,4 @@ export interface ServicesPageContent {
   catalogDescription: string;
 }
 
-export interface BlogPageContent {
-  metaTitle: string;
-  metaDescription: string;
-  eyebrow: string;
-  heroTitle: string;
-  heroSubtitle: string;
-  sectionEyebrow: string;
-  sectionTitle: string;
-  sectionDescription: string;
-  empty: string;
-  pendingNote: string;
-  ctaTitle: string;
-  ctaText: string;
-}
-
 export type EnServiceItem = ServiceItem;

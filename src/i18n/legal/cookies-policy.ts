@@ -1,5 +1,5 @@
-import type { Locale } from '@types/locale';
-import type { LegalSection } from '@types/legal';
+import type { Locale } from '@apptypes/locale';
+import type { LegalSection } from '@apptypes/legal';
 
 const cookiesPolicyEs: LegalSection[] = [
   {
@@ -9,7 +9,7 @@ const cookiesPolicyEs: LegalSection[] = [
         type: 'p',
         text: 'El titular de este sitio web es:',
       },
-      { type: 'labeled', label: 'Titular:', text: 'ZURANO Y BLÁZQUEZ, S.L.' },
+      { type: 'labeled', label: 'Titular:', text: 'ZURANO Y BLAZQUEZ, S.L.' },
       { type: 'labeled', label: 'CIF:', text: 'B30571939' },
       {
         type: 'labeled',
@@ -234,7 +234,7 @@ const cookiesPolicyEs: LegalSection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. podrá modificar esta Política de Cookies cuando cambie el funcionamiento técnico del sitio web o se incorporen nuevas herramientas.',
+        text: 'ZURANO Y BLAZQUEZ, S.L. podrá modificar esta Política de Cookies cuando cambie el funcionamiento técnico del sitio web o se incorporen nuevas herramientas.',
       },
       {
         type: 'p',
@@ -249,7 +249,7 @@ const cookiesPolicyEs: LegalSection[] = [
         type: 'p',
         text: 'Para cualquier consulta relacionada con esta Política de Cookies, el usuario puede contactar con:',
       },
-      { type: 'labeled', label: 'Titular:', text: 'ZURANO Y BLÁZQUEZ, S.L.' },
+      { type: 'labeled', label: 'Titular:', text: 'ZURANO Y BLAZQUEZ, S.L.' },
       { type: 'p-email', before: 'Correo electrónico: ', after: '' },
       { type: 'labeled', label: 'Teléfono:', text: '617 414 350' },
       {
@@ -269,7 +269,7 @@ const cookiesPolicyEn: LegalSection[] = [
         type: 'p',
         text: 'The owner of this website is:',
       },
-      { type: 'labeled', label: 'Owner:', text: 'ZURANO Y BLÁZQUEZ, S.L.' },
+      { type: 'labeled', label: 'Owner:', text: 'ZURANO Y BLAZQUEZ, S.L.' },
       { type: 'labeled', label: 'Tax ID (CIF):', text: 'B30571939' },
       {
         type: 'labeled',
@@ -430,8 +430,8 @@ const cookiesPolicyEn: LegalSection[] = [
         type: 'p-link',
         before: 'The processing of data submitted through the forms is governed by the ',
         linkText: 'Privacy Policy',
-        href: '/en/privacy-policy/',
-        after: '.',
+        href: '/politica-de-privacidad/',
+        after: ' (official version in Spanish).',
       },
     ],
   },
@@ -493,7 +493,7 @@ const cookiesPolicyEn: LegalSection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. may amend this Cookies Policy when the technical operation of the website changes or new tools are incorporated.',
+        text: 'ZURANO Y BLAZQUEZ, S.L. may amend this Cookies Policy when the technical operation of the website changes or new tools are incorporated.',
       },
       {
         type: 'p',
@@ -508,7 +508,7 @@ const cookiesPolicyEn: LegalSection[] = [
         type: 'p',
         text: 'For any questions about this Cookies Policy, you can contact:',
       },
-      { type: 'labeled', label: 'Owner:', text: 'ZURANO Y BLÁZQUEZ, S.L.' },
+      { type: 'labeled', label: 'Owner:', text: 'ZURANO Y BLAZQUEZ, S.L.' },
       { type: 'p-email', before: 'Email: ', after: '' },
       { type: 'labeled', label: 'Phone:', text: '617 414 350' },
       {

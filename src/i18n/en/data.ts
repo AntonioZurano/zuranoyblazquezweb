@@ -3,7 +3,7 @@ import type {
   EnServiceItem,
   HomePageContent,
   ServicesPageContent,
-} from '@types/service';
+} from '@apptypes/service';
 
 export const servicesEn: EnServiceItem[] = [
   {
@@ -63,14 +63,14 @@ export const homeEn = {
   eyebrow: 'Digital services for businesses',
   heroTitle: 'Technology, software and digital solutions for businesses',
   heroSubtitle:
-    'At Zurano y Blázquez, we help freelancers, SMEs and companies digitise their business with practical, secure solutions adapted to their day-to-day operations.',
+    'At Zurano y Blazquez, we help freelancers, SMEs and companies digitise their business with practical, secure solutions adapted to their day-to-day operations.',
   primaryCta: { label: 'Request advice', href: '/en/contact/' },
   secondaryCta: { label: 'View services', href: '/en/services/' },
   servicesEyebrow: 'What we do',
   servicesTitle: 'Services designed for SMEs and freelancers',
   servicesDescription:
     'We combine the best tools on the market with close support so your business works better every day.',
-  trustEyebrow: 'Why Zurano y Blázquez',
+  trustEyebrow: 'Why Zurano y Blazquez',
   trustTitle: 'Clear solutions, close support and useful technology',
   trustDescription:
     'Clear solutions, close support and useful technology to help your business work better.',
@@ -108,13 +108,13 @@ export const homeEn = {
 } satisfies HomePageContent;
 
 export const companyEn = {
-  metaTitle: 'About Zurano y Blázquez',
+  metaTitle: 'About Zurano y Blazquez',
   metaDescription:
-    'Meet Zurano y Blázquez: a close team specialised in digital solutions for freelancers, SMEs and companies.',
+    'Meet Zurano y Blazquez: a close team specialised in digital solutions for freelancers, SMEs and companies.',
   eyebrow: 'About us',
-  heroTitle: 'About Zurano y Blázquez',
+  heroTitle: 'About Zurano y Blazquez',
   heroSubtitle:
-    'Zurano y Blázquez was created to help companies, freelancers and professionals improve the way they work through simple, effective digital solutions adapted to their real needs.',
+    'Zurano y Blazquez was created to help companies, freelancers and professionals improve the way they work through simple, effective digital solutions adapted to their real needs.',
   whoEyebrow: 'Who we are',
   whoTitle: 'Close by conviction, technical by vocation',
   lead:
@@ -150,11 +150,11 @@ export const companyEn = {
 export const servicesPageEn = {
   metaTitle: 'Digital services for businesses',
   metaDescription:
-    'Discover all digital services from Zurano y Blázquez: Microsoft 365, STEL Order, websites, domains, hosting, business email, technology support and business solutions.',
+    'Discover all digital services from Zurano y Blazquez: Microsoft 365, STEL Order, websites, domains, hosting, business email, technology support and business solutions.',
   eyebrow: 'Services',
   heroTitle: 'Digital solutions for businesses that want to work better',
   heroSubtitle:
-    'At Zurano y Blázquez, we provide technology solutions designed to improve your company’s management, communication and online presence.',
+    'At Zurano y Blazquez, we provide technology solutions designed to improve your company’s management, communication and online presence.',
   primaryCta: { label: 'Request a quote', href: '/en/contact/' },
   catalogEyebrow: 'Catalogue',
   catalogTitle: 'Solutions tailored to your business',

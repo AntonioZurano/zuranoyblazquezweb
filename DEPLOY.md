@@ -25,7 +25,7 @@ dist/
 ├── sitemap.xml
 ├── robots.txt
 ├── favicon.svg
-├── og-default.svg
+├── og-default.svg · og-default.png
 ├── empresa/ · servicios/ · blog/ · contacto/ · gracias/ · (legales)/
 └── _astro/            # CSS y JS optimizados
 ```
@@ -44,7 +44,7 @@ site: 'https://zuranoyblazquez.com'
 
 Esto afecta al **sitemap** (`/sitemap.xml`), a las **URLs canónicas** y a las
 etiquetas Open Graph. Si cambia el dominio, actualiza este valor y también
-`url`/`domain` en `src/data/site.js`, y vuelve a compilar.
+`url`/`domain` en `src/data/site.ts`, y vuelve a compilar.
 
 ---
 
