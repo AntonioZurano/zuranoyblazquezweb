@@ -1,7 +1,7 @@
-import type { Locale } from '@types/locale';
-import type { PrivacySection } from '@types/legal';
+import type { Locale } from '@apptypes/locale';
+import type { LegalSection } from '@apptypes/legal';
 
-const privacyPolicyEs: PrivacySection[] = [
+const privacyPolicyEs: LegalSection[] = [
   {
     title: '1. Identidad del responsable del tratamiento',
     blocks: [
@@ -11,7 +11,7 @@ const privacyPolicyEs: PrivacySection[] = [
       },
       {
         type: 'p',
-        text: 'Responsable del tratamiento: ZURANO Y BLÁZQUEZ, S.L.',
+        text: 'Responsable del tratamiento: ZURANO Y BLAZQUEZ, S.L.',
       },
       {
         type: 'p',
@@ -35,7 +35,7 @@ const privacyPolicyEs: PrivacySection[] = [
       },
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. es responsable del tratamiento de los datos personales facilitados por los usuarios a través de este sitio web, por correo electrónico, por teléfono o mediante cualquier otro canal de comunicación habilitado.',
+        text: 'ZURANO Y BLAZQUEZ, S.L. es responsable del tratamiento de los datos personales facilitados por los usuarios a través de este sitio web, por correo electrónico, por teléfono o mediante cualquier otro canal de comunicación habilitado.',
       },
     ],
   },
@@ -62,7 +62,7 @@ const privacyPolicyEs: PrivacySection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. tratará los datos personales de acuerdo con los principios establecidos en el RGPD:',
+        text: 'ZURANO Y BLAZQUEZ, S.L. tratará los datos personales de acuerdo con los principios establecidos en el RGPD:',
       },
       {
         type: 'ul',
@@ -87,7 +87,7 @@ const privacyPolicyEs: PrivacySection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'Según la relación que el usuario mantenga con ZURANO Y BLÁZQUEZ, S.L., podrán tratarse las siguientes categorías de datos:',
+        text: 'Según la relación que el usuario mantenga con ZURANO Y BLAZQUEZ, S.L., podrán tratarse las siguientes categorías de datos:',
       },
       {
         type: 'ul',
@@ -129,7 +129,7 @@ const privacyPolicyEs: PrivacySection[] = [
           'Contacta telefónicamente.',
           'Solicita información o un presupuesto.',
           'Contrata un producto o servicio.',
-          'Mantiene una relación comercial o profesional con ZURANO Y BLÁZQUEZ, S.L.',
+          'Mantiene una relación comercial o profesional con ZURANO Y BLAZQUEZ, S.L.',
         ],
       },
       {
@@ -152,10 +152,9 @@ const privacyPolicyEs: PrivacySection[] = [
       {
         type: 'ul',
         items: [
-          'No se almacenan en WordPress.',
           'No se almacenan en una base de datos propia de la página web.',
           'No se conservan en un panel de administración de la aplicación.',
-          'Se transmiten por medios electrónicos a la dirección de correo habilitada por ZURANO Y BLÁZQUEZ, S.L.',
+          'Se transmiten por medios electrónicos a la dirección de correo habilitada por ZURANO Y BLAZQUEZ, S.L.',
           'Pueden quedar almacenados en el buzón de correo electrónico desde el que se recibe y gestiona la consulta.',
           'Pueden aparecer temporalmente en registros técnicos del servidor cuando ello sea necesario para garantizar el envío, la seguridad, el diagnóstico de errores o la prevención de usos fraudulentos.',
         ],
@@ -243,7 +242,7 @@ const privacyPolicyEs: PrivacySection[] = [
           'Prevenir ataques, abusos, fraude o usos ilícitos.',
           'Diagnosticar errores técnicos.',
           'Mantener registros de seguridad.',
-          'Defender los sistemas y los derechos de ZURANO Y BLÁZQUEZ, S.L.',
+          'Defender los sistemas y los derechos de ZURANO Y BLAZQUEZ, S.L.',
         ],
       },
     ],
@@ -261,7 +260,7 @@ const privacyPolicyEs: PrivacySection[] = [
       },
       {
         type: 'p',
-        text: 'Cuando ZURANO Y BLÁZQUEZ, S.L. desee enviar comunicaciones comerciales por correo electrónico, lo hará únicamente cuando el interesado haya prestado previamente su consentimiento, o exista una relación contractual previa y la comunicación se refiera a productos o servicios propios similares a los contratados, dentro de los límites establecidos legalmente.',
+        text: 'Cuando ZURANO Y BLAZQUEZ, S.L. desee enviar comunicaciones comerciales por correo electrónico, lo hará únicamente cuando el interesado haya prestado previamente su consentimiento, o exista una relación contractual previa y la comunicación se refiera a productos o servicios propios similares a los contratados, dentro de los límites establecidos legalmente.',
       },
       {
         type: 'p-email',
@@ -300,12 +299,12 @@ const privacyPolicyEs: PrivacySection[] = [
       { type: 'h3', text: 'Facturación y obligaciones fiscales' },
       {
         type: 'p',
-        text: 'La base jurídica es el cumplimiento de obligaciones legales aplicables a ZURANO Y BLÁZQUEZ, S.L.',
+        text: 'La base jurídica es el cumplimiento de obligaciones legales aplicables a ZURANO Y BLAZQUEZ, S.L.',
       },
       { type: 'h3', text: 'Seguridad del sitio web y del VPS' },
       {
         type: 'p',
-        text: 'La base jurídica es el interés legítimo de ZURANO Y BLÁZQUEZ, S.L. en proteger su sitio web, sistemas, servicios, información y usuarios frente a accesos no autorizados, errores, abusos, fraude o ataques informáticos.',
+        text: 'La base jurídica es el interés legítimo de ZURANO Y BLAZQUEZ, S.L. en proteger su sitio web, sistemas, servicios, información y usuarios frente a accesos no autorizados, errores, abusos, fraude o ataques informáticos.',
       },
       { type: 'h3', text: 'Comunicaciones comerciales' },
       {
@@ -323,7 +322,7 @@ const privacyPolicyEs: PrivacySection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'Los campos identificados como obligatorios en los formularios deberán cumplimentarse para que ZURANO Y BLÁZQUEZ, S.L. pueda atender correctamente la solicitud.',
+        text: 'Los campos identificados como obligatorios en los formularios deberán cumplimentarse para que ZURANO Y BLAZQUEZ, S.L. pueda atender correctamente la solicitud.',
       },
       {
         type: 'p',
@@ -422,12 +421,12 @@ const privacyPolicyEs: PrivacySection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'Para el funcionamiento de la web y la prestación de sus servicios, ZURANO Y BLÁZQUEZ, S.L. puede utilizar proveedores que tengan acceso potencial a datos personales. Estos proveedores actuarán como encargados del tratamiento cuando traten datos por cuenta de ZURANO Y BLÁZQUEZ, S.L.',
+        text: 'Para el funcionamiento de la web y la prestación de sus servicios, ZURANO Y BLAZQUEZ, S.L. puede utilizar proveedores que tengan acceso potencial a datos personales. Estos proveedores actuarán como encargados del tratamiento cuando traten datos por cuenta de ZURANO Y BLAZQUEZ, S.L.',
       },
       { type: 'h3', text: 'Alojamiento web y servidor VPS' },
       {
         type: 'p',
-        text: 'La página web se aloja en un servidor privado virtual —VPS— contratado a PROFESIONAL HOSTING. Profesional Hosting proporciona la infraestructura técnica sobre la que funciona el servidor, aunque la administración y configuración ordinaria del VPS sea realizada por ZURANO Y BLÁZQUEZ, S.L.',
+        text: 'La página web se aloja en un servidor privado virtual —VPS— contratado a PROFESIONAL HOSTING. Profesional Hosting proporciona la infraestructura técnica sobre la que funciona el servidor, aunque la administración y configuración ordinaria del VPS sea realizada por ZURANO Y BLAZQUEZ, S.L.',
       },
       {
         type: 'p',
@@ -445,7 +444,7 @@ const privacyPolicyEs: PrivacySection[] = [
       },
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. procurará contratar únicamente proveedores que ofrezcan garantías suficientes para aplicar medidas técnicas y organizativas adecuadas.',
+        text: 'ZURANO Y BLAZQUEZ, S.L. procurará contratar únicamente proveedores que ofrezcan garantías suficientes para aplicar medidas técnicas y organizativas adecuadas.',
       },
     ],
   },
@@ -454,7 +453,7 @@ const privacyPolicyEs: PrivacySection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'Con carácter general, ZURANO Y BLÁZQUEZ, S.L. procurará utilizar proveedores cuyos servicios se presten dentro del Espacio Económico Europeo.',
+        text: 'Con carácter general, ZURANO Y BLAZQUEZ, S.L. procurará utilizar proveedores cuyos servicios se presten dentro del Espacio Económico Europeo.',
       },
       {
         type: 'p',
@@ -507,7 +506,7 @@ const privacyPolicyEs: PrivacySection[] = [
       { type: 'h3', text: 'Derecho de acceso' },
       {
         type: 'p',
-        text: 'Conocer si ZURANO Y BLÁZQUEZ, S.L. está tratando sus datos y obtener información sobre dicho tratamiento.',
+        text: 'Conocer si ZURANO Y BLAZQUEZ, S.L. está tratando sus datos y obtener información sobre dicho tratamiento.',
       },
       { type: 'h3', text: 'Derecho de rectificación' },
       {
@@ -556,7 +555,7 @@ const privacyPolicyEs: PrivacySection[] = [
       {
         type: 'address',
         lines: [
-          'ZURANO Y BLÁZQUEZ, S.L.',
+          'ZURANO Y BLAZQUEZ, S.L.',
           'Camino La Noria, n.º 8',
           'Diputación de La Escucha',
           '30813 Lorca, Murcia',
@@ -624,7 +623,7 @@ const privacyPolicyEs: PrivacySection[] = [
       {
         type: 'p-email',
         before:
-          'Antes de presentar una reclamación, el interesado puede contactar con ZURANO Y BLÁZQUEZ, S.L. en ',
+          'Antes de presentar una reclamación, el interesado puede contactar con ZURANO Y BLAZQUEZ, S.L. en ',
         after: ' para intentar resolver la incidencia.',
       },
     ],
@@ -634,7 +633,7 @@ const privacyPolicyEs: PrivacySection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. aplicará medidas técnicas y organizativas adecuadas al nivel de riesgo para proteger los datos personales.',
+        text: 'ZURANO Y BLAZQUEZ, S.L. aplicará medidas técnicas y organizativas adecuadas al nivel de riesgo para proteger los datos personales.',
       },
       {
         type: 'p',
@@ -667,7 +666,7 @@ const privacyPolicyEs: PrivacySection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'Cuando se produzca una violación de seguridad que afecte a datos personales, ZURANO Y BLÁZQUEZ, S.L. analizará el alcance y el riesgo del incidente.',
+        text: 'Cuando se produzca una violación de seguridad que afecte a datos personales, ZURANO Y BLAZQUEZ, S.L. analizará el alcance y el riesgo del incidente.',
       },
       {
         type: 'p',
@@ -688,7 +687,7 @@ const privacyPolicyEs: PrivacySection[] = [
       },
       {
         type: 'p',
-        text: 'Si ZURANO Y BLÁZQUEZ, S.L. detecta que ha recibido datos de un menor sin la autorización necesaria, adoptará las medidas razonables para eliminarlos.',
+        text: 'Si ZURANO Y BLAZQUEZ, S.L. detecta que ha recibido datos de un menor sin la autorización necesaria, adoptará las medidas razonables para eliminarlos.',
       },
     ],
   },
@@ -697,7 +696,7 @@ const privacyPolicyEs: PrivacySection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. no utiliza los datos enviados mediante los formularios para adoptar decisiones basadas únicamente en tratamientos automatizados que produzcan efectos jurídicos sobre el usuario o le afecten significativamente.',
+        text: 'ZURANO Y BLAZQUEZ, S.L. no utiliza los datos enviados mediante los formularios para adoptar decisiones basadas únicamente en tratamientos automatizados que produzcan efectos jurídicos sobre el usuario o le afecten significativamente.',
       },
       {
         type: 'p',
@@ -714,7 +713,7 @@ const privacyPolicyEs: PrivacySection[] = [
       },
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. no controla los tratamientos de datos realizados por esos terceros ni es responsable de sus políticas de privacidad.',
+        text: 'ZURANO Y BLAZQUEZ, S.L. no controla los tratamientos de datos realizados por esos terceros ni es responsable de sus políticas de privacidad.',
       },
       {
         type: 'p',
@@ -740,7 +739,7 @@ const privacyPolicyEs: PrivacySection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'ZURANO Y BLÁZQUEZ, S.L. podrá modificar esta Política de Privacidad cuando:',
+        text: 'ZURANO Y BLAZQUEZ, S.L. podrá modificar esta Política de Privacidad cuando:',
       },
       {
         type: 'ul',
@@ -761,7 +760,7 @@ const privacyPolicyEs: PrivacySection[] = [
   },
 ];
 
-const privacyPolicyEn: PrivacySection[] = [
+const privacyPolicyEn: LegalSection[] = [
   {
     title: 'Official Spanish version',
     blocks: [
@@ -779,7 +778,7 @@ const privacyPolicyEn: PrivacySection[] = [
   },
 ];
 
-export function getPrivacyPolicySections(locale: Locale): PrivacySection[] {
+export function getPrivacyPolicySections(locale: Locale): LegalSection[] {
   return locale === 'en' ? privacyPolicyEn : privacyPolicyEs;
 }
 

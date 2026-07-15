@@ -4,7 +4,7 @@ import CategoryBadge from '@components/CategoryBadge.astro';
 import { site } from '@data/site.js';
 import { getUi } from '@i18n/ui';
 import { formatDate } from '@i18n/format';
-import type { Locale } from '@types/locale';
+import type { Locale } from '@apptypes/locale';
 
 interface Props {
   title: string;
@@ -25,19 +25,40 @@ const formattedPubDate = formatDate(pubDate, locale);
 const isoDate = pubDate.toISOString().split('T')[0];
 const authorLine = ui.blogPost.byAuthor.replace('{author}', author);
 
+const postUrl = new URL(Astro.url.pathname, site.url).href;
+const logoUrl = new URL('/og-default.png', site.url).href;
+const inLanguage = locale === 'en' ? 'en-GB' : 'es-ES';
+
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
   headline: title,
   description,
+  url: postUrl,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+  image: logoUrl,
+  inLanguage,
   datePublished: pubDate.toISOString(),
   dateModified: (updatedDate ?? pubDate).toISOString(),
-  author: { '@type': 'Organization', name: author },
-  publisher: { '@type': 'Organization', name: site.name, url: site.url },
+  author: { '@type': 'Organization', name: author, url: site.url },
+  publisher: {
+    '@type': 'Organization',
+    name: site.name,
+    url: site.url,
+    logo: { '@type': 'ImageObject', url: logoUrl },
+  },
 };
 ---
 
-<MainLayout lang={locale} title={title} description={description} ogType="article" schema={articleSchema}>
+<MainLayout
+  lang={locale}
+  title={title}
+  description={description}
+  ogType="article"
+  schema={articleSchema}
+  publishedTime={pubDate.toISOString()}
+  modifiedTime={(updatedDate ?? pubDate).toISOString()}
+>
   <article class="post">
     <header class="post__header">
       <div class="container container--narrow">

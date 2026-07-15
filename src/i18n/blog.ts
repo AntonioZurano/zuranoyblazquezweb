@@ -1,5 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
-import type { Locale } from '@types/locale';
+import type { Locale } from '@apptypes/locale';
 import { normalizePath } from '@i18n/routes';
 
 export type BlogPost = CollectionEntry<'blog'>;

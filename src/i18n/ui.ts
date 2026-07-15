@@ -1,5 +1,5 @@
-import type { Locale } from '@types/locale';
-import type { LocaleUi, UiDictionary } from '@types/i18n';
+import type { Locale } from '@apptypes/locale';
+import type { LocaleUi, UiDictionary } from '@apptypes/i18n';
 
 // Textos de interfaz por idioma: navegación, footer, CTAs, formulario, etc.
 
@@ -243,7 +243,7 @@ export const ui = {
       messageLabel: 'Message *',
       privacyAcceptBefore: 'I have read and accept the ',
       privacyLink: 'Privacy Policy',
-      privacyHref: '/en/privacy-policy/',
+      privacyHref: '/politica-de-privacidad/',
       submit: 'Send request',
       honeypotLabel: 'Do not fill this field',
       services: [
@@ -252,6 +252,7 @@ export const ui = {
         { value: 'websites', label: 'Website' },
         { value: 'domains-hosting-email', label: 'Domain, hosting or email' },
         { value: 'technology-support', label: 'Technology support' },
+        { value: 'business-solutions', label: 'Business solutions' },
         { value: 'other', label: 'Other' },
       ],
     },

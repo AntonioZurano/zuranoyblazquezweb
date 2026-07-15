@@ -4,7 +4,7 @@ Sitio web corporativo de **Zurano y Blazquez**, especialistas en soluciones digi
 
 Construido con [Astro 6](https://astro.build) priorizando **rendimiento, HTML semántico, SEO y facilidad de mantenimiento**.
 
-> **Versión estable `v1.1.6`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y textos legales oficiales en español (aviso legal, privacidad y cookies). Las versiones inglesas de aviso legal y privacidad son placeholders; la política de cookies está traducida al inglés.
+> **Versión estable `v1.1.7`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y textos legales oficiales en español (aviso legal, privacidad y cookies). Las versiones inglesas de aviso legal y privacidad son placeholders y sus enlaces redirigen a la versión oficial en español; la política de cookies está traducida al inglés.
 
 ---
 
@@ -27,6 +27,8 @@ npm install      # instala dependencias
 npm run dev      # servidor de desarrollo en http://localhost:4321
 npm run build    # genera el sitio estático en /dist
 npm run preview  # previsualiza el build de producción
+npm run check    # comprobación de tipos (astro check)
+npm run og       # regenera public/og-default.png desde el SVG
 ```
 
 ---
@@ -38,12 +40,15 @@ npm run preview  # previsualiza el build de producción
 ├── astro.config.mjs          # Configuración de Astro (site)
 ├── public/                   # Assets estáticos servidos tal cual
 │   ├── favicon.svg
-│   ├── og-default.svg        # Imagen para compartir en redes (Open Graph)
+│   ├── og-default.svg        # Fuente vectorial de la imagen Open Graph
+│   ├── og-default.png        # Imagen Open Graph 1200×630 (generada con `npm run og`)
 │   └── robots.txt
+├── scripts/
+│   └── generate-og.mjs       # Rasteriza el SVG a PNG con sharp
 └── src/
     ├── data/
     │   └── site.ts           # Datos centrales: contacto, servicios y getContactFormConfig()
-    ├── types/                # Tipos TypeScript compartidos (locale, i18n, service, site)
+    ├── types/                # Tipos TypeScript compartidos (alias `@apptypes/*`: locale, i18n, service, site, legal)
     ├── i18n/
     │   ├── routes.ts         # Mapeo de rutas ES ↔ EN
     │   ├── ui.ts             # Textos de interfaz (nav, footer, formulario, blog, tema)
@@ -171,8 +176,8 @@ Los servicios y datos de contacto globales viven en `src/data/site.ts`. La naveg
 - `title` y `meta description` propios por página.
 - Etiqueta `<link rel="canonical">` automática.
 - Atributo `lang` en `<html>` y enlaces `hreflang` (`es`, `en`, `x-default`).
-- Open Graph y Twitter Card.
-- Datos estructurados JSON-LD (`Organization`).
+- Open Graph y Twitter Card (imagen PNG 1200×630).
+- Datos estructurados JSON-LD (`ProfessionalService`/`WebSite`; `BlogPosting` en artículos).
 - `sitemap.xml` generado por un endpoint nativo (`src/pages/sitemap.xml.ts`), sin dependencias externas y compatible con cualquier versión de Astro.
 - `robots.txt` con referencia al sitemap.
 - Páginas legales y de error marcadas como `noindex`.
@@ -184,9 +189,8 @@ Los servicios y datos de contacto globales viven en `src/data/site.ts`. La naveg
 
 ## Próximos pasos sugeridos (post v1.0.0)
 
-- Publicar traducciones oficiales al inglés de **aviso legal** y **política de privacidad** (actualmente placeholders).
-- **Activar el formulario** en Formsubmit tras publicar el dominio y probar un envío real.
-- Sustituir la **imagen Open Graph** por una versión rasterizada definitiva (PNG/JPG 1200×630).
+- Publicar traducciones oficiales al inglés de **aviso legal** y **política de privacidad** (actualmente placeholders; sus enlaces apuntan a la versión oficial en español).
+- **Activar el formulario** en Formsubmit tras publicar el dominio y probar un envío real; sustituir `recipient` por el alias para no exponer el correo.
 - Añadir imágenes/optimización con `astro:assets` cuando haya fotografía real.
 - Ampliar el blog con nuevos artículos en `src/content/blog`.
 

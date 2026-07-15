@@ -8,13 +8,7 @@ export type LegalBlock =
   | { type: 'address'; lines: string[]; email?: boolean }
   | { type: 'table'; headers: string[]; rows: string[][] };
 
-/** @deprecated Use LegalBlock */
-export type PrivacyBlock = LegalBlock;
-
 export interface LegalSection {
   title: string;
   blocks: LegalBlock[];
 }
-
-/** @deprecated Use LegalSection */
-export type PrivacySection = LegalSection;

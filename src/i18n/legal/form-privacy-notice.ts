@@ -1,5 +1,5 @@
-import { site } from '@data/site.ts';
-import type { Locale } from '@types/locale';
+import { site } from '@data/site.js';
+import type { Locale } from '@apptypes/locale';
 
 export interface FormPrivacyNoticeItem {
   label: string;
@@ -49,8 +49,8 @@ export function getFormPrivacyNoticeCopy(locale: Locale): FormPrivacyNoticeCopy 
       ],
       additionalInfoBefore: 'Further information: See the full ',
       additionalInfoLink: 'Privacy Policy',
-      additionalInfoAfter: '.',
-      privacyPolicyHref: '/en/privacy-policy/',
+      additionalInfoAfter: ' (official version in Spanish).',
+      privacyPolicyHref: '/politica-de-privacidad/',
     };
   }
 

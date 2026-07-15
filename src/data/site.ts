@@ -1,9 +1,9 @@
-import type { Locale } from '@types/locale';
-import type { ContactFormConfig, FooterLinks, ServiceItem, SiteConfig } from '@types/site';
+import type { Locale } from '@apptypes/locale';
+import type { ContactFormConfig, FooterLinks, ServiceItem, SiteConfig } from '@apptypes/site';
 
 export const site: SiteConfig = {
   name: 'Zurano y Blazquez',
-  legalName: 'ZURANO Y BLÁZQUEZ, S.L.',
+  legalName: 'ZURANO Y BLAZQUEZ, S.L.',
   cif: 'B30571939',
   domain: 'zuranoyblazquez.com',
   url: 'https://zuranoyblazquez.com',
@@ -18,12 +18,15 @@ export const site: SiteConfig = {
     es: 'LORCA (MURCIA), C.P. 30813, CAMINO LA NORIA Nº 8 DIPUTACION LA ESCUCHA',
     en: 'LORCA (MURCIA), C.P. 30813, CALLE CAMINO LA NORIA Nº 8 DIPUTACION LA ESCUCHA',
   },
+  postalAddress: {
+    streetAddress: 'Camino La Noria, n.º 8, Diputación de La Escucha',
+    postalCode: '30813',
+    addressLocality: 'Lorca',
+    addressRegion: 'Murcia',
+    addressCountry: 'ES',
+  },
   schedule: 'Lunes a viernes, 9:00 – 18:00',
 };
-
-export function getLegalAddress(locale: Locale): string {
-  return locale === 'en' ? site.legalAddress.en : site.legalAddress.es;
-}
 
 function buildFormsubmitEndpoint(recipient: string): string {
   return `https://formsubmit.co/${recipient}`;

@@ -1,6 +1,6 @@
 ---
 import { getUi } from '@i18n/ui';
-import type { Locale } from '@types/locale';
+import type { Locale } from '@apptypes/locale';
 
 interface Props {
   locale?: Locale;
@@ -17,6 +17,7 @@ const labels = getUi(locale).themeToggle;
   data-theme-dark-label={labels.dark}
   data-theme-light-label={labels.light}
   aria-label={labels.dark}
+  aria-pressed="false"
   title={labels.dark}
 >
   <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
@@ -88,9 +89,18 @@ const labels = getUi(locale).themeToggle;
 
 <script>
   const STORAGE_KEY = 'zb-theme';
+  const THEME_COLORS: Record<'light' | 'dark', string> = {
+    light: '#0a4d8c',
+    dark: '#0f1924',
+  };
 
   function getTheme(): 'light' | 'dark' {
     return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+  }
+
+  function updateThemeColor(theme: 'light' | 'dark'): void {
+    const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', THEME_COLORS[theme]);
   }
 
   function updateToggleButton(): void {
@@ -102,6 +112,7 @@ const labels = getUi(locale).themeToggle;
       : (btn.dataset.themeDarkLabel ?? 'Switch to dark mode');
     btn.setAttribute('aria-label', label);
     btn.setAttribute('title', label);
+    btn.setAttribute('aria-pressed', String(isDark));
   }
 
   function setTheme(theme: 'light' | 'dark'): void {
@@ -112,6 +123,7 @@ const labels = getUi(locale).themeToggle;
       /* localStorage no disponible */
     }
     updateToggleButton();
+    updateThemeColor(theme);
   }
 
   document.querySelector<HTMLButtonElement>('[data-theme-toggle]')?.addEventListener('click', () => {
@@ -119,4 +131,5 @@ const labels = getUi(locale).themeToggle;
   });
 
   updateToggleButton();
+  updateThemeColor(getTheme());
 </script>

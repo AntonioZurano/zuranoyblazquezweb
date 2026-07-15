@@ -1,7 +1,7 @@
 ---
-import type { ContactUi } from '@types/i18n';
-import type { ContactFormConfig } from '@types/site';
-import type { Locale } from '@types/locale';
+import type { ContactUi } from '@apptypes/i18n';
+import type { ContactFormConfig } from '@apptypes/site';
+import type { Locale } from '@apptypes/locale';
 import ContactFormPrivacyNotice from '@components/ContactFormPrivacyNotice.astro';
 import { getContactFormConsent } from '@i18n/legal/form-consent';
 
@@ -15,6 +15,9 @@ const { locale, copy, form } = Astro.props;
 const consent = getContactFormConsent(locale);
 const honeypotId = `_honey-${locale}`;
 const formId = `contact-form-${locale}`;
+// Fallback de fecha de consentimiento para navegadores sin JS: se rellena en
+// build y el script cliente lo sobrescribe con la hora exacta del envío.
+const consentFallbackDate = new Date().toISOString();
 ---
 
 <div class="contact-form-wrapper card">
@@ -26,9 +29,10 @@ const formId = `contact-form-${locale}`;
     <input type="hidden" name="_next" value={form.redirectTo} />
     <input type="hidden" name="_captcha" value="false" />
     <input type="hidden" name="_template" value="table" />
+    <input type="hidden" name="_replyto" value="" />
     <input type="hidden" name="version_clausula_privacidad" value={consent.clauseVersion} />
     <input type="hidden" name="formulario" value={consent.formId} />
-    <input type="hidden" name="fecha_aceptacion_privacidad" value="" />
+    <input type="hidden" name="fecha_aceptacion_privacidad" value={consentFallbackDate} />
 
     <div class="visually-hidden" aria-hidden="true">
       <label for={honeypotId}>{copy.honeypotLabel}</label>
@@ -38,7 +42,7 @@ const formId = `contact-form-${locale}`;
     <div class="form-row">
       <div class="form-field">
         <label for={`nombre-${locale}`}>{copy.nameLabel}</label>
-        <input type="text" id={`nombre-${locale}`} name="nombre" autocomplete="name" required />
+        <input type="text" id={`nombre-${locale}`} name="nombre" autocomplete="name" maxlength="120" required aria-required="true" />
       </div>
       <div class="form-field">
         <label for={`empresa-${locale}`}>{copy.companyLabel}</label>
@@ -49,7 +53,7 @@ const formId = `contact-form-${locale}`;
     <div class="form-row">
       <div class="form-field">
         <label for={`email-${locale}`}>{copy.emailFieldLabel}</label>
-        <input type="email" id={`email-${locale}`} name="email" autocomplete="email" required />
+        <input type="email" id={`email-${locale}`} name="email" autocomplete="email" maxlength="160" required aria-required="true" />
       </div>
       <div class="form-field">
         <label for={`telefono-${locale}`}>{copy.phoneFieldLabel}</label>
@@ -69,7 +73,7 @@ const formId = `contact-form-${locale}`;
 
     <div class="form-field">
       <label for={`mensaje-${locale}`}>{copy.messageLabel}</label>
-      <textarea id={`mensaje-${locale}`} name="mensaje" rows="5" required />
+      <textarea id={`mensaje-${locale}`} name="mensaje" rows="5" maxlength="3000" required aria-required="true" />
     </div>
 
     <ContactFormPrivacyNotice locale={locale} />
@@ -85,7 +89,7 @@ const formId = `contact-form-${locale}`;
       />
       <label for={`privacidad-${locale}`}>
         {copy.privacyAcceptBefore}
-        <a href={copy.privacyHref}>{copy.privacyLink}</a>. *
+        <a href={copy.privacyHref} target="_blank" rel="noopener noreferrer">{copy.privacyLink}</a>. *
       </label>
     </div>
 
@@ -98,9 +102,22 @@ const formId = `contact-form-${locale}`;
 
   contactForm?.addEventListener('submit', () => {
     const dateField = contactForm.querySelector('input[name="fecha_aceptacion_privacidad"]');
-
     if (dateField instanceof HTMLInputElement) {
       dateField.value = new Date().toISOString();
+    }
+
+    // Usa el email introducido como dirección de respuesta en Formsubmit.
+    const emailField = contactForm.querySelector('input[name="email"]');
+    const replyToField = contactForm.querySelector('input[name="_replyto"]');
+    if (emailField instanceof HTMLInputElement && replyToField instanceof HTMLInputElement) {
+      replyToField.value = emailField.value;
+    }
+
+    // Evita el doble envío mientras se procesa la petición.
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    if (submitBtn instanceof HTMLButtonElement) {
+      submitBtn.disabled = true;
+      submitBtn.setAttribute('aria-busy', 'true');
     }
   });
 </script>
@@ -149,9 +166,9 @@ const formId = `contact-form-${locale}`;
     width: 100%;
   }
 
-  .form-field input:focus,
-  .form-field select:focus,
-  .form-field textarea:focus {
+  .form-field input:focus-visible,
+  .form-field select:focus-visible,
+  .form-field textarea:focus-visible {
     outline: none;
     border-color: var(--color-primary);
     box-shadow: var(--focus-input);

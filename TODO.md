@@ -28,9 +28,12 @@ se fusiona en `main` y se etiqueta.
 - [x] **v1.1.4** — Pulido i18n: blog, tema, servicios ES centralizados y alias de imports.
 - [x] **v1.1.5** — Traducción de artículos del blog al inglés y rutas `/en/blog/`.
 - [x] **v1.1.6** — Cambio textos políticas (aviso legal, privacidad y cookies ES; formulario).
+- [x] **v1.1.6.1** — Alineación de textos legales con la configuración real del sitio.
+- [x] **v1.1.7** — Auditoría: bugs de correctitud, SEO/JSON-LD, accesibilidad, formulario, tooling y limpieza de código muerto.
 
 ## Pendientes conocidos / notas
 
-- Textos legales en **español** oficiales (aviso legal, privacidad, cookies). **Inglés:** aviso legal y privacidad siguen como placeholders; cookies policy traducida al inglés.
-- El formulario de contacto (Formsubmit) requiere activación y prueba real en producción.
-- La imagen Open Graph (`/og-default.svg`) es provisional; sustituir por PNG/JPG 1200×630 definitivo.
+- Textos legales en **español** oficiales (aviso legal, privacidad, cookies). **Inglés:** aviso legal y privacidad siguen como placeholders; sus enlaces redirigen a la versión oficial en español. Cookies policy traducida al inglés.
+- El formulario de contacto (Formsubmit) requiere activación y prueba real en producción; sustituir `recipient` por el alias para no exponer el correo.
+- Imagen Open Graph: `public/og-default.png` (1200×630) generada desde el SVG con `npm run og`.
+- Criterio de marca: por decisión de negocio, el nombre se escribe **«ZURANO Y BLAZQUEZ» sin tilde** en todas las superficies (comercial y razón social) para evitar incompatibilidades.

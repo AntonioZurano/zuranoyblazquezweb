@@ -19,7 +19,6 @@
   /* ---------- TAMAÑOS MÁXIMOS DE CONTENEDOR (compartidos) ---------- */
   --container: 1180px;
   --container-narrow: 820px;
-  --container-wide: 1320px;
 
   /* ---------- ESPACIADO (compartido) ---------- */
   --space-1: 0.25rem;
@@ -66,7 +65,6 @@
   --color-bg-soft: #f5f8fc;
   --color-bg-alt: #eef3f9;
   --color-card: #ffffff;
-  --color-white: var(--color-card);
 
   --color-border: #e1e8f0;
   --color-border-strong: #c7d3e2;
@@ -87,9 +85,7 @@
 
   --shadow-sm: 0 1px 3px rgba(10, 35, 66, 0.08);
   --shadow: 0 8px 24px rgba(10, 35, 66, 0.08);
-  --shadow-lg: 0 20px 48px rgba(10, 35, 66, 0.12);
 
-  --focus-ring: 0 0 0 3px rgba(10, 77, 140, 0.35);
   --focus-input: 0 0 0 3px rgba(10, 77, 140, 0.12);
 }
 
@@ -115,7 +111,6 @@
   --color-bg-soft: #151f2e;
   --color-bg-alt: #1a2738;
   --color-card: #1e2d40;
-  --color-white: var(--color-card);
 
   --color-border: #2a3a4f;
   --color-border-strong: #3a4d66;
@@ -136,9 +131,7 @@
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
   --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.45);
 
-  --focus-ring: 0 0 0 3px rgba(107, 179, 224, 0.45);
   --focus-input: 0 0 0 3px rgba(107, 179, 224, 0.25);
 }
 
@@ -252,10 +245,6 @@ p {
 
 .section--soft {
   background-color: var(--color-bg-soft);
-}
-
-.section--alt {
-  background-color: var(--color-bg-alt);
 }
 
 .main {
@@ -401,11 +390,6 @@ p {
   }
 }
 
-.grid--2 {
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--space-5);
-}
-
 /* ---------- Tarjeta genérica ---------- */
 .card {
   background: var(--color-card);
@@ -442,22 +426,6 @@ p {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 0.8rem;
-}
-
-/* ---------- Animación sutil de entrada ---------- */
-@media (prefers-reduced-motion: no-preference) {
-  .reveal {
-    opacity: 0;
-    transform: translateY(16px);
-    animation: reveal 600ms ease forwards;
-  }
-
-  @keyframes reveal {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 }
 
 /* ---------- Visualmente oculto (accesible) ---------- */

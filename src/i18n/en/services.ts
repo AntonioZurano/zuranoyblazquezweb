@@ -1,9 +1,9 @@
-import type { ServicePageContent } from '@types/service';
+import type { ServicePageContent } from '@apptypes/service';
 
 export const microsoft365 = {
   metaTitle: 'Microsoft 365 for business',
   metaDescription:
-    'Microsoft 365 for SMEs and freelancers: professional email, Office, Teams and cloud storage with managed licences and support from Zurano y Blázquez.',
+    'Microsoft 365 for SMEs and freelancers: professional email, Office, Teams and cloud storage with managed licences and support from Zurano y Blazquez.',
   eyebrow: 'Microsoft 365',
   h1: 'Microsoft 365 to help your team work better',
   subtitle:
@@ -38,7 +38,7 @@ export const microsoft365 = {
 export const stelOrder = {
   metaTitle: 'STEL Order: management and invoicing',
   metaDescription:
-    'STEL Order implementation for freelancers and SMEs: invoicing, sales, customers and stock in one tool. Setup, training and support from Zurano y Blázquez.',
+    'STEL Order implementation for freelancers and SMEs: invoicing, sales, customers and stock in one tool. Setup, training and support from Zurano y Blazquez.',
   eyebrow: 'STEL Order',
   h1: 'STEL Order: manage and invoice your business with ease',
   subtitle:
@@ -73,7 +73,7 @@ export const stelOrder = {
 export const websites = {
   metaTitle: 'Professional website design and development',
   metaDescription:
-    'Professional, fast, responsive and SEO-optimised websites for SMEs and freelancers by Zurano y Blázquez.',
+    'Professional, fast, responsive and SEO-optimised websites for SMEs and freelancers by Zurano y Blazquez.',
   eyebrow: 'Websites',
   h1: 'Websites that build trust and win customers',
   subtitle:
@@ -107,7 +107,7 @@ export const websites = {
 export const domainsHostingEmail = {
   metaTitle: 'Domains, hosting and business email',
   metaDescription:
-    'Domain registration, reliable hosting and professional email with your own domain. Zurano y Blázquez manages the technical side with security and close support.',
+    'Domain registration, reliable hosting and professional email with your own domain. Zurano y Blazquez manages the technical side with security and close support.',
   eyebrow: 'Domains, hosting and email',
   h1: 'Domains, hosting and business email, without the headaches',
   subtitle:
@@ -141,7 +141,7 @@ export const domainsHostingEmail = {
 export const technologySupport = {
   metaTitle: 'Technology support for businesses',
   metaDescription:
-    'Close technology support and proactive maintenance for SMEs and freelancers. Zurano y Blázquez resolves incidents and keeps your technology running.',
+    'Close technology support and proactive maintenance for SMEs and freelancers. Zurano y Blazquez resolves incidents and keeps your technology running.',
   eyebrow: 'Technology support',
   h1: 'Close technology support to keep everything running',
   subtitle:

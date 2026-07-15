@@ -6,6 +6,35 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [1.1.7] - 2026-07-15
+
+### Corregido
+- Política de privacidad (§6): eliminada la referencia a WordPress (el sitio es Astro/Node.js).
+- Formulario EN: añadida la opción «Business solutions» que faltaba respecto al ES.
+- `seoHints()` del sitemap: `/en/blog/` y las entradas de blog dejan de clasificarse con el prefijo `/en/`.
+- Imagen Open Graph: corregidos los caracteres corruptos del SVG; ahora se sirve `og-default.png` (1200×630) por defecto, que las redes sociales sí renderizan.
+- Enlaces EN a la política de privacidad (cookies §7, consentimiento y aviso reducido del formulario) apuntan a la versión oficial en español en lugar del stub `/en/privacy-policy/`.
+- Página 404: ahora es bilingüe en cliente (detecta rutas `/en/` y ajusta idioma, título y enlaces), evitando servir siempre español.
+
+### Añadido
+- JSON-LD: `Organization` ampliado a `ProfessionalService` con `legalName`, `taxID`/`vatID`, `address` (PostalAddress) y `logo`; descripción localizada.
+- JSON-LD `BlogPosting`: `url`/`mainEntityOfPage`, `image`, `inLanguage` y `publisher.logo`; metaetiquetas `article:published_time`/`modified_time`.
+- Sitemap: `lastmod` real por artículo (`updatedDate`/`pubDate`).
+- `theme-color` adaptado al modo oscuro (se actualiza al cambiar de tema).
+- Accesibilidad: `aria-pressed` en el conmutador de tema, `aria-required` en los campos obligatorios del formulario, `Escape` y sincronización de `aria-expanded` en la navegación, y áreas táctiles del selector de idioma ≥ 44 px.
+- Formulario: campo `_replyto`, fecha de consentimiento con valor por defecto en build (fallback sin JS) y bloqueo del botón para evitar doble envío.
+- Tooling: dependencias `@astrojs/check`/`typescript` y scripts `check` y `og`; `sharp` para generar la imagen Open Graph.
+
+### Cambiado
+- Alias de rutas `@types/*` renombrado a `@apptypes/*` para evitar el conflicto con el ámbito reservado de DefinitelyTyped y que `astro check` pase sin errores.
+- Marca unificada a **«ZURANO Y BLAZQUEZ» sin tilde** en todas las superficies (textos legales, datos EN, `legalName`, metadatos e imagen Open Graph), por decisión de negocio.
+- Formulario: enlaces a la política de privacidad se abren en una pestaña nueva y los campos de texto tienen `maxlength`; estilos de foco migrados a `:focus-visible`.
+- `.nvmrc` fijado a `22.12.0` (coherente con `engines`).
+
+### Eliminado
+- Código muerto: `getLegalAddress()`, `BlogPageContent`, `LOCALES`/`isLocale()`, alias obsoletos `PrivacyBlock`/`PrivacySection` (migrado a `LegalSection`).
+- CSS sin uso: tokens `--container-wide`, `--color-white`, `--shadow-lg`, `--focus-ring` y utilidades `.section--alt`, `.grid--2`, `.reveal`.
+
 ## [1.1.6.1] - 2026-07-15
 
 ### Corregido
@@ -14,7 +43,7 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 - Política de cookies (ES + EN): secciones 3 y 6 reducidas a la preferencia de apariencia (`zb-theme`); eliminadas filas de idioma y avisos técnicos inexistentes.
 - Aviso legal (sección 22): correo de contacto mediante bloque `p-email` dinámico.
 - `LegalDocumentContent.astro`: renderizado de texto entre backticks como `<code>` en títulos, párrafos, listas y tablas.
-- `site.legalName` corregido a «ZURANO Y BLÁZQUEZ, S.L.».
+- `site.legalName` corregido a «ZURANO Y BLAZQUEZ, S.L.».
 - Footer: eliminado doble punto en la línea de copyright.
 
 ## [1.1.6] - 2026-07-14

@@ -1,4 +1,4 @@
-import type { ServicePageContent } from '@types/service';
+import type { ServicePageContent } from '@apptypes/service';
 
 export const microsoft365 = {
   metaTitle: 'Microsoft 365 para empresas',

@@ -1,4 +1,4 @@
-import type { Locale } from '@types/locale';
+import type { Locale } from '@apptypes/locale';
 
 const DATE_LOCALES: Record<Locale, string> = {
   es: 'es-ES',

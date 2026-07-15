@@ -1,5 +1,5 @@
 import { privacyPolicyClauseVersion } from '@i18n/legal/privacy-policy';
-import type { Locale } from '@types/locale';
+import type { Locale } from '@apptypes/locale';
 
 export interface ContactFormConsent {
   clauseVersion: string;
