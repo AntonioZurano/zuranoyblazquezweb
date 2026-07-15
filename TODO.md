@@ -32,6 +32,7 @@ se fusiona en `main` y se etiqueta.
 - [x] **v1.1.7** — Auditoría: bugs de correctitud, SEO/JSON-LD, accesibilidad, formulario, tooling y limpieza de código muerto.
 - [x] **v1.1.8** — Botón flotante de WhatsApp (wa.me) con mensaje ES/EN y teléfono de contacto enlazado a WhatsApp; sin plugins ni librerías externas.
 - [x] **v1.1.9** — Eliminada la opción duplicada «Escríbenos»/«Write to us» del menú principal; se mantiene «Contacto» como botón destacado (ES/EN, escritorio y móvil).
+- [x] **v1.1.9.1** — Corregida la visibilidad del icono del botón claro/oscuro en modo oscuro y mejorado el contraste (hover/focus).
 
 ## Pendientes conocidos / notas
 

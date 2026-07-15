@@ -48,10 +48,10 @@ const labels = getUi(locale).themeToggle;
     width: var(--tap-target);
     height: var(--tap-target);
     padding: 0;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--theme-toggle-border);
     border-radius: var(--radius-sm);
-    background: var(--color-bg-soft);
-    color: var(--color-text);
+    background: var(--theme-toggle-bg);
+    color: var(--theme-toggle-icon);
     cursor: pointer;
     flex-shrink: 0;
     transition:
@@ -61,9 +61,9 @@ const labels = getUi(locale).themeToggle;
   }
 
   .theme-toggle:hover {
-    background: var(--color-bg-alt);
-    border-color: var(--color-border-strong);
-    color: var(--color-primary);
+    background: var(--theme-toggle-hover-bg);
+    border-color: var(--theme-toggle-hover-border);
+    color: var(--theme-toggle-hover-icon);
   }
 
   .theme-toggle:focus-visible {
@@ -75,10 +75,21 @@ const labels = getUi(locale).themeToggle;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    color: inherit;
   }
 
-  :global([data-theme='light']) .theme-toggle__icon--sun,
-  :global(:not([data-theme])) .theme-toggle__icon--sun {
+  .theme-toggle__icon svg {
+    display: block;
+    color: inherit;
+    stroke: currentColor;
+    fill: none;
+  }
+
+  /* Solo ocultar el sol en modo claro (o sin tema). El selector
+     `:not([data-theme])` sin anclar a :root ocultaba el sol siempre,
+     porque body/header no tienen data-theme. */
+  :global(:root:not([data-theme])) .theme-toggle__icon--sun,
+  :global([data-theme='light']) .theme-toggle__icon--sun {
     display: none;
   }
 

@@ -6,6 +6,13 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [1.1.9.1] - 2026-07-15
+
+### Corregido
+- Visibilidad del icono del botón claro/oscuro en modo oscuro (el sol quedaba siempre oculto por un selector CSS demasiado amplio).
+- Contraste del botón de tema en el Header mediante variables `--theme-toggle-*`.
+- Estados hover y focus del selector de tema revisados en claro y oscuro.
+
 ## [1.1.9] - 2026-07-15
 
 ### Cambiado

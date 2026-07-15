@@ -87,6 +87,13 @@
   --color-link: var(--color-primary);
   --color-link-hover: var(--color-primary-dark);
 
+  --theme-toggle-bg: var(--color-bg-soft);
+  --theme-toggle-border: var(--color-border);
+  --theme-toggle-icon: var(--color-text);
+  --theme-toggle-hover-bg: var(--color-bg-alt);
+  --theme-toggle-hover-border: var(--color-border-strong);
+  --theme-toggle-hover-icon: var(--color-primary);
+
   --shadow-sm: 0 1px 3px rgba(10, 35, 66, 0.08);
   --shadow: 0 8px 24px rgba(10, 35, 66, 0.08);
 
@@ -132,6 +139,13 @@
 
   --color-link: var(--color-primary);
   --color-link-hover: var(--color-primary-light);
+
+  --theme-toggle-bg: #1a2738;
+  --theme-toggle-border: #3a4d66;
+  --theme-toggle-icon: #e5f3ff;
+  --theme-toggle-hover-bg: #243347;
+  --theme-toggle-hover-border: #4a6280;
+  --theme-toggle-hover-icon: #8ec5eb;
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
   --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
