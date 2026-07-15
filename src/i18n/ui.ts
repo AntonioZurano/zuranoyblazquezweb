@@ -32,7 +32,6 @@ export const ui = {
         ],
       },
       { label: 'Blog', href: '/blog/' },
-      { label: 'Escríbenos', href: '/contacto/' },
     ],
     footer: {
       servicesTitle: 'Servicios',
@@ -189,7 +188,6 @@ export const ui = {
         ],
       },
       { label: 'Blog', href: '/en/blog/' },
-      { label: 'Write to us', href: '/en/contact/' },
     ],
     footer: {
       servicesTitle: 'Services',

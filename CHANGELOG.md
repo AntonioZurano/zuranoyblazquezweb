@@ -6,6 +6,13 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [1.1.9] - 2026-07-15
+
+### Cambiado
+- Eliminada la opción duplicada «Escríbenos» del menú principal (y su equivalente inglés «Write to us»).
+- Mantenida la opción «Contacto» como botón destacado del Header.
+- Revisada la navegación en escritorio, móvil y versiones multidioma.
+
 ## [1.1.8] - 2026-07-15
 
 ### Añadido
