@@ -6,6 +6,37 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [1.1.6.1] - 2026-07-15
+
+### Corregido
+- Aviso legal (sección 15): texto alineado con la configuración real del sitio (sin cookies analíticas/publicitarias, solo `localStorage` para tema, sin banner de consentimiento).
+- Política de privacidad (sección 15): mismo criterio, con enlace a la Política de Cookies y mención de la clave `zb-theme`.
+- Política de cookies (ES + EN): secciones 3 y 6 reducidas a la preferencia de apariencia (`zb-theme`); eliminadas filas de idioma y avisos técnicos inexistentes.
+- Aviso legal (sección 22): correo de contacto mediante bloque `p-email` dinámico.
+- `LegalDocumentContent.astro`: renderizado de texto entre backticks como `<code>` en títulos, párrafos, listas y tablas.
+- `site.legalName` corregido a «ZURANO Y BLÁZQUEZ, S.L.».
+- Footer: eliminado doble punto en la línea de copyright.
+
+## [1.1.6] - 2026-07-14
+
+### Añadido
+- Política de cookies (ES + EN): texto oficial con 11 secciones, tabla de almacenamiento local y soporte de bloques `table` en documentos legales.
+- Formulario de contacto: campos ocultos de consentimiento (`version_clausula_privacidad`, `formulario`, `fecha_aceptacion_privacidad`) centralizados en `form-consent.ts`.
+- Componente `CookiesPolicyContent.astro` y módulo `src/i18n/legal/cookies-policy.ts`.
+
+### Cambiado
+- Aviso legal (ES): texto oficial completo con 22 secciones.
+- Política de privacidad (ES): texto oficial completo con 25 secciones.
+- Formulario de contacto: aviso reducido de protección de datos (ES/EN) y checkbox `aceptacion_politica_privacidad`.
+- `tsconfig.json`: rutas de alias corregidas (`./src/...`).
+
+### Eliminado
+- `LegalDataCollectionNotice.astro` y `data-collection.ts` (código muerto tras el aviso LOPD del formulario).
+
+### Notas
+- Aviso legal y política de privacidad en inglés siguen como placeholders con enlace a la versión española.
+- El sitio usa `localStorage` (`zb-theme`) para el tema; no se muestran cookies de analítica ni banner de consentimiento.
+
 ## [1.1.5] - 2026-06-14
 
 ### Corregido

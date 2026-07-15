@@ -27,9 +27,10 @@ se fusiona en `main` y se etiqueta.
 - [x] **v1.1.3** — Corrección del árbol de proyecto en README.
 - [x] **v1.1.4** — Pulido i18n: blog, tema, servicios ES centralizados y alias de imports.
 - [x] **v1.1.5** — Traducción de artículos del blog al inglés y rutas `/en/blog/`.
+- [x] **v1.1.6** — Cambio textos políticas (aviso legal, privacidad y cookies ES; formulario).
 
 ## Pendientes conocidos / notas
 
-- Los textos legales son **provisionales** y deben revisarse por asesoría legal.
-- El formulario de contacto requiere verificación real una vez publicado el dominio.
+- Textos legales en **español** oficiales (aviso legal, privacidad, cookies). **Inglés:** aviso legal y privacidad siguen como placeholders; cookies policy traducida al inglés.
+- El formulario de contacto (Formsubmit) requiere activación y prueba real en producción.
 - La imagen Open Graph (`/og-default.svg`) es provisional; sustituir por PNG/JPG 1200×630 definitivo.

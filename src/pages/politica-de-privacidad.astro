@@ -1,7 +1,11 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
 import LegalPage from '@components/LegalPage.astro';
-import { site } from '@data/site.js';
+import PrivacyPolicyContent from '@components/PrivacyPolicyContent.astro';
+import {
+  privacyPolicyUpdated,
+  privacyPolicyUpdatedLabel,
+} from '@i18n/legal/privacy-policy';
 ---
 
 <MainLayout
@@ -9,40 +13,11 @@ import { site } from '@data/site.js';
   description="Política de privacidad de Zurano y Blazquez. Información sobre el tratamiento de datos personales y los derechos de los usuarios."
   noindex={true}
 >
-  <LegalPage title="Política de privacidad">
-    <p class="notice">
-      Texto orientativo pendiente de revisión legal. Adáptalo a tu actividad y a la normativa de
-      protección de datos aplicable antes de publicarlo.
-    </p>
-
-    <h2>1. Responsable del tratamiento</h2>
-    <p>
-      El responsable del tratamiento de los datos personales recogidos a través de este sitio web es
-      {site.legalName}, con correo de contacto <a href={`mailto:${site.email}`}>{site.email}</a>.
-    </p>
-
-    <h2>2. Finalidad</h2>
-    <p>
-      Los datos que nos facilites a través del formulario de contacto se utilizarán únicamente para
-      atender tu solicitud de información y, en su caso, para enviarte la respuesta correspondiente.
-    </p>
-
-    <h2>3. Legitimación</h2>
-    <p>
-      La base legal para el tratamiento de tus datos es el consentimiento que prestas al enviarnos tu
-      consulta a través del formulario.
-    </p>
-
-    <h2>4. Conservación de los datos</h2>
-    <p>
-      Conservaremos tus datos durante el tiempo necesario para atender tu solicitud y mientras no
-      solicites su supresión.
-    </p>
-
-    <h2>5. Derechos</h2>
-    <p>
-      Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y
-      portabilidad escribiendo a <a href={`mailto:${site.email}`}>{site.email}</a>.
-    </p>
+  <LegalPage
+    title="Política de privacidad"
+    updated={privacyPolicyUpdated.es}
+    updatedLabel={privacyPolicyUpdatedLabel.es}
+  >
+    <PrivacyPolicyContent locale="es" />
   </LegalPage>
 </MainLayout>

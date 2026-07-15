@@ -1,48 +1,23 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
 import LegalPage from '@components/LegalPage.astro';
-import { site } from '@data/site.js';
+import CookiesPolicyContent from '@components/CookiesPolicyContent.astro';
+import {
+  cookiesPolicyUpdated,
+  cookiesPolicyUpdatedLabel,
+} from '@i18n/legal/cookies-policy';
 ---
 
 <MainLayout
   title="Política de cookies"
-  description="Política de cookies de Zurano y Blazquez. Información sobre el uso de cookies en el sitio web zuranoyblazquez.com."
+  description="Política de cookies de Zurano y Blazquez. Información sobre el uso de almacenamiento local en el sitio web zuranoyblazquez.com."
   noindex={true}
 >
-  <LegalPage title="Política de cookies">
-    <p class="notice">
-      Texto orientativo pendiente de revisión legal. Actualízalo cuando la web incorpore cookies de
-      terceros, analítica o seguimiento.
-    </p>
-
-    <h2>1. ¿Qué son las cookies?</h2>
-    <p>
-      Las cookies son pequeños archivos que se almacenan en tu dispositivo al visitar un sitio web y
-      que permiten recordar información sobre tu navegación.
-    </p>
-
-    <h2>2. Cookies utilizadas</h2>
-    <p>
-      Actualmente este sitio web es estático y <strong>no utiliza cookies no técnicas</strong>: no
-      empleamos cookies de analítica, de publicidad ni de seguimiento de terceros.
-    </p>
-    <p>
-      Por este motivo <strong>no mostramos un banner de cookies</strong>, ya que no es necesario
-      recabar tu consentimiento. Si en el futuro se incorporan cookies que sí lo requieran (por
-      ejemplo, analítica o vídeos incrustados), actualizaremos esta política y habilitaremos un
-      sistema de consentimiento antes de activarlas.
-    </p>
-
-    <h2>3. Gestión de cookies</h2>
-    <p>
-      Puedes configurar tu navegador para aceptar, rechazar o eliminar las cookies en cualquier
-      momento desde sus opciones de privacidad.
-    </p>
-
-    <h2>4. Contacto</h2>
-    <p>
-      Si tienes cualquier duda sobre esta política, puedes escribirnos a
-      <a href={`mailto:${site.email}`}>{site.email}</a>.
-    </p>
+  <LegalPage
+    title="Política de cookies"
+    updated={cookiesPolicyUpdated.es}
+    updatedLabel={cookiesPolicyUpdatedLabel.es}
+  >
+    <CookiesPolicyContent locale="es" />
   </LegalPage>
 </MainLayout>

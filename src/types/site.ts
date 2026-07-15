@@ -3,6 +3,7 @@ import type { Locale } from './locale';
 export interface SiteConfig {
   name: string;
   legalName: string;
+  cif: string;
   domain: string;
   url: string;
   tagline: string;
@@ -11,6 +12,10 @@ export interface SiteConfig {
   phone: string;
   phoneHref: string;
   address: string;
+  legalAddress: {
+    es: string;
+    en: string;
+  };
   schedule: string;
 }
 
