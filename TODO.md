@@ -36,7 +36,6 @@ se fusiona en `main` y se etiqueta.
 
 ## Pendientes conocidos / notas
 
-- Textos legales en **español** oficiales (aviso legal, privacidad, cookies). **Inglés:** aviso legal y privacidad siguen como placeholders; sus enlaces redirigen a la versión oficial en español. Cookies policy traducida al inglés.
-- El formulario de contacto (Formsubmit) requiere activación y prueba real en producción; sustituir `recipient` por el alias para no exponer el correo.
-- Imagen Open Graph: `public/og-default.png` (1200×630) generada desde el SVG con `npm run og`.
-- Criterio de marca: por decisión de negocio, el nombre se escribe **«ZURANO Y BLAZQUEZ» sin tilde** en todas las superficies (comercial y razón social) para evitar incompatibilidades.
+- Textos legales en **español** oficiales (aviso legal, privacidad, cookies). **Inglés:** aviso legal y privacidad siguen como placeholders con enlace a la versión ES; la política de cookies está traducida.
+- Formulario Formsubmit: activar y probar en producción; sustituir `recipient` por el alias (`formsubmit.co/el/...`) para no exponer el correo en el HTML.
+- Criterio de marca vigente: «ZURANO Y BLAZQUEZ» **sin tilde** en todas las superficies.
