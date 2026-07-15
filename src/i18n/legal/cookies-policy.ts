@@ -70,12 +70,11 @@ const cookiesPolicyEs: LegalSection[] = [
       },
       {
         type: 'ul',
-        items: [
-          'El modo claro u oscuro.',
-          'El idioma seleccionado.',
-          'La aceptación o visualización de determinados avisos.',
-          'Otras preferencias básicas de presentación o funcionamiento.',
-        ],
+        items: ['El modo claro u oscuro (clave `zb-theme`).'],
+      },
+      {
+        type: 'p',
+        text: 'En la configuración actual del sitio web no se almacena ninguna otra preferencia en `localStorage`.',
       },
       {
         type: 'p',
@@ -133,22 +132,10 @@ const cookiesPolicyEs: LegalSection[] = [
         headers: ['Elemento', 'Finalidad', 'Titular', 'Duración'],
         rows: [
           [
-            'Preferencia de apariencia',
+            'Preferencia de apariencia (`zb-theme`)',
             'Recordar el modo claro u oscuro elegido por el usuario',
             'Propia',
             'Hasta que el usuario la elimine o modifique',
-          ],
-          [
-            'Preferencia de idioma, cuando proceda',
-            'Recordar el idioma seleccionado',
-            'Propia',
-            'Hasta que el usuario la elimine o modifique',
-          ],
-          [
-            'Estado de avisos técnicos, cuando proceda',
-            'Evitar mostrar repetidamente un aviso ya leído',
-            'Propia',
-            'Duración limitada o hasta su eliminación',
           ],
         ],
       },
@@ -343,12 +330,11 @@ const cookiesPolicyEn: LegalSection[] = [
       },
       {
         type: 'ul',
-        items: [
-          'Light or dark mode.',
-          'The selected language, where applicable.',
-          'Acceptance or display of certain notices.',
-          'Other basic presentation or functionality preferences.',
-        ],
+        items: ['Light or dark mode (`zb-theme` key).'],
+      },
+      {
+        type: 'p',
+        text: 'In the current configuration of the website, no other preferences are stored in `localStorage`.',
       },
       {
         type: 'p',
@@ -410,18 +396,6 @@ const cookiesPolicyEn: LegalSection[] = [
             'Remember the light or dark mode chosen by the user',
             'First-party',
             'Until the user deletes or changes it',
-          ],
-          [
-            'Language preference, where applicable',
-            'Remember the selected language',
-            'First-party',
-            'Until the user deletes or changes it',
-          ],
-          [
-            'Technical notice status, where applicable',
-            'Avoid showing the same notice repeatedly',
-            'First-party',
-            'Limited duration or until deleted',
           ],
         ],
       },

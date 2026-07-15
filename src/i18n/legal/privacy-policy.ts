@@ -477,15 +477,23 @@ const privacyPolicyEs: PrivacySection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'La página web podrá utilizar cookies técnicas necesarias para su funcionamiento, seguridad y correcta prestación.',
+        text: 'Este sitio web no utiliza cookies de análisis, publicidad ni seguimiento.',
       },
       {
         type: 'p',
-        text: 'Cuando se utilicen cookies analíticas, publicitarias, de personalización o pertenecientes a terceros que no sean estrictamente necesarias, estas no se instalarán hasta que el usuario haya prestado su consentimiento.',
+        text: 'Únicamente emplea `localStorage` del navegador para recordar preferencias técnicas, como el modo claro u oscuro (clave `zb-theme`). La información almacenada no se utiliza para identificar personalmente al usuario ni elaborar perfiles comerciales.',
       },
       {
         type: 'p',
-        text: 'La información sobre las cookies utilizadas, sus proveedores, finalidades, duración y opciones de configuración deberá consultarse en la Política de Cookies.',
+        text: 'Mientras se mantenga esta configuración, no se muestra un banner de consentimiento de cookies.',
+      },
+      {
+        type: 'p-link',
+        before:
+          'La información detallada sobre el almacenamiento local utilizado está disponible en la ',
+        linkText: 'Política de Cookies',
+        href: '/politica-de-cookies/',
+        after: '.',
       },
     ],
   },

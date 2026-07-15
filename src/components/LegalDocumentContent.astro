@@ -1,6 +1,7 @@
 ---
 import { site } from '@data/site.ts';
 import type { LegalSection } from '@types/legal';
+import InlineCodeText from './InlineCodeText.astro';
 
 interface Props {
   sections: LegalSection[];
@@ -12,20 +13,31 @@ const { sections } = Astro.props;
 {
   sections.map((section) => (
     <>
-      <h2>{section.title}</h2>
+      <h2>
+        <InlineCodeText text={section.title} />
+      </h2>
       {section.blocks.map((block) => {
         if (block.type === 'p') {
-          return <p>{block.text}</p>;
+          return (
+            <p>
+              <InlineCodeText text={block.text} />
+            </p>
+          );
         }
 
         if (block.type === 'h3') {
-          return <h3>{block.text}</h3>;
+          return (
+            <h3>
+              <InlineCodeText text={block.text} />
+            </h3>
+          );
         }
 
         if (block.type === 'labeled') {
           return (
             <p>
-              <strong>{block.label}</strong> {block.text}
+              <strong>{block.label}</strong>{' '}
+              <InlineCodeText text={block.text} />
             </p>
           );
         }
@@ -34,7 +46,9 @@ const { sections } = Astro.props;
           return (
             <ul>
               {block.items.map((item) => (
-                <li>{item}</li>
+                <li>
+                  <InlineCodeText text={item} />
+                </li>
               ))}
             </ul>
           );
@@ -96,7 +110,9 @@ const { sections } = Astro.props;
                   {block.rows.map((row) => (
                     <tr>
                       {row.map((cell) => (
-                        <td>{cell}</td>
+                        <td>
+                          <InlineCodeText text={cell} />
+                        </td>
                       ))}
                     </tr>
                   ))}

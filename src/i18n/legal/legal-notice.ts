@@ -536,20 +536,20 @@ const legalNoticeEs: LegalSection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'El sitio web puede utilizar cookies propias o de terceros.',
+        text: 'Este sitio web no utiliza cookies de análisis, publicidad ni seguimiento.',
       },
       {
         type: 'p',
-        text: 'Las cookies estrictamente necesarias podrán utilizarse para permitir el funcionamiento técnico, la seguridad y la correcta prestación del sitio web.',
+        text: 'Únicamente emplea `localStorage` del navegador para recordar preferencias técnicas del usuario, como el modo claro u oscuro (clave `zb-theme`).',
       },
       {
         type: 'p',
-        text: 'Las cookies analíticas, publicitarias, de personalización o de terceros que requieran consentimiento no deberán instalarse hasta que el usuario las haya aceptado mediante el mecanismo habilitado.',
+        text: 'Mientras se mantenga esta configuración, descrita en la Política de Cookies, no se muestra un banner de consentimiento de cookies.',
       },
       {
         type: 'p-link',
         before:
-          'La información detallada sobre las cookies utilizadas, sus proveedores, finalidades, duración y opciones de configuración se encuentra disponible en la ',
+          'La información detallada sobre el almacenamiento local utilizado se encuentra en la ',
         linkText: 'Política de Cookies',
         href: '/politica-de-cookies/',
         after: '.',
@@ -716,11 +716,7 @@ const legalNoticeEs: LegalSection[] = [
         type: 'p',
         text: 'Para cualquier consulta relacionada con el sitio web o con este Aviso Legal, el usuario puede contactar con ZURANO Y BLÁZQUEZ, S.L. mediante los siguientes medios:',
       },
-      {
-        type: 'labeled',
-        label: 'Correo electrónico:',
-        text: 'info@zuranoyblazquez.com',
-      },
+      { type: 'p-email', before: 'Correo electrónico: ', after: '' },
       { type: 'labeled', label: 'Teléfono:', text: '617 414 350' },
       {
         type: 'labeled',

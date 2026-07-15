@@ -92,4 +92,12 @@ const { title, updated, updatedLabel = 'Última actualización:' } = Astro.props
   .prose :global(.legal-table td) {
     color: var(--color-text-soft);
   }
+
+  .prose :global(code) {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.9em;
+    background: var(--color-bg-alt);
+    padding: 0.1em 0.35em;
+    border-radius: var(--radius-sm);
+  }
 </style>

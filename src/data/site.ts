@@ -3,7 +3,7 @@ import type { ContactFormConfig, FooterLinks, ServiceItem, SiteConfig } from '@t
 
 export const site: SiteConfig = {
   name: 'Zurano y Blazquez',
-  legalName: 'ZURANO Y BLAZQUEZ S.L.',
+  legalName: 'ZURANO Y BLÁZQUEZ, S.L.',
   cif: 'B30571939',
   domain: 'zuranoyblazquez.com',
   url: 'https://zuranoyblazquez.com',

@@ -6,6 +6,17 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [1.1.6.1] - 2026-07-15
+
+### Corregido
+- Aviso legal (sección 15): texto alineado con la configuración real del sitio (sin cookies analíticas/publicitarias, solo `localStorage` para tema, sin banner de consentimiento).
+- Política de privacidad (sección 15): mismo criterio, con enlace a la Política de Cookies y mención de la clave `zb-theme`.
+- Política de cookies (ES + EN): secciones 3 y 6 reducidas a la preferencia de apariencia (`zb-theme`); eliminadas filas de idioma y avisos técnicos inexistentes.
+- Aviso legal (sección 22): correo de contacto mediante bloque `p-email` dinámico.
+- `LegalDocumentContent.astro`: renderizado de texto entre backticks como `<code>` en títulos, párrafos, listas y tablas.
+- `site.legalName` corregido a «ZURANO Y BLÁZQUEZ, S.L.».
+- Footer: eliminado doble punto en la línea de copyright.
+
 ## [1.1.6] - 2026-07-14
 
 ### Añadido
