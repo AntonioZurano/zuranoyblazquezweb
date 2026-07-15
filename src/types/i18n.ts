@@ -19,6 +19,12 @@ export interface ThemeToggleUi {
   light: string;
 }
 
+export interface WhatsAppUi {
+  ariaLabel: string;
+  title: string;
+  message: string;
+}
+
 export interface BlogPostUi {
   backToBlog: string;
   readArticle: string;
@@ -147,6 +153,7 @@ export interface LocaleUi {
   thankYou: ThankYouUi;
   notFound: NotFoundUi;
   themeToggle: ThemeToggleUi;
+  whatsapp: WhatsAppUi;
   blogPost: BlogPostUi;
   blogIndex: BlogIndexUi;
 }

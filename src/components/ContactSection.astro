@@ -2,6 +2,7 @@
 import ContactInfo from './ContactInfo.astro';
 import ContactForm from './ContactForm.astro';
 import { getUi } from '@i18n/ui';
+import { getWhatsAppHref } from '@i18n/whatsapp';
 import { getContactFormConfig, site } from '@data/site.js';
 import type { Locale } from '@apptypes/locale';
 
@@ -13,6 +14,7 @@ const { locale } = Astro.props;
 const ui = getUi(locale);
 const copy = ui.contact;
 const form = getContactFormConfig(locale);
+const whatsappHref = getWhatsAppHref(locale);
 ---
 
 <section class="section">
@@ -22,7 +24,8 @@ const form = getContactFormConfig(locale);
       schedule={ui.schedule}
       email={site.email}
       phone={site.phone}
-      phoneHref={site.phoneHref}
+      whatsappHref={whatsappHref}
+      whatsappLabel={ui.whatsapp.ariaLabel}
     />
     <ContactForm locale={locale} copy={copy} form={form} />
   </div>

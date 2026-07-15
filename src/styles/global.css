@@ -40,6 +40,10 @@
   --tap-target: 44px;
 
   --transition: 180ms ease;
+
+  /* ---------- MARCA WHATSAPP (compartida en claro/oscuro) ---------- */
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #1da851;
 }
 
 /* ---------- MODO CLARO (por defecto) ---------- */
