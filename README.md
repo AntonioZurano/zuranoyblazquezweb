@@ -4,7 +4,7 @@ Sitio web corporativo de **Zurano y Blazquez**, especialistas en soluciones digi
 
 Construido con [Astro 6](https://astro.build) priorizando **rendimiento, HTML semántico, SEO y facilidad de mantenimiento**.
 
-> **Versión estable `v1.1.7`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit) y textos legales oficiales en español (aviso legal, privacidad y cookies). Las versiones inglesas de aviso legal y privacidad son placeholders y sus enlaces redirigen a la versión oficial en español; la política de cookies está traducida al inglés.
+> **Versión estable `v1.1.8`** — Incluye soporte multidioma Español/Inglés, páginas de servicio, blog con artículos en Markdown, formulario de contacto funcional (Formsubmit), botón flotante de WhatsApp y textos legales oficiales en español (aviso legal, privacidad y cookies). Las versiones inglesas de aviso legal y privacidad son placeholders y sus enlaces redirigen a la versión oficial en español; la política de cookies está traducida al inglés.
 
 ---
 
@@ -221,6 +221,15 @@ mediante `getContactFormConfig(locale)`:
 
 > El formulario incluye un honeypot antispam (`_honey`) y el captcha está
 > desactivado (`_captcha=false`). Actívalo si recibes spam.
+
+## Botón de WhatsApp
+
+Hay un botón flotante de WhatsApp global (componente `src/components/WhatsAppButton.astro`,
+integrado en `MainLayout.astro`) y el teléfono de la sección de contacto también enlaza a WhatsApp.
+
+- Usa el enlace oficial `https://wa.me/34617414350` (el número se deriva de `site.phoneHref`).
+- **No depende de plugins, SDK, widgets ni scripts externos**: es solo un enlace con SVG inline.
+- El mensaje predefinido cambia según el idioma de la página (español bajo `/`, inglés bajo `/en/`; fallback a español) y se define en `src/i18n/ui.ts`.
 
 ## Despliegue
 

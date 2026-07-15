@@ -2,6 +2,7 @@
 import { site } from '@data/site.js';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
+import WhatsAppButton from '@components/WhatsAppButton.astro';
 import { getLocaleFromPath, getAlternateUrls } from '@i18n/routes';
 import { getUi } from '@i18n/ui';
 import type { Locale } from '@apptypes/locale';
@@ -171,5 +172,6 @@ const jsonLdBlocks = [organizationSchema, websiteSchema, ...extraSchemas];
       <slot />
     </main>
     <Footer />
+    <WhatsAppButton />
   </body>
 </html>

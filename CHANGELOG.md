@@ -6,6 +6,17 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [1.1.8] - 2026-07-15
+
+### Añadido
+- Botón flotante de WhatsApp visible en toda la web, integrado en `MainLayout.astro` (una sola instancia por página).
+- Enlace directo mediante `https://wa.me/34617414350` con mensaje predefinido en español e inglés según el idioma de la página (fallback a español).
+- Componente reutilizable `src/components/WhatsAppButton.astro` con SVG inline (sin plugins, SDK, librerías ni scripts externos) y helper `src/i18n/whatsapp.ts` como fuente única de la URL.
+- Variables CSS `--color-whatsapp` y `--color-whatsapp-hover`.
+
+### Cambiado
+- El teléfono de la sección de contacto (`ContactInfo`) ahora enlaza a WhatsApp en lugar de `tel:`, manteniendo el número visible.
+
 ## [1.1.7] - 2026-07-15
 
 ### Corregido

@@ -1,7 +1,7 @@
 {
   "name": "zuranoyblazquez-web",
   "type": "module",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Web corporativa de Zurano y Blazquez - Soluciones digitales para empresas",
   "scripts": {
     "dev": "astro dev",

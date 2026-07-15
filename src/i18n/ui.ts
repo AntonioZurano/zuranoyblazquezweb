@@ -132,6 +132,11 @@ export const ui = {
       dark: 'Activar modo oscuro',
       light: 'Activar modo claro',
     },
+    whatsapp: {
+      ariaLabel: 'Contactar por WhatsApp',
+      title: 'Contactar por WhatsApp',
+      message: 'Hola, quiero información sobre los servicios de Zurano y Blazquez.',
+    },
     blogPost: {
       backToBlog: '← Volver al blog',
       readArticle: 'Leer artículo',
@@ -284,6 +289,11 @@ export const ui = {
     themeToggle: {
       dark: 'Switch to dark mode',
       light: 'Switch to light mode',
+    },
+    whatsapp: {
+      ariaLabel: 'Contact via WhatsApp',
+      title: 'Contact via WhatsApp',
+      message: 'Hello, I would like information about Zurano y Blazquez services.',
     },
     blogPost: {
       backToBlog: '← Back to blog',

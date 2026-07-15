@@ -10,10 +10,11 @@ interface Props {
   schedule: string;
   email: string;
   phone: string;
-  phoneHref: string;
+  whatsappHref: string;
+  whatsappLabel: string;
 }
 
-const { copy, schedule, email, phone, phoneHref } = Astro.props;
+const { copy, schedule, email, phone, whatsappHref, whatsappLabel } = Astro.props;
 ---
 
 <aside class="contact-info">
@@ -31,7 +32,7 @@ const { copy, schedule, email, phone, phoneHref } = Astro.props;
       <span class="contact-info__icon" aria-hidden="true"><Icon name="phone" size={20} /></span>
       <div>
         <span class="contact-info__label">{copy.phoneLabel}</span>
-        <a href={`tel:${phoneHref}`}>{phone}</a>
+        <a href={whatsappHref} target="_blank" rel="noopener noreferrer" aria-label={whatsappLabel}>{phone}</a>
       </div>
     </li>
     <li>
